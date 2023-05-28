@@ -384,19 +384,30 @@ main{
     margin-left: 10%;
 }
 
-.L{
+.L1{
+    margin: 1px;
     float: left;
     width: 50%;
 }
 
-.R{
+.R1{
+    margin: 1px;
     float: right;
     width: 50%;
 }
 
-.card{
-    margin: 10%;
+.L2{
+    margin: 1px;
+    float: left;
+    width: 50%;
 }
+
+.R2{
+    margin: 1px;
+    float: right;
+    width: 50%;
+}
+
 
 .IV{
     width: 250px;
@@ -415,7 +426,7 @@ main{
 
 
 .III{
-    width: 350px;
+    width: 420px;
     height: 350px;  
     border-radius: 10px;
     border-radius: 10px;
@@ -423,7 +434,7 @@ main{
 
 
 .V10{
-    width: 320px;
+    width: 350px;
     height: 350px;  
     border-radius: 10px;
     border-radius: 10px;

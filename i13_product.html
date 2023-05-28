@@ -102,9 +102,55 @@
     <main>
         <article>
         <section class="left">
-        <div class="img">
-            <img class="i13" src="images/iphone-13-1.jpg" alt="iphone-13">
-        </div>
+            <section> <!--幻燈片-->
+                <div class="slideshow-container3">
+        
+                    <div class="mySlides fade">
+                        <img src="images/apple/i13/IMG_3449.JPG">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="images/apple/i13/IMG_3450.JPG">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="images/apple/i13/IMG_3451.png" style="width: 250px;">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                        <img src="images/apple/i13/IMG_3455.JPG">
+                    </div>
+                    
+                </div>
+                <br>
+        
+                <div style="margin-left: 60%;">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+        
+                <script>
+                    let slideIndex = 0;
+                    showSlides();
+        
+                    function showSlides() {
+                        let i;
+                        let slides = document.getElementsByClassName("mySlides");
+                        let dots = document.getElementsByClassName("dot");
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        slideIndex++;
+                        if (slideIndex > slides.length) { slideIndex = 1 }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
+                        setTimeout(showSlides, 2000); // Change image every 2 seconds
+                    }
+                </script>
+            </section>
         </section>
         <section class="right">
         <div>
@@ -172,11 +218,13 @@
                 <img class="people" src="images/people.png" alt="">
                 <div class="sth">
                 <h3>頂戴轟</h3> 
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
+                <div class="commentstar">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
                 <p>2023/05/25</p>
                 <p>好餓好餓好餓</p>
                 </div>
@@ -186,11 +234,12 @@
                 <img class="people" src="images/people.png" alt="">
                 <div class="sth">
                 <h3>沈博熱美</h3> 
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
+                <div class="commentstar">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
                 <p>2023/05/25</p>
                 <p>好想打特戰嗚嗚嗚</p>
                 </div>
@@ -200,11 +249,12 @@
                 <img class="people" src="images/people.png" alt="">
                 <div class="sth">
                 <h3>馬龜拉拉</h3> 
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
+                <div class="commentstar">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
                 <p>2023/05/25</p>
                 <p>好想好想睡啊啊啊啊啊</p>
                 </div>
@@ -212,8 +262,8 @@
         </section>
        
     </main>
-    <hr style="margin-top: 20px ;width:100%; height: 1px; border:none; background-color:#4444">
-    <footer>
+    <footer class="footer">
+        <hr style="width:100%; height: 1px; border:none; background-color:#4444">
         <h5>Copyrgiht @ 2023  By Starlink</h5>
         <h5>瀏覽人數:2000</h5>
     </footer>

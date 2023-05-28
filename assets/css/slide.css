@@ -11,19 +11,22 @@
 }
 
 
-.mySlides img {
+
+img {
     display: flex;
     align-items: center;
     vertical-align: middle;
     justify-content: center;
     position: relative;
-    width: 110%;
+    max-width: 100%;
+    margin-left: 80px;
+
 }
 
 /* Slideshow container */
 .slideshow-container {
-    padding: 80px;
-    max-width: 50%;
+    padding: 20px;
+    max-width: 60%;
     position: relative;
     top: 160px;
     margin: auto;
@@ -51,6 +54,11 @@
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
+    margin-right: 101px;
+}
+
+.prev {
+    margin-left: 79px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -119,10 +127,6 @@
         height: 10px;
         width: 10px;
     }
-
-    .mySlides img {
-        max-width: 40%;
-    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -138,7 +142,7 @@
 @media only screen and (max-width: 1200px) {
 
     .mySlides .img {
-        width: 50%;
+        width: 80%;
 
     }
 }

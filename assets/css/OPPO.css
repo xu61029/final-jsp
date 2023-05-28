@@ -384,19 +384,30 @@ main{
     margin-left: 10%;
 }
 
-.L{
+.L1{
+    margin: 1px;
     float: left;
     width: 50%;
 }
 
-.R{
+.R1{
+    margin: 1px;
     float: right;
     width: 50%;
 }
 
-.card{
-    margin: 10%;
+.L2{
+    margin: 1px;
+    float: left;
+    width: 50%;
 }
+
+.R2{
+    margin: 1px;
+    float: right;
+    width: 50%;
+}
+
 
 .Find_N2_flip{
     width: 250px;
@@ -430,9 +441,10 @@ main{
 }
 
 h1{
- margin-left: 15%;
+ margin-left: 20%;
  padding: 20px;
 }
+
 
 #iconarrow {
     top: 40%;
