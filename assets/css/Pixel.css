@@ -384,26 +384,35 @@ main{
     margin-left: 10%;
 }
 
-.L{
+.L1{
+    margin: 1px;
     float: left;
     width: 50%;
 }
 
-.R{
+.R1{
+    margin: 1px;
     float: right;
     width: 50%;
 }
 
-.card{
-    margin: 10%;
+.L2{
+    margin: 1px;
+    float: left;
+    width: 50%;
+}
+
+.R2{
+    margin: 1px;
+    float: right;
+    width: 50%;
 }
 
 .a6{
-    width: 250px;
-    height: 280px;  
+    width: 350px;
+    height: 320px;  
     border-radius: 10px;
     border-radius: 10px;
-    margin-left: 3%;
 }
 
 .p7{

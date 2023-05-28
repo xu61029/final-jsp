@@ -384,18 +384,28 @@ main{
     margin-left: 10%;
 }
 
-.L{
+.L1{
+    margin: 1px;
     float: left;
     width: 50%;
 }
 
-.R{
+.R1{
+    margin: 1px;
     float: right;
     width: 50%;
 }
 
-.card{
-    margin: 15px;
+.L2{
+    margin: 1px;
+    float: left;
+    width: 50%;
+}
+
+.R2{
+    margin: 1px;
+    float: right;
+    width: 50%;
 }
 
 .i11{
@@ -430,7 +440,7 @@ main{
 }
 
 h1{
- margin-left: 15%;
+ margin-left: 20%;
  padding: 20px;
 }
 
