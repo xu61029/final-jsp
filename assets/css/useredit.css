@@ -568,6 +568,7 @@ main {
 
 .enroll p {
     font-weight: bold;
+    color: black;
 }
 
 .enroll .bar {
@@ -583,6 +584,4 @@ main {
     left: 0;
     bottom: 0;
     width: 100%;
-    position: relative;
-    margin-top: 110px;
 }
