@@ -1,4 +1,5 @@
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*, java.io.*" %>
+<%@ include file="config.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
@@ -7,47 +8,57 @@
 <body>
 <%
 try {
+    // Step 1: 載入資料庫驅動程式 
     Class.forName("com.mysql.jdbc.Driver");
-    String url = "jdbc:mysql://localhost/final?serverTimezone=UTC";
-    Connection con = DriverManager.getConnection(url, "root", "1234");
-    if (con.isClosed())
-        out.println("連線建立失敗");
-    else {
-        String sql = "USE members";
-        con.createStatement().execute(sql);
-        request.setCharacterEncoding("UTF-8");
+    try {
+        // Step 2: 建立連線 	
+        String dbUrl = "jdbc:mysql://localhost/final?serverTimezone=UTC";
+        Connection connection = DriverManager.getConnection(dbUrl, "root", "1234");
+        if (connection.isClosed())
+            out.println("連線建立失敗");
+        else {
+            request.setCharacterEncoding("UTF-8");
 
-        String new_username = request.getParameter("username");
-        String new_gender = request.getParameter("gender");
-        String new_email = request.getParameter("email");
-        String new_tel = request.getParameter("tel");
-        String new_pwd = request.getParameter("pwd");
-        String confirm_pwd = request.getParameter("pwd_confirm");
+            // 获取用户输入的数据
+            String new_username = request.getParameter("username");
+            String new_gender = request.getParameter("gender");
+            String new_email = request.getParameter("email");
+            String new_tel = request.getParameter("tel");
+            String new_pwd = request.getParameter("pwd");
+            String confirm_pwd = request.getParameter("pwd_confirm");
 
-        if (!new_pwd.equals(confirm_pwd)) {
-            out.println("密碼不匹配，请重新输入密码！");
-        } else {
-            sql = "INSERT INTO members (username, gender, email, tel, pwd) ";
-            sql += "VALUES (?, ?, ?, ?, ?)";
-
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, new_username);
-            stmt.setString(2, new_gender);
-            stmt.setString(3, new_email);
-            stmt.setString(4, new_tel);
-            stmt.setString(5, new_pwd);
-
-            int rowsAffected = stmt.executeUpdate();
-            if (rowsAffected > 0) {
-                response.sendRedirect("finished.html");
+            if (!new_pwd.equals(confirm_pwd)) {
+                // 密码不匹配，进行相应处理
+                out.println("密碼不匹配，请重新输入密码！");
             } else {
-                out.println("插入数据失败");
+                // 密码匹配，执行插入操作
+                // Step 4: 执行 SQL 指令	
+                String insertSql = "INSERT INTO `members` (`pwd`, `username`, `tel`, `email`, `gender`) ";
+                insertSql += "VALUES (?, ?, ?, ?, ?)";
+
+                // 使用 PreparedStatement 来执行 SQL，使用参数来防止 SQL 注入
+                PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
+                preparedStatement.setString(1, new_pwd);
+                preparedStatement.setString(2, new_username);
+                preparedStatement.setString(3, new_tel);
+                preparedStatement.setString(4, new_email);
+                preparedStatement.setString(5, new_gender);
+
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+
+                // Step 4: 關閉連線
+                connection.close();
+
+                // Step 5: 顯示結果 
+                response.sendRedirect("finished.html");
             }
         }
-        con.close();
+    } catch (SQLException sExec) {
+        out.println("SQL錯誤" + sExec.toString());
     }
-} catch (Exception e) {
-    out.println("发生错误: " + e.getMessage());
+} catch (ClassNotFoundException err) {
+    out.println("class錯誤" + err.toString());
 }
 %>
 </body>

@@ -1,3 +1,7 @@
+<%@page contentType="text/html;charset=utf-8" language="java" import="java.sql.*"%>
+<%@ page import="java.sql.*, java.io.*" %>
+<%@ page import="java.sql.Connection" %>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -98,7 +102,7 @@
                 </a>
 
 
-                <a href="signin.html" >
+                <a href="signin.jsp" >
                     <i class="fa-regular fa-user"></i>
                   <span>Sign IN</span>
                 </a>
@@ -110,7 +114,32 @@
                   </div>
             </div>	
         </div>
-        <div class="containerdisplay">
+<%
+String sql = "USE `final`";
+    Connection con = null;
+    String sql = "USE `final`";
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database", "username", "password");
+        con.createStatement().execute(sql);
+        
+        String loggedInUsername = (String) session.getAttribute("loggedInUsername");
+        String selectQuery = "SELECT email, username, tel FROM users WHERE username=?";
+        PreparedStatement pstmt = con.prepareStatement(selectQuery);
+        pstmt.setString(1, loggedInUsername);
+        ResultSet rs = pstmt.executeQuery();
+        
+        if (rs.next()) {
+            String email = rs.getString("email");
+            String username = rs.getString("username");
+            String tel = rs.getString("tel");
+            session.setAttribute("email", email);
+            
+            
+            
+%>
+
+       <div class="containerdisplay">
 		<div class="container">
             <div class="tab_box">
                 <button class="tab_btn">個人資訊</button>
@@ -125,11 +154,11 @@
                 <div class="content"><!-- 個人資訊-1 -->
                     <div class="userinfor">
                         <i class="fa-solid fa-circle-user" style="color: black;" ></i>
-                        <p style="font-size: 60px; font-weight: 800;">名字是</p>
+                        <p style="font-size: 60px; font-weight: 800;"><%=rs.getString("username")%></p>
                     </div>
             
                     <div class="useredit">
-                    <a href="useredit.html" target="_blank">
+                    <a href="user.jsp" target="_blank">
                     <i class="fa-solid fa-pen-to-square" style="color: black;"  ></i>
                     </a>
                     <p style="font-size: 30px; font-weight: 600; ">編輯個人資料</p>
@@ -157,16 +186,16 @@
             
                         <div class="userright">
                             <div class="usercon">
-                                <span style= "display:block; width: 200px;">名字是</span> 
+                                <span style= "display:block; width: 200px;"><%=rs.getString("username")%></span> 
                             
                             </div>
             
                             <div class="usercon">
-                                <span style= "display:block">test@gmail</span> 
+                                <span style= "display:block"><%=rs.getString("email")%></span> 
                             </div>
             
                             <div class="usercon">
-                                <span style= "display:block">0123654789</span> 
+                                <span style= "display:block"><%=rs.getString("tel")%></span> 
                             </div>
                         </div>
                     </div>
@@ -288,7 +317,23 @@
                 </div>
             </div>
         </div>
-        
+        <%
+                response.sendRedirect("finished.html");
+        }
+    } catch (ClassNotFoundException e) {
+        out.println("ClassNotFoundException: " + e.getMessage());
+    } catch (SQLException e) {
+        out.println("SQLException: " + e.getMessage());
+    } finally {
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                out.println("SQLException: " + e.getMessage());
+            }
+        }
+    }
+%>
         <script>
             const tabs= document.querySelectorAll('.tab_btn');
                  const all_content= document.querySelectorAll('.content');
