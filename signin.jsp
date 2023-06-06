@@ -1,4 +1,5 @@
 <%@page contentType="text/html;charset=utf-8" language="java" import="java.sql.*"%>
+<%@ include file="config.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,16 @@
     <link rel="stylesheet" href="assets/css/sign_in.css">
     <link rel="icon" href="./images/tai/icon.jpg" type="image/x-icon">
 </head>
+<%
+    if (session.getAttribute("email") != null) {
+%>
+        <script>
+            alert('您已經登入，無法再次進行登入！');
+            window.location.href = 'userweb.jsp'; // 跳轉到會員介面
+        </script>
+<%
+    } else {
+%>
 <body>
     <div class="yellow">
         <div class="input">
@@ -37,6 +48,9 @@
             <img class="icon" src="./images/tai/icon.jpg" >
         </div>
     </div>
+<%
+    }
+%>
 </main>
 </body>
 </html>
