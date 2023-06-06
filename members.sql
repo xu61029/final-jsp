@@ -28,7 +28,7 @@ CREATE TABLE `members` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `pwd` TEXT,
   `username` TEXT,
-  `tel` TEXT,
+  `tel` VARCHAR(10),
   `email` VARCHAR(40),
   `gender` TEXT,
   PRIMARY KEY (`id`)
