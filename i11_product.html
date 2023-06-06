@@ -29,10 +29,12 @@
 				<li>
 					<div class="search_wrap">
 						<div class="search_box">
-							<input type="text" class="input" placeholder="search...">
-							<div class="btn">
-								<p><i class="fa-solid fa-magnifying-glass"></i></p>
-							</div>
+							<form action="">
+                                <input type="text" class="input" placeholder="search...">
+                                <div class="btn" onclick="javascript:this.form.submit();">
+                                    <p><i class="fa-solid fa-magnifying-glass"></i></p>
+                                </div>
+                            </form>
 						</div>
 					</div>
 				</li>
@@ -294,7 +296,7 @@
                         </span>
                         <br><br>
                         <textarea name="review" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
-                        <input type="button" value="Submit" class="commentsubmit">
+                        <input type="submit" value="Submit" class="commentsubmit">
                     </form>
                 </div>
             </fieldset>
@@ -309,3 +311,5 @@
     <a class="gotopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>
 </body>
 </html>
+
+
