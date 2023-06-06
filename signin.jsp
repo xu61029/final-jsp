@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=utf-8" language="java" import="java.sql.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,33 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/signin.css">
-    <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/sign_in.css">
+    <link rel="icon" href="./images/tai/icon.jpg" type="image/x-icon">
 </head>
 <body>
     <div class="yellow">
         <div class="input">
-            <form action="">
+            <form action="check.jsp" method="post">
+
+
                 <div>
-                    <input type="text" class="user" placeholder="User ID">
+                    <input type="text" class="user" placeholder="Email" name="email">
                 </div>
                 
                 <span><hr style="color: #C4BAB7;"></span>
 
                 <div>
-                    <input type="password" class="password" placeholder="password">
+                    <input type="password" class="password" placeholder="password" name="pwd">
                 </div>
 
                 <span><hr style="color: #C4BAB7;"></span>
 
                 <div class="login margin">
-                    <a href="index.html"><input type="button" value="Sing in" class="log"></a>
+                    <a href="index.html"><input type="submit" value="Sing in" class="log"></a>
                 </div>
                 
         </form>     
         </div>
         <div class="logo">
-            <img class="icon" src="images/yi/icon/icon.jpg" >
+            <img class="icon" src="./images/tai/icon.jpg" >
         </div>
     </div>
 </main>

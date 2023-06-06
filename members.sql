@@ -25,15 +25,19 @@ DROP TABLE IF EXISTS `members`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `members` (
-  `id` int NOT NULL,
-  `pwd` text,
-  `username` text,
-  `tel` text,
-  `email` text,
-  `gender` text,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `pwd` TEXT,
+  `username` TEXT,
+  `tel` TEXT,
+  `email` VARCHAR(40),
+  `gender` TEXT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+ALTER TABLE members MODIFY COLUMN id INT AUTO_INCREMENT;
+
+
+
 
 --
 -- Dumping data for table `members`
