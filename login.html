@@ -7,7 +7,7 @@
     <title>Solid State by HTML5 UP</title>
     <link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/gotop.css" />
-    <link rel="icon" href="images/icon.jpg" type="image/x-icon"  >
+    <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
     <script src="https://kit.fontawesome.com/605c912c10.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -19,7 +19,7 @@
 				
 			<div class="logo">
 				<a href="index.html">
-				<img src="images/icon.jpg" width="20%" >
+				<img src="images/tai/icon.jpg" width="20%" >
 				</a>
 			</div>
 			
@@ -92,10 +92,16 @@
 				</a>
 
 
-				<a href="signin.html">
+				<a href="signin.jsp">
 					<i class="fa-regular fa-user"></i>
 					<span>Sign IN</span>
 				</a>
+
+				<a href="index.html" action="logout.jsp" >
+                    <i class="fa-regular fa-user"></i>
+                <span>Sign OUT</span>
+                </a>
+				
 			    </div>
 		    </div>	
 	    </div>
@@ -105,15 +111,16 @@
     </nav>
 
     <div class="back1">
-        <form action="post" class="enroll"><br>
-            <p>姓名： <input type="text" class="bar" name="name" value="" size="50"></p><br>
-            <p>性別： <input type="radio" class="bar" name="sex" value="男">男
-                      <input type="radio" class="bar" name="sex" value="女">女</p><br>
-            <p>信箱： <input type="email" class="bar" name="email" value="" size="50"></p><br>
-            <p>電話： <input type="text" class="bar" name="phone" value="" size="50"></p><br>
-            <p>密碼： <input type="password" class="bar" name="password" value="" size="50"></p><br>
-            <p>再次輸入密碼： <input type="password" class="bar" name="password" value="" size="40"></p><br>
-            <a href="finished.html"><input type="button" class="orderbutton" value="註冊"></a>
+        <form action="addmembers.jsp" method="post" class="enroll"><br>
+            <br>
+			<p>姓名： <input type="text" class="bar" name="username" value="" size="50"></p><br>
+			<p>性別： <input type="radio" class="bar" name="gender" value="男">男
+				<input type="radio" class="bar" name="gender" value="女">女</p><br>
+			<p>信箱： <input type="email" class="bar" name="email" value="" size="50"></p><br>
+			<p>電話： <input type="text" class="bar" name="tel" value="" size="50"></p><br>
+			<p>密碼： <input type="password" class="bar" name="pwd" value="" size="50"></p><br>
+			<p>再次輸入密碼： <input type="password" class="bar" name="pwd_confirm" value="" size="40"></p><br>
+			<input type="submit" class="orderbutton" value="註冊">
         </form>
     </div>
 	
