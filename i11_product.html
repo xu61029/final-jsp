@@ -250,6 +250,8 @@
             <p>2023/05/25</p>
             <p>好想好想睡啊啊啊啊啊</p>
             </div>
+
+            
         </fieldset>
         
 
@@ -257,17 +259,19 @@
             <fieldset class="reviewbroad">
                 <legend class="rev"><h1>評論版</h1></legend>
                 <div  style="text-align: center;">
-                    <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;"><br><br>
-                    <span class="star-rating" style="width:150px;height:30px">
-                        <input type="radio" name="rating" value="1"><i></i>
-                        <input type="radio" name="rating" value="2"><i></i>
-                        <input type="radio" name="rating" value="3"><i></i>
-                        <input type="radio" name="rating" value="4"><i></i>
-                        <input type="radio" name="rating" value="5"><i></i>
-                    </span>
-                    <br><br>
-                    <textarea name="" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
-                    <input type="button" value="Submit" class="commentsubmit">
+                    <form action="review_board.jsp" method="get">
+                        <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;" name="name"><br><br>
+                        <span class="star-rating" style="width:150px;height:30px">
+                            <input type="radio" name="rating" value="1"><i></i>
+                            <input type="radio" name="rating" value="2"><i></i>
+                            <input type="radio" name="rating" value="3"><i></i>
+                            <input type="radio" name="rating" value="4"><i></i>
+                            <input type="radio" name="rating" value="5"><i></i>
+                        </span>
+                        <br><br>
+                        <textarea name="review" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
+                        <input type="button" value="Submit" class="commentsubmit">
+                    </form>
                 </div>
             </fieldset>
         </section>
