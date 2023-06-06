@@ -107,7 +107,7 @@
                   <span>Sign IN</span>
                 </a>
 
-                <a href="index.html" >
+                <a href="logout.jsp" >
                     <i class="fa-regular fa-user"></i>
                   <span>Sign OUT</span>
                 </a>
@@ -199,7 +199,14 @@ try {
 </div>
 <%
     } else {
-        response.sendRedirect("finished.html");
+		%>
+        <script>
+                alert("尚未登入 !!");
+                window.location.href = "signin.jsp";
+            </script>
+
+<%
+
     }
 } catch (SQLException e) {
     out.println("SQLException: " + e.getMessage());
