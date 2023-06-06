@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/i11_product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/icon.jpg" type="image/x-icon"  >
@@ -274,7 +275,7 @@
                         </span>
                         <br><br>
                         <textarea name="review" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
-                        <input type="button" value="Submit" id="submit" class="commentsubmit">
+                        <input type="submit" value="Submit" id="submit" class="commentsubmit">
                     </form>
                 </div>
             </fieldset>
