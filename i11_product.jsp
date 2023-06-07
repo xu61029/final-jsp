@@ -35,7 +35,7 @@
 						<div class="search_box">
 							<form action="search.jsp" method="post">
                                 <input type="text" class="input" placeholder="search..." name="product_name">
-                                <div class="btn" onclick="javascript:this.form.submit();">
+                                <div class="btn" onclick="this.parentNode.submit()">
                                     <p><i class="fa-solid fa-magnifying-glass"></i></p>
                                 </div>
                             </form>

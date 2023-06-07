@@ -34,10 +34,12 @@
 				<li>
 					<div class="search_wrap">
 						<div class="search_box">
-							<input type="text" class="input" placeholder="search...">
-							<div class="btn">
-								<p><i class="fa-solid fa-magnifying-glass"></i></p>
-							</div>
+							<form action="search.jsp" method="post">
+                                <input type="text" class="input" placeholder="search..." name="product_name">
+                                <div class="btn" onclick="this.parentNode.submit()">
+                                    <p><i class="fa-solid fa-magnifying-glass"></i></p>
+                                </div>
+                            </form>
 						</div>
 					</div>
 				</li>
@@ -238,6 +240,63 @@
             <p>2023/05/25</p>
             <p>讚</p>
             </div>
+			
+			<%
+try {
+//Step 1: 載入資料庫驅動程式 
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+//Step 2: 建立連線 	
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        String sql="";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else {
+//Step 3: 選擇資料庫   
+			
+           sql="USE `product_search`";
+           con.createStatement().execute(sql);
+//Step 4: 執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet	
+           sql="SELECT * FROM `board` WHERE board.product='IPhone_11'"; 
+           ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+           //ResultSet.TYPE_SCROLL_INSENSITIVE表紀錄指標可前後移動，ResultSet.CONCUR_READ_ONLY表唯讀
+
+           
+	       //計算開始記錄位置   
+//Step 5: 顯示結果 
+
+			rs.afterLast();
+           while(rs.previous())
+                {
+
+				 out.println("<hr style=\"color: #686868; size: 3px;border-style: dotted;\">");
+                 out.println("<img class=\"people\" src=\"images/people.png\" >");
+                 out.println("<div class=\"sth\">");
+                 out.println("<h3>"+rs.getString(1)+"</h3>");
+                 out.println("<div class=\"commentstar\">");
+                 for (int i=Integer.parseInt(rs.getString(2));i>0;i--){
+					out.println("<span class=\"fa fa-star checked\"></span>");
+				 }
+				 out.println("</div>");
+				 out.println("<p>"+rs.getString(3)+"</p>");
+				 out.println("<p>"+rs.getString(4)+"</p>");
+				 out.println("</div>");
+          }
+//Step 6: 關閉連線
+          con.close();
+      }
+    }
+    catch (SQLException sExec) {
+           out.println("SQL錯誤"+sExec.toString());
+		   
+    }
+}
+catch (ClassNotFoundException err) {
+      out.println("class錯誤"+err.toString());
+}
+%>
+
         </fieldset>
         
 
@@ -245,17 +304,19 @@
             <fieldset class="reviewbroad">
                 <legend class="rev"><h1>評論版</h1></legend>
                 <div  style="text-align: center;">
-                    <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;"><br><br>
-                    <span class="star-rating" style="width:150px;height:30px">
-                        <input type="radio" name="rating" value="1"><i></i>
-                        <input type="radio" name="rating" value="2"><i></i>
-                        <input type="radio" name="rating" value="3"><i></i>
-                        <input type="radio" name="rating" value="4"><i></i>
-                        <input type="radio" name="rating" value="5"><i></i>
-                    </span>
-                    <br><br>
-                    <textarea name="" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
-                    <input type="button" value="Submit" class="commentsubmit">
+                    <form action="review_board.jsp" method="get">
+                        <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;" name="name"><br><br>
+                        <span class="star-rating" style="width:150px;height:30px">
+                            <input type="radio" name="rating" value="1"><i></i>
+                            <input type="radio" name="rating" value="2"><i></i>
+                            <input type="radio" name="rating" value="3"><i></i>
+                            <input type="radio" name="rating" value="4"><i></i>
+                            <input type="radio" name="rating" value="5"><i></i>
+                        </span>
+                        <br><br>
+                        <textarea name="review" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
+                        <input type="submit" value="Submit" class="commentsubmit">
+                    </form>
                 </div>
             </fieldset>
         </section>
