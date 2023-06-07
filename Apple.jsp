@@ -1,3 +1,7 @@
+<%@ page import = "java.sql.*, java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -97,7 +101,7 @@
 						<i class="fa-regular fa-user"></i>
 						<span>Sign IN</span>
 					</a>
-					<a href="logout.jsp" >
+					<a href="index.html" >
 						<i class="fa-regular fa-user"></i>
 						<span>Sign OUT</span>
 					</a>
@@ -106,37 +110,78 @@
 			</div>
 
 			<main class="main">
-				<section class="card" style="position: relative;top: 15%;">
-					<img class="i11" src="images/yi/apple/i11/IMG_3458.png" alt="i11">
-					<h1>iphone11</h1>
-					<a href="i11_product.html" target="_blank">
-					<i class="fa-solid fa-arrow-right" id="iconarrow" ></i>
-					</a>
-				</section>
+			
+			<%
+	request.setCharacterEncoding("UTF-8");
+	String phcolor = request.getParameter("color");
+	String phname ="";
+	int phprice = 0;
+	String phmon ="";
+	String phch = "";
+	String phimg = "";
+	String phclass = "";
 
-				<section class="card">
-					<img class="i12" src="images/yi/apple/i12/IMG_3446.png" alt="i12">
-					<h1>iphone12</h1>
-					<a href="i12_product.html" target="_blank">
-					<i class="fa-solid fa-arrow-right" id="iconarrow" ></i>
-					</a>
-				</section>
-		
-				<section class="card">
-					<img class="i13" src="images/yi/apple/i13/IMG_3451.png" alt="i13">
-					<h1>iphone13</h1>
-					<a href="i13_product.html" target="_blank">
-					<i class="fa-solid fa-arrow-right" id="iconarrow" ></i>
-					</a>
-				</section>
-		
-				<section class="card">
-					<img class="i14" src="images/yi/apple/i14/IMG_3446.png" alt="i14">
-					<h1>iphone14</h1>
-					<a href="i14_product.html" target="_blank">
-					<i class="fa-solid fa-arrow-right" id="iconarrow" ></i>
-					</a>
-				</section>	
+try {
+//Step 1: 載入資料庫驅動程式 
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+//Step 2: 建立連線 
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else
+        {
+//Step 3: 選擇資料庫	        
+           String sql="USE `product_search`";
+           ResultSet rs;
+		   con.createStatement().execute(sql);
+//Step 4: 執行 SQL 指令          
+			sql = "SELECT * FROM `pro_detail` WHERE `pdkind` = 'Apple'";
+			rs=con.createStatement().executeQuery(sql);
+//Step 5: 顯示結果            
+		   int inventory = 0;
+           while (rs.next()) //只有一筆資料
+           {
+           phname = rs.getString(3);
+		   phimg = rs.getString(4);
+		   phclass = rs.getString(5);
+        
+			
+				if (phclass.equals("i11")){
+					out.println("<section class='card' style='position: relative;top: 15%;'>");
+					out.println("<img class='"+phclass+"' src='"+phimg+"' alt='"+phclass+"'>");
+					out.println("<h1>"+phname+"</h1>");
+					out.println("<a href='"+phclass+"_product.html' target='_blank'>");
+					out.println("<i class='fa-solid fa-arrow-right' id='iconarrow' ></i>");
+					out.println("</a>");
+					out.println("</section>");
+				}
+				else{
+					out.println("<section class='card'>");
+					out.println("<img class='"+phclass+"' src='"+phimg+"' alt='"+phclass+"'>");
+					out.println("<h1>"+phname+"</h1>");
+					out.println("<a href='"+phclass+"_product.html' target='_blank'>");
+					out.println("<i class='fa-solid fa-arrow-right' id='iconarrow' ></i>");
+					out.println("</a>");
+					out.println("</section>");
+				}
+					
+				
+				 }
+	//Step 6: 關閉連線
+        con.close();
+		}
+	}
+    catch (SQLException sExec) {
+        out.println("SQL錯誤"+sExec.toString());
+    }
+}
+catch (ClassNotFoundException err) {
+   out.println("class錯誤"+err.toString());
+}
+%>
+				
 			</main>
 			<footer class="footer">
 				<hr style="width:100%; height: 1px; border:none; background-color:#4444">
