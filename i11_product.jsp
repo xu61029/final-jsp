@@ -9,10 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/i11_product.css">
+    <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
-    <link rel="icon" href="images/icon.jpg" type="image/x-icon"  >
+    <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
     <script src="https://kit.fontawesome.com/605c912c10.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -24,7 +24,7 @@
 				
 			<div class="logo">
 				<a href="index.html">
-				<img src="images/icon.jpg" width="20%" >
+				<img src="images/tai/icon.jpg" width="20%" >
 				</a>
 			</div>
 			
@@ -33,22 +33,24 @@
 				<li>
 					<div class="search_wrap">
 						<div class="search_box">
-							<input type="text" class="input" placeholder="search...">
-							<div class="btn">
-								<p><i class="fa-solid fa-magnifying-glass"></i></p>
-							</div>
+							<form action="search.jsp" method="post">
+                                <input type="text" class="input" placeholder="search..." name="product_name">
+                                <div class="btn" onclick="javascript:this.form.submit();">
+                                    <p><i class="fa-solid fa-magnifying-glass"></i></p>
+                                </div>
+                            </form>
 						</div>
 					</div>
 				</li>
 
 				<li>
-                    <a href="user.html">
+                    <a href="userweb.jsp">
                     <i class="fa-solid fa-circle-user" id="iconuser" ></i>
                     </a>
                 </li>
 					
 				<li>
-                    <a href="user.html">
+                    <a href="shopcar.html">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -97,57 +99,57 @@
 				</a>
 
 
-				<a href="signin.html">
+				<a href="signin.jsp">
 					<i class="fa-regular fa-user"></i>
 					<span>Sign IN</span>
 				</a>
+                <a href="index.html" >
+                    <i class="fa-regular fa-user"></i>
+                    <span>Sign OUT</span>
+                </a>
 			    </div>
 		    </div>	
 	    </div>
 
     <main>
-        <section class="imgg"> <!--幻燈片-->
-            <div class="slideshow-container3">
+        <!--幻燈片-->
+        <section class="imgg"> 
+            <div class="slideshow">
     
-                <div class="mySlides fade">
-                    <img src="images/apple/i11/IMG_3457.JPG">
+                <div class="Slides fade">
+                    <img src="images/yi/apple/i11/IMG_3457.JPG">
                 </div>
-                <div class="mySlides fade">
-                    <img src="images/apple/i11/IMG_3458.png" style="width: 380px;">
+                <div class="Slides fade">
+                    <img src="images/yi/apple/i11/IMG_3458.png" style="width: 380px;">
                 </div>
-                <div class="mySlides fade">
-                    <img src="images/apple/i11/檔案_002.png">
+                <div class="Slides fade">
+                    <img src="images/yi/apple/i11/002.png">
                 </div>
                 
-                <div class="mySlides fade">
-                    <img src="images/apple/i11/IMG_3460.JPG">
+                <div class="Slides fade">
+                    <img src="images/yi/apple/i11/IMG_3460.JPG">
                 </div>
                 
             </div>
-            <br>
-            <div style="margin-left: 60%;">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+            
                 <script>
-                    let slideIndex = 0;
+                    var slideIndex = 0; //從第1張照片開始
                     showSlides();
         
                     function showSlides() {
-                        let i;
-                        let slides = document.getElementsByClassName("mySlides");
-                        let dots = document.getElementsByClassName("dot");
+                        var i;
+                        var slides = document.getElementsByClassName("Slides"); 
+                        
+                        //隱藏幻燈片、只顯示一張幻燈片
                         for (i = 0; i < slides.length; i++) {
-                            slides[i].style.display = "none";
+                            slides[i].style.display = "none";  
                         }
                         slideIndex++;
-                        if (slideIndex > slides.length) { slideIndex = 1 }
-                        for (i = 0; i < dots.length; i++) {
-                            dots[i].className = dots[i].className.replace(" active", "");
+                        if (slideIndex > slides.length) { 
+                            slideIndex = 1 
                         }
                         slides[slideIndex - 1].style.display = "block";
-                        dots[slideIndex - 1].className += " active";
+                        
                         setTimeout(showSlides, 2000); // 兩秒後換照片
                     }
                 </script>
@@ -161,7 +163,7 @@
             </div>
 
             <div class="love">
-                <img class="heart" src="images/icon/heart.png" alt="加入最愛">
+                <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
             </div>
 
             <div>
@@ -204,15 +206,38 @@
         </div>
        
         <fieldset class="introduce">
-            <legend class="intro"><h1>功能介紹</h1></legend>
-            <p></p> 
+            <legend class="intro"><h1>規格介紹</h1></legend>
+                <h2>顯示器</h2><br>
+                <p>
+                <li>
+                Liquid Retina HD 顯示器
+                6.1 吋 (對角線) 全螢幕 LCD 多點觸控顯示器，採用 IPS 技術
+                1792 x 828 像素，326 ppi 解析度
+                1400:1 對比度 (標準)
+                原彩顯示
+                廣色域顯示 (P3)
+                觸覺回饋觸控
+                625 尼特最大亮度 (標準)
+                防指印疏油外膜
+                支援同時顯示多種語言文字
+                </li>
+                </p><br>
+                <h2>晶片</h2><br>
+                <p>
+                <li>
+                A13 仿生晶片
+                6 核心 CPU 配備 2 個效能核心與 4 個節能核心
+                4 核心 GPU
+                8 核心神經網路引擎
+                </li>
+                </p>
         </fieldset>
        
 
         
         <fieldset class="review">
             <legend class="rev"><h1>評論</h1></legend>
-            <img class="people" src="images/people.png" alt="">
+            <img class="people" src="images/yi/people.png" alt="">
             <div class="sth">
                 <h3>頂戴轟</h3> 
                 <div class="commentstar">
@@ -228,7 +253,7 @@
 
             <hr style="color: #686868; size: 3px;border-style: dotted;">
 
-            <img class="people" src="images/people.png" alt="">
+            <img class="people" src="images/yi/people.png" alt="">
             <div class="sth">
             <h3>沈博熱美</h3> 
             <div class="commentstar">
@@ -243,7 +268,7 @@
 
             <hr style="color: #686868; size: 3px;border-style: dotted;">
 
-            <img class="people" src="images/people.png" alt="">
+            <img class="people" src="images/yi/people.png" alt="">
             <div class="sth">
             <h3>馬龜拉拉</h3> 
             <div class="commentstar">
@@ -255,6 +280,62 @@
             <p>2023/05/25</p>
             <p>好想好想睡啊啊啊啊啊</p>
             </div>
+			
+			<%
+try {
+//Step 1: 載入資料庫驅動程式 
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+//Step 2: 建立連線 	
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        String sql="";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else {
+//Step 3: 選擇資料庫   
+			
+           sql="USE `product_search`";
+           con.createStatement().execute(sql);
+//Step 4: 執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet	
+           sql="SELECT * FROM `board` WHERE board.product='IPhone_11'"; 
+           ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+           //ResultSet.TYPE_SCROLL_INSENSITIVE表紀錄指標可前後移動，ResultSet.CONCUR_READ_ONLY表唯讀
+
+           
+	       //計算開始記錄位置   
+//Step 5: 顯示結果 
+
+			rs.afterLast();
+           while(rs.previous())
+                {
+
+				 out.println("<hr style=\"color: #686868; size: 3px;border-style: dotted;\">");
+                 out.println("<img class=\"people\" src=\"images/people.png\" >");
+                 out.println("<div class=\"sth\">");
+                 out.println("<h3>"+rs.getString(1)+"</h3>");
+                 out.println("<div class=\"commentstar\">");
+                 for (int i=Integer.parseInt(rs.getString(2));i>0;i--){
+					out.println("<span class=\"fa fa-star checked\"></span>");
+				 }
+				 out.println("</div>");
+				 out.println("<p>"+rs.getString(3)+"</p>");
+				 out.println("<p>"+rs.getString(4)+"</p>");
+				 out.println("</div>");
+          }
+//Step 6: 關閉連線
+          con.close();
+      }
+    }
+    catch (SQLException sExec) {
+           out.println("SQL錯誤"+sExec.toString());
+		   
+    }
+}
+catch (ClassNotFoundException err) {
+      out.println("class錯誤"+err.toString());
+}
+%>
 
             
         </fieldset>
@@ -264,7 +345,7 @@
             <fieldset class="reviewbroad">
                 <legend class="rev"><h1>評論版</h1></legend>
                 <div  style="text-align: center;">
-                    <form action="review_board.jsp" method="post">
+                    <form action="review_board.jsp" method="get">
                         <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;" name="name"><br><br>
                         <span class="star-rating" style="width:150px;height:30px">
                             <input type="radio" name="rating" value="1"><i></i>
@@ -275,7 +356,7 @@
                         </span>
                         <br><br>
                         <textarea name="review" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
-                        <input type="submit" value="Submit" id="submit" class="commentsubmit">
+                        <input type="submit" value="Submit" class="commentsubmit">
                     </form>
                 </div>
             </fieldset>

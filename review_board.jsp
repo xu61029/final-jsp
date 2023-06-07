@@ -27,18 +27,19 @@
            java.sql.Date new_date=new java.sql.Date(System.currentTimeMillis());
 //Step 4: 執行 SQL 指令	
 			
-           sql="INSERT INTO board(name,rating,date,comment) ";
+           sql="INSERT INTO board(name,rating,date,comment,product) ";
            sql+="VALUES ('" + new_name + "', ";
            sql+="'"+new_rating+"', ";
 		   sql+="'"+new_date+"', ";
-		   sql+="'"+new_review+"')";   
+		   sql+="'"+new_review+"', ";
+		   sql+="'IPhone_11')";		   
 
            con.createStatement().execute(sql);
 //Step 6: 關閉連線
            con.close();
 //Step 5: 顯示結果 
           //直接顯示最新的資料
-           response.sendRedirect("review_show.jsp");
+           response.sendRedirect("i11_product.jsp");
        }
 else{
 	con.close();
