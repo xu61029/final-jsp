@@ -34,9 +34,9 @@
 		   
 //Step 4: 執行 SQL 指令	
 			
-           sql="SELECT * FROM product_search.product_inventory WHERE product_search.product_inventory.product_name LIKE \'%"+name+"%\';";
-		   con.createStatement().executeQuery(sql);
-           rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+           sql="SELECT * FROM product_search.search WHERE product_search.search.product_name LIKE \'%"+name+"%\';";
+           ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+		   rs.first();
 		   String result = rs.getString(2);
 //Step 6: 關閉連線
            con.close();
@@ -48,11 +48,11 @@
     catch (SQLException sExec) {
            out.println("SQL錯誤"+sExec.toString());
     }
-}
+		}
 catch (ClassNotFoundException err) {
    out.println("class錯誤"+err.toString());
 }
-	}
+	
 
 %>
 

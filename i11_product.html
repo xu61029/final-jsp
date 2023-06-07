@@ -175,9 +175,11 @@
                 </select>
             </div>
             <div class="number">
-                <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
-                <input class="quantity" type="text" value="1">
-                <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
+                <form action="shop_cart" method="post">
+                    <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
+                    <input class="quantity" type="text" value="1">
+                    <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
+                </form>
             </div>
 
             <script>
