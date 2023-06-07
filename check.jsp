@@ -2,7 +2,7 @@
 <%@include file="config.jsp" %>
 <%
 if (request.getParameter("email") != null && request.getParameter("pwd") != null) {
-    String query = "SELECT * FROM final.members WHERE email=? AND pwd=?";
+    String query = "SELECT * FROM product_search.members WHERE email=? AND pwd=?";
     PreparedStatement pstmt = null;
     ResultSet paperrs = null;
     

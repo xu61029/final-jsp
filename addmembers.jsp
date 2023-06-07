@@ -24,7 +24,7 @@ try {
     } else {
         // 密码匹配，执行插入操作
         // Step 2: 建立連線 	
-        String dbUrl = "jdbc:mysql://localhost/final?serverTimezone=UTC";
+        String dbUrl = "jdbc:mysql://localhost/product_search?serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(dbUrl, "root", "1234");
         if (connection.isClosed())
             out.println("連線建立失敗");

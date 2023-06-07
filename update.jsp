@@ -11,10 +11,10 @@ if (session.getAttribute("email") != null) {
 
     if (newUsername != null && newPwd != null && newEmail != null && newTel != null) {
         // Establish a database connection
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/final?serverTimezone=UTC", "root", "1234");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/product_search?serverTimezone=UTC", "root", "1234");
 
         // Update the fields
-        String updateSql = "UPDATE final.members SET `username`=?, `pwd`=?, `email`=?, `tel`=? WHERE `email`=?";
+        String updateSql = "UPDATE product_search.members SET `username`=?, `pwd`=?, `email`=?, `tel`=? WHERE `email`=?";
         PreparedStatement updateStmt = connection.prepareStatement(updateSql);
         updateStmt.setString(1, newUsername);
         updateStmt.setString(2, newPwd);

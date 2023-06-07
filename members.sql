@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `final` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `final`;
+CREATE DATABASE  IF NOT EXISTS `product_search` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `product_search`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: localhost    Database: final
+-- Host: localhost    Database: product_search
 -- ------------------------------------------------------
 -- Server version	8.0.32
 
@@ -25,19 +25,18 @@ DROP TABLE IF EXISTS `members`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `members` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `pwd` TEXT,
-  `username` TEXT,
-  `tel` VARCHAR(10),
-  `email` VARCHAR(40),
-  `gender` TEXT,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `pwd` text,
+  `username` varchar(10),
+  `tel` varchar(10) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `gender` varchar(10),
+  `role` varchar(40),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-ALTER TABLE members MODIFY COLUMN id INT AUTO_INCREMENT;
-
-
-
+/*!40101 SET character_set_client = @saved_cs_client */;
+INSERT INTO `members` (`pwd`, `username`, `tel`, `email`, `gender`, `role`) VALUES ('1234', '超級管理員', '0966', '666@gmail.com', '外星人', 'admin');
+INSERT INTO `members` (`pwd`, `username`, `tel`, `email`, `gender`, `role`) VALUES ('1', '機器人1', '0901', '123@gmail.com', '男', 'member');
 
 --
 -- Dumping data for table `members`
@@ -57,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-03 16:51:07
+-- Dump completed on 2023-06-07 12:31:58

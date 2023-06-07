@@ -1,6 +1,6 @@
 <%@page contentType="text/html;charset=utf-8" language="java" %>
 <%@ page import="java.sql.*, java.io.* " %>
-<% String dbUrl = "jdbc:mysql://localhost/final?serverTimezone=UTC"; %>
+<% String dbUrl = "jdbc:mysql://localhost/product_search?serverTimezone=UTC"; %>
 
 <!DOCTYPE HTML>
 <html>
@@ -119,7 +119,7 @@ try {
     String loggedInemail = (String) session.getAttribute("email");
 
     // 使用已登入的使用者名稱進行資料庫查詢
-    String selectQuery = "SELECT email, username, tel FROM final.members WHERE email=?";
+    String selectQuery = "SELECT email, username, tel FROM product_search.members WHERE email=?";
     Connection connection = DriverManager.getConnection(dbUrl, "root", "1234");
     PreparedStatement pstmt = connection.prepareStatement(selectQuery);
     pstmt.setString(1, loggedInemail);

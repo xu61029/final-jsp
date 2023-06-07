@@ -2,7 +2,7 @@
 <%@include file="config.jsp" %>
 <%
 if(session.getAttribute("email") != null ){
-    sql = "SELECT * FROM final.members WHERE email='" +session.getAttribute("email")+"';"; 
+    sql = "SELECT * FROM product_search.members WHERE email='" +session.getAttribute("email")+"';"; 
 	ResultSet paperrs1 =con.createStatement().executeQuery(sql);
 	String email="", pwd="";
 	while(paperrs1.next()){
