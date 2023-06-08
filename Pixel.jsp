@@ -1,3 +1,7 @@
+<%@ page import = "java.sql.*, java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/OPPO.css">
+    <link rel="stylesheet" href="assets/css/Pixel.css">
 	<link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
     <script src="https://kit.fontawesome.com/605c912c10.js" crossorigin="anonymous"></script>
@@ -66,27 +70,27 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
 
-				<a href="login.html">
+				<a href="login.jsp">
 					<i class="fa-regular fa-user"></i>
 					<span>Log IN</span>
 				</a>
@@ -105,37 +109,79 @@
 	    </div>
 
 	<main class="main">
-		<section class="card" style="position: relative;top: 28.5%;">
-			<img class="Find_N2_flip" src="images/yi/OPPO/Find N2 flip/000-removebg-preview.png" alt="Find_N2_flip" style="position: relative;bottom: 3%;">
-			<h1>Find N2 flip</h1>
-			<a href="Find_N2_flip_product.html">
-			<i class="fa-solid fa-arrow-right" id="iconarrow" ></i>
-			</a>
-		</section>
+	
+	<%
+	request.setCharacterEncoding("UTF-8");
+	String phcolor = request.getParameter("color");
+	String phname ="";
+	int phprice = 0;
+	String phmon ="";
+	String phch = "";
+	String phimg = "";
+	String phclass = "";
 
-		<section class="card" style="position: relative;top: 15%;">
-			<img class="Reno8" src="images/yi/OPPO/Reno8/IMG_3471-removebg-preview.png" alt="Reno8">
-			<h1>Reno8</h1>
-			<a href="Reno8_product.html">
-			<i class="fa-solid fa-arrow-right" id="iconarrow" ></i>
-			</a>
-		</section>
-
-		<section class="card" style="position: relative;top: 15%;">
-			<img class="Reno8t" src="images/yi/OPPO/Reno8 T/IMG_3473-removebg-preview.png" alt="Reno8t">
-			<h1>Reno8 T</h1>
-			<a href="Reno8T_product.html">
-			<i class="fa-solid fa-arrow-right" id="iconarrow" ></i>
-			</a>
-		</section>
-
-		<section class="card" style="position: relative;top: 15%;">
-			<img class="Reno8z" src="images/yi/OPPO/Reno8 Z/IMG_3477-removebg-preview.png" alt="Reno8z">
-			<h1>Reno8 Z</h1>
-			<a href="Reno8Z_product.html">
-			<i class="fa-solid fa-arrow-right" id="iconarrow" ></i>
-			</a>
-		</section>
+try {
+//Step 1: 載入資料庫驅動程式 
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+//Step 2: 建立連線 
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else
+        {
+//Step 3: 選擇資料庫	        
+           String sql="USE `product_search`";
+           ResultSet rs;
+		   con.createStatement().execute(sql);
+//Step 4: 執行 SQL 指令          
+			sql = "SELECT * FROM `pro_detail` WHERE `pdkind` = 'Pixel'";
+			rs=con.createStatement().executeQuery(sql);
+//Step 5: 顯示結果            
+		   int inventory = 0;
+           while (rs.next()) //只有一筆資料
+           {
+           phname = rs.getString(3);
+		   phimg = rs.getString(4);
+		   phclass = rs.getString(5);
+        
+			
+				if (phclass.equals("7")){
+					out.println("<section class='card'>");
+					out.println("<img class='pixel"+phclass+"' src='"+phimg+"' alt='"+phclass+"' style='position: relative;top: 3%;'>");
+					out.println("<h1>"+phname+"</h1>");
+					out.println("<a href='"+phclass+"_product.html' target='_blank'>");
+					out.println("<i class='fa-solid fa-arrow-right' id='iconarrow' ></i>");
+					out.println("</a>");
+					out.println("</section>");
+				}
+				else{
+					out.println("<section class='card'>");
+					out.println("<img class='pixel"+phclass+"' src='"+phimg+"' alt='"+phclass+"'>");
+					out.println("<h1>"+phname+"</h1>");
+					out.println("<a href='"+phclass+"_product.html' target='_blank'>");
+					out.println("<i class='fa-solid fa-arrow-right' id='iconarrow' ></i>");
+					out.println("</a>");
+					out.println("</section>");
+				}
+					
+				
+				 }
+	//Step 6: 關閉連線
+        con.close();
+		}
+	}
+    catch (SQLException sExec) {
+        out.println("SQL錯誤"+sExec.toString());
+    }
+}
+catch (ClassNotFoundException err) {
+   out.println("class錯誤"+err.toString());
+}
+%>
+	
+		
 	</main>
 	<footer class="footer">
 			<hr style="border-color:rgb(43, 39, 39);">
