@@ -28,6 +28,8 @@ insert into product_img value ("P016","images/yi/Pixel/7a/001-removebg-preview.p
 
 DROP view IF EXISTS pro_detail;
 CREATE view pro_detail as 
-select products.pdid,products.pdkind,products.pdname,product_img.imgurl,product_img.class
-from products,product_img
-where (products.pdid=product_img.pdid);
+select products.pdid,products.pdkind,sum(products_color.stock) as total,products.pdname,product_img.imgurl,product_img.class
+from products,product_img,products_color
+where (products.pdid=product_img.pdid)
+and (product_img.pdid=products_color.pdid)
+group by pdid;
