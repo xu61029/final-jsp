@@ -119,6 +119,7 @@
 	String phch = "";
 	String phimg = "";
 	String phclass = "";
+	int phtotal = 0;
 
 try {
 //Step 1: 載入資料庫驅動程式 
@@ -142,11 +143,14 @@ try {
 		   int inventory = 0;
            while (rs.next()) //只有一筆資料
            {
-           phname = rs.getString(3);
-		   phimg = rs.getString(4);
-		   phclass = rs.getString(5);
-        
-			
+			phtotal = rs.getInt(3);
+           phname = rs.getString(4);
+		   phimg = rs.getString(5);
+		   phclass = rs.getString(6);
+			if(phtotal==0){
+				continue;
+			}
+			else{
 				if (phclass.equals("Find_N2_flip")){
 					out.println("<section class='card' style='position: relative;top: 28.5%;'>");
 					out.println("<img class='"+phclass+"' src='"+phimg+"' alt='"+phclass+"'>");
@@ -167,7 +171,8 @@ try {
 				}
 					
 				
-				 }
+			}
+			}
 	//Step 6: 關閉連線
         con.close();
 		}

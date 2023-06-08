@@ -1,3 +1,7 @@
+<%@ page import = "java.sql.*, java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +16,71 @@
     <script src="https://kit.fontawesome.com/605c912c10.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String phcolor = request.getParameter("color");
+	int inventory = 0;
+	String phname ="";
+	int phprice = 0;
+	String phmon ="";
+	String phch = "";
+	String phimg = "";
+	String phclass = "";
+	String phnumon = request.getParameter("onnum");
+
+
+try {
+//Step 1: 載入資料庫驅動程式 
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+//Step 2: 建立連線 
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else
+        {
+//Step 3: 選擇資料庫	        
+           String sql="USE `product_search`";
+           ResultSet rs;
+		   con.createStatement().execute(sql);
+//Step 4: 執行 SQL 指令, 只有一筆資料          
+			sql = "SELECT * FROM `products` WHERE `pdid` = 'P015'";
+			rs=con.createStatement().executeQuery(sql);
+			while (rs.next()){
+				phname = rs.getString(3);
+				phprice = rs.getInt(5);
+				phmon = rs.getString(6);
+				phch = rs.getString(7);}
+			
+			sql = "SELECT * FROM `products_color` WHERE `pdid` = 'P015' AND `color`= '"+phcolor+"'";
+			rs=con.createStatement().executeQuery(sql);
+//Step 5: 顯示結果            
+           while (rs.next()) //只有一筆資料
+           {
+			   inventory = rs.getInt(4);
+			   if(inventory==0){
+				   %> 
+				   <script>
+					alert("庫存已為0");
+				   </script>
+				   <%
+			   }
+			   else{
+			   inventory = inventory-Integer.parseInt(phnumon);}
+			   // 使用预处理语句构建SQL语句
+				String updateSql = "UPDATE `products_color` SET `stock` = ? WHERE `pdid` = 'P015' AND `color` = ?";
+				PreparedStatement updateStmt = con.prepareStatement(updateSql);
+
+				// 设置参数值
+				updateStmt.setInt(1, inventory);
+				updateStmt.setString(2, phcolor);
+
+				// 执行更新语句
+				updateStmt.executeUpdate();
+			   
+		   }%>
+
     <!-- Page Wrapper -->
     <div id="page-wrapper">
 
@@ -40,22 +109,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -124,16 +193,17 @@
         </section>
         
         <div class="info">
-            <h1 class="name">Pixel 7pro</h1>
+            <h1 class="name"><%= phname%></h1>
 
             <div class="price">
-                <h2 class="nt">NT.26990</h2>
+                <h2 class="nt">NT.<%= phprice%></h2>
             </div>
 
             <div class="love">
                 <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
             </div>
 
+		<form method="post" action="" accept-charset="UTF-8">
             <div>
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
@@ -143,112 +213,34 @@
                     <option value="曜石黑" class="choose">曜石黑</option>
                 </select>
             </div>
-            <div class="number">
-                <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
-                <input class="quantity" type="text" value="1">
-                <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
-            </div>
-
-            <script>
-                function minus(ctnnum){
-                    var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                    if(num>1){
-                        document.getElementsByClassName("quantity")[ctnnum].value=num-1;
-                    }
-                }
-                function add(ctnnum) {
-                    var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                    if(num<1000){
-                        document.getElementsByClassName("quantity")[ctnnum].value=num+1;
-                    }
-                }
-            </script>
+            <h2 class="color">下架數量</h2>
+			<div class="number" style="height:70px;">
+				<input name="onnum" type="text" value="1" style="text-alien:center;">
+			</div>
 
             <div>
-                <button class="button">下架</button>
-				<button class="button">刪除</button>
+				<input type="submit" value="下架" class="button"/>庫存：<%out.println(inventory);%>
+		</form>
+		<form method="post" action="delete.jsp" accept-charset="UTF-8">
+				<input type="hidden" name="productId" value="P015">
+				<input type="submit" value="刪除" class="button"/>
             </div>
-            
+        </form>
         </div>
        
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
                 <p>
-                <li>主相機畫素 5000 萬畫素</li>
-                <li>RAM記憶體 12 GB</li>
-                <li>ROM儲存空間 128 GB</li>
-                <li>電池容量 5000 mAh</li>
+                <li><%= phmon%></li>
+                </p><br>
+                <h2>晶片</h2><br>
+                <p>
+                <li>
+					<%= phch%>
+                </li>
                 </p>
         </fieldset>
        
-
-        
-        <fieldset class="review">
-            <legend class="rev"><h1>評論</h1></legend>
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-                <h3>頂戴轟</h3> 
-                <div class="commentstar">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                </div>
-                <p>2023/05/25</p>
-                <p>好餓好餓好餓</p>
-                </div>
-
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>沈博熱美</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            </div>
-            <p>2023/05/25</p>
-            <p>好想打特戰嗚嗚嗚</p>
-            </div>
-
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>馬龜拉拉</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            </div>
-            <p>2023/05/25</p>
-            <p>好想好想睡啊啊啊啊啊</p>
-            </div>
-        </fieldset>
-        
-
-        <section>
-            <fieldset class="reviewbroad">
-                <legend class="rev"><h1>評論版</h1></legend>
-                <div  style="text-align: center;">
-                    <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;"><br><br>
-                    <span class="star-rating" style="width:150px;height:30px">
-                        <input type="radio" name="rating" value="1"><i></i>
-                        <input type="radio" name="rating" value="2"><i></i>
-                        <input type="radio" name="rating" value="3"><i></i>
-                        <input type="radio" name="rating" value="4"><i></i>
-                        <input type="radio" name="rating" value="5"><i></i>
-                    </span>
-                    <br><br>
-                    <textarea name="" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
-                    <input type="button" value="Submit" class="commentsubmit">
-                </div>
-            </fieldset>
-        </section>
     </main>
     <footer class="footer">
 			<hr style="border-color:rgb(43, 39, 39);">
@@ -257,5 +249,18 @@
 		</footer>
 
     <a class="gotopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+	
+	<% }
+	//Step 6: 關閉連線
+        con.close();
+		}
+    catch (SQLException sExec) {
+        out.println("SQL錯誤"+sExec.toString());
+    }
+}
+catch (ClassNotFoundException err) {
+   out.println("class錯誤"+err.toString());
+}
+%>
 </body>
 </html>

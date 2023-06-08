@@ -76,25 +76,25 @@
                         <span>Home</span>
                 </a>
         
-                <a href="Apple.html">
-                    <i class="fa-brands fa-apple"></i>
-                  <span>Apple</span>
-                </a>
-        
-                <a href="Pixel.html" >
-                    <i class="fa-brands fa-google"></i>
-                  <span>Pixel</span>
-                </a>
-        
-                <a href="Sony.html" >
-                    <i class="fa-solid fa-mobile-screen"></i>					  
-                    <span>Sony</span>
-                </a>
-        
-                <a href="OPPO.html" >
-                    <i class="fa-solid fa-mobile"></i>
-                  <span>OPPO</span>
-                </a>
+                <a href="Apple.jsp" >
+					<i class="fa-brands fa-apple"></i>
+					<span>Apple</span>
+				</a>
+			
+				<a href="Pixel.jsp">
+					<i class="fa-brands fa-google"></i>
+					<span>Pixel</span>
+				</a>
+			
+				<a href="Sony.jsp">
+					<i class="fa-solid fa-mobile-screen"></i>					  
+					<span>Sony</span>
+				</a>
+			
+				<a href="OPPO.jsp">
+					<i class="fa-solid fa-mobile"></i>
+					<span>OPPO</span>
+				</a>
 
                 <a href="login.html" >
                     <i class="fa-regular fa-user"></i>
