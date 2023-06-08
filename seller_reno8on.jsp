@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/seller_10Von.css">
+    <link rel="stylesheet" href="assets/css/seller_reno8on.css">
     <link rel="stylesheet" href="assets/css/seller_on.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -142,7 +142,7 @@ try {
 
     <main>
         <div class="imgg">
-            <img class="V10" src="images/yi/Sony/10V/IMG_3483.JPG" alt="10V">
+            <img class="reno8" src="images/yi/OPPO/Reno8/IMG_3467.JPG" alt="reno8">
         </div>
         
         
