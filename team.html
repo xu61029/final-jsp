@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>三个框并排</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box {
+            width: 30%;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image {
+            display: block;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <img class="image" src="image1.jpg" alt="Image 1">
+            <p>框1的文字</p>
+        </div>
+        <div class="box">
+            <img class="image" src="image2.jpg" alt="Image 2">
+            <p>框2的文字</p>
+        </div>
+        <div class="box">
+            <img class="image" src="image3.jpg" alt="Image 3">
+            <p>框3的文字</p>
+        </div>
+    </div>
+</body>
+</html>
