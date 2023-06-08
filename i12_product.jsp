@@ -237,6 +237,7 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
+			</div>
             <p>2023/05/25</p>
             <p>讚</p>
             </div>
@@ -258,7 +259,7 @@ try {
            sql="USE `product_search`";
            con.createStatement().execute(sql);
 //Step 4: 執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet	
-           sql="SELECT * FROM `board` WHERE board.product='IPhone_11'"; 
+           sql="SELECT * FROM `board` WHERE board.product='i12'"; 
            ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
            //ResultSet.TYPE_SCROLL_INSENSITIVE表紀錄指標可前後移動，ResultSet.CONCUR_READ_ONLY表唯讀
 
@@ -305,6 +306,7 @@ catch (ClassNotFoundException err) {
                 <legend class="rev"><h1>評論版</h1></legend>
                 <div  style="text-align: center;">
                     <form action="review_board.jsp" method="get">
+						<input type="hidden" name="p_name" value="i12">
                         <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;" name="name"><br><br>
                         <span class="star-rating" style="width:150px;height:30px">
                             <input type="radio" name="rating" value="1"><i></i>
@@ -322,10 +324,10 @@ catch (ClassNotFoundException err) {
         </section>
     </main>
     <footer class="footer">
-			<hr style="border-color:rgb(43, 39, 39);">
-			<h5>Copyrgiht @ 2023 By Starlink</h5>
-			<iframe class="no-border" width="150" height="26" frameborder="0" scrolling="no" src="counter.jsp"></iframe>
-		</footer>
+        <hr style="width:100%; height: 1px; border:none; background-color:#4444">
+        <h5>Copyrgiht @ 2023  By Starlink</h5>
+        <h5>瀏覽人數:2000</h5>
+    </footer>
 
     <a class="gotopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>
 </body>
