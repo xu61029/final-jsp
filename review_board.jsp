@@ -13,7 +13,7 @@
 <%  request.setCharacterEncoding("UTF-8")  ;%>
 
 <%
-	//if (session.getAttribute("email")!= null){
+	if (session.getAttribute("email")!= null){
 		
 		
 //Step 3: 選擇資料庫   
@@ -48,11 +48,11 @@
 //Step 5: 顯示結果 
           //直接顯示最新的資料
            response.sendRedirect(result);
-      //}
-//else{
-	//con.close();
-	//response.sendRedirect("signin.jsp");
-//}
+      }
+else{
+	con.close();
+	response.sendRedirect("signin.jsp");
+}
 %>
 
 </body>
