@@ -1,0 +1,3 @@
+留言(ex. i11_product.jsp) ->按提交
+-如果沒登入 -> 去登入畫面(signin.jsp)
+-有登入->取得資料(review_board.jsp)存資料(board.sql) -> 顯示留言在討論(i11_product.jsp)
