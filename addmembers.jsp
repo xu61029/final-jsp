@@ -4,6 +4,12 @@
 <html>
 <head>
     <title>新增會員</title>
+    <script type="text/javascript">
+        function showError(message) {
+            alert(message);
+            history.back(); // 返回上一頁
+        }
+    </script>
 </head>
 <body>
 <%
@@ -20,9 +26,12 @@ try {
 
     if (!new_pwd.equals(confirm_pwd)) {
         // 密码不匹配，进行相应处理
-        out.println("密碼不匹配，请重新输入密码！");
+        out.println("<script>showError('密碼不匹配，请重新输入密码！');</script>");
+    } else if (new_username.isEmpty() || new_email.isEmpty() || new_tel.isEmpty() || new_pwd.isEmpty() || confirm_pwd.isEmpty()) {
+        // 有必填欄位未填寫，進行相應處理
+        out.println("<script>showError('請填寫所有必填欄位！');</script>");
     } else {
-        // 密码匹配，执行插入操作
+        // 密码匹配且所有必填欄位已填寫，執行插入操作
         // Step 2: 建立連線 	
         String dbUrl = "jdbc:mysql://localhost/product_search?serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(dbUrl, "root", "1234");
