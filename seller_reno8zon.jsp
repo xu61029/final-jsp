@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/seller_10Von.css">
+    <link rel="stylesheet" href="assets/css/seller_reno8zon.css">
     <link rel="stylesheet" href="assets/css/seller_on.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -141,9 +141,44 @@ try {
 	    </div>
 
     <main>
-        <div class="imgg">
-            <img class="V10" src="images/yi/Sony/10V/IMG_3483.JPG" alt="10V">
-        </div>
+		<!--幻燈片-->
+        <section class="imgg"> 
+            <div class="slideshow">
+    
+                <div class="Slides fade">
+                    <img src="images/yi/OPPO/Reno8 Z/IMG_3474.PNG">
+                </div>
+                <div class="Slides fade">
+                    <img src="images/yi/OPPO/Reno8 Z/IMG_3477.JPG">
+                </div>
+                <div class="Slides fade">
+                    <img src="images/yi/OPPO/Reno8 Z/002.png">
+                </div>
+                
+            </div>
+            
+                <script>
+                    var slideIndex = 0; //從第1張照片開始
+                    showSlides();
+        
+                    function showSlides() {
+                        var i;
+                        var slides = document.getElementsByClassName("Slides"); 
+                        
+                        //隱藏幻燈片、只顯示一張幻燈片
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";  
+                        }
+                        slideIndex++;
+                        if (slideIndex > slides.length) { 
+                            slideIndex = 1 
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        
+                        setTimeout(showSlides, 2000); // 兩秒後換照片
+                    }
+                </script>
+        </section>
         
         
         <div class="info">
