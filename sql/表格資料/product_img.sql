@@ -33,3 +33,7 @@ from products,product_img,products_color
 where (products.pdid=product_img.pdid)
 and (product_img.pdid=products_color.pdid)
 group by pdid;
+
+drop view if exists product_name;
+CREATE VIEW product_name AS
+SELECT products.pdname AS phone,product_img.class AS p_name FROM products,product_img WHERE products.pdid = product_img.pdid ;
