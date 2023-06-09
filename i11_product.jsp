@@ -156,37 +156,7 @@
         </section>
         
         <div class="info">
-
-			
-            <h1 class="name">IPhone 11</h1>
-
-            <div class="price">
-                <h2 class="nt">NT.13000</h2>
-            </div>
-
-            <div class="love">
-                <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
-            </div>
-
-            <div>
-                <h2 class="color">color</h2>
-                <select class="choose" name="color">
-                    <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="星光色" class="choose">星光色</option>
-                    <option value="午夜色" class="choose">午夜色</option>
-                    <option value="藍色" class="choose">藍色</option>
-                    <option value="粉紅色" class="choose">粉紅色</option>
-                    <option value="綠色" class="choose">綠色</option>
-                    <option value="紅色" class="choose">紅色</option>
-                </select>
-            </div>
-            <div class="number">
-                <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
-                <input class="quantity" type="text" value="1">
-                <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
-            </div>
-
-            <script>
+		<script>
                 function minus(ctnnum){
                     var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
                     if(num>1){
@@ -201,10 +171,42 @@
                 }
             </script>
 
-            <div>
-                <button class="cart">ADD TO CART</button>
+			
+            <h1 class="name">IPhone 11</h1>
+
+            <div class="price">
+                <h2 class="nt">NT.13000</h2>
             </div>
-            
+
+            <div class="love">
+                <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
+            </div>
+
+            <form action="shop_record.jsp" method="post">
+                <input type="hidden" name="phone" value="Iphone11"  >
+                <div>
+                    <h2 class="color">color</h2>
+                    <select class="choose" name="color">
+                        <option value=""selected class="choose">請選擇顏色</option>
+                        <option value="星光色" class="choose">星光色</option>
+                        <option value="午夜色" class="choose">午夜色</option>
+                        <option value="藍色" class="choose">藍色</option>
+                        <option value="粉紅色" class="choose">粉紅色</option>
+                        <option value="綠色" class="choose">綠色</option>
+                        <option value="紅色" class="choose">紅色</option>
+                    </select>
+                </div>
+                <div class="number">
+                        <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
+                        <input class="quantity" type="text" value="1" name="num">
+                        <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
+						<button class="cart" style="position:relative; right:130px;" type="submit">ADD TO CART</button>
+                </div>
+            </form>
+
+           
+
+
         </div>
        
         <fieldset class="introduce">

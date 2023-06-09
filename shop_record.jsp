@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>add</title>
+<title>shop_record</title>
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 <%  request.setCharacterEncoding("UTF-8")  ;%>
 
 <%
-	//if (session.getAttribute("email")!= null){
+	if (session.getAttribute("email")!= null){
 		
 		
 //Step 3: 選擇資料庫   
@@ -21,39 +21,78 @@
            sql="use product_search";
            con.createStatement().execute(sql);
 		   request.setCharacterEncoding("UTF-8");  
-           String new_name = request.getParameter("name");
-		   String new_rating = request.getParameter("rating");
-		   String new_review = request.getParameter("review");
-		   String product = request.getParameter("p_name");
+           String phone = request.getParameter("phone");
 		   
-           java.sql.Date new_date=new java.sql.Date(System.currentTimeMillis());
-//Step 4: 執行 SQL 指令	
+		   String color = request.getParameter("color");
+		   int num = Integer.parseInt(request.getParameter("num"));
+		   String member =  session.getAttribute("email").toString();
 			
-           sql="INSERT INTO board(name,rating,date,comment,product) ";
-           sql+="VALUES ('" + new_name + "', ";
-           sql+="'"+new_rating+"', ";
-		   sql+="'"+new_date+"', ";
-		   sql+="'"+new_review+"', ";
-		   sql+="'"+product+"')";		   
+//Step 4: 執行 SQL 指令
+			//圖片路徑
+			sql = "SELECT p_name FROM product_name WHERE phone LIKE '%" +phone+"%';";
+			ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+			rs.first();
+			String p_name = rs.getString(1);
+			rs.close();
+			
+			sql = "SELECT imgurl FROM product_img WHERE class LIKE \'%"+p_name+"%\'";
+			ResultSet rs2=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+			rs2.first();
+			String img = rs2.getString(1);
+			rs2.close();
+			
+			
+			//價格
+
+			sql="SELECT price FROM products WHERE pdname LIKE \'%"+phone+"%\'";
+			ResultSet rs3=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+			rs3.first();
+			
+			int price =Integer. parseInt(rs3.getString(1));
+			
+			//小計
+			int total = price*num;
+			
+			String tprice = "$" + String.valueOf(price);
+			String ttotal = "$" + String.valueOf(total);
+		
+			
+			
+			
+			
+           sql="INSERT INTO shop_car(member,pic,name,price,num,total,color) ";
+           sql+="VALUES ('" + member + "', ";
+           sql+="'"+img+"', ";
+		   sql+="'"+phone+"', ";
+		   sql+="'"+tprice+"', ";
+		   sql+=num+", ";
+		   sql+="'"+ttotal+"', ";
+		   sql+="'"+color+"')";		   
 		  
            con.createStatement().execute(sql);
-		   sql = "SELECT * FROM product_search.search WHERE product_search.search.product_name LIKE '%" + product + "%';";
-
-           ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
-		   rs.first();
-		   String result = rs.getString(2);	  
-		   
+		   sql = "SELECT * FROM product_search.search WHERE product_search.search.product_name LIKE '%" + p_name + "%';";
+           ResultSet rs4=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+		   rs4.first();
+		   String result = rs4.getString(2);
+		   rs4.close();
+			out.print(result);
+			
 //Step 6: 關閉連線
-           con.close();
+           con.close();%>
+		   
+		   <script>
+                alert("新增成功 !!");
+            </script><%
+			
 //Step 5: 顯示結果 
           //直接顯示最新的資料
-           response.sendRedirect(result);
-      //}
-//else{
-	//con.close();
-	//response.sendRedirect("signin.jsp");
-//}
-%>
+			response.sendRedirect(result);
+     }
+else{
+	con.close();
+	response.sendRedirect("signin.jsp");
+}
+%> 
 
 </body>
 </html>
