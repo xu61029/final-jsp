@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `products_color`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products_color` (
   `pdid` varchar(4) NOT NULL,
-  `cid` varchar(2) NOT NULL,
+  `cid` varchar(2) DEFAULT NULL,
   `color` varchar(20) DEFAULT NULL,
   `stock` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
