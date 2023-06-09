@@ -43,7 +43,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -66,22 +66,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -111,10 +111,11 @@
         
         
         <div class="info">
-            <h1 class="name"><input type="text" class="nam" placeholder="Name"></h1>
+		<form method="post" action="newproduct.jsp" accept-charset="UTF-8">
+            <h1 class="name"><input type="text" class="nam" placeholder="Name" name="phname"></h1>
 
             <div class="price">
-                <input type="text" class="pri" placeholder="Price">
+                <input type="text" class="pri" placeholder="Price" name="phprice">
             </div>
 
             <div class="love">
@@ -133,44 +134,29 @@
                     <option value="紅色" class="choose">紅色</option>
                 </select>
             </div>
-            <div class="number">
-                <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
-                <input class="quantity" type="text" value="1">
-                <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
-            </div>
-
-            <script>
-                function minus(ctnnum){
-                    var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                    if(num>1){
-                        document.getElementsByClassName("quantity")[ctnnum].value=num-1;
-                    }
-                }
-                function add(ctnnum) {
-                    var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                    if(num<1000){
-                        document.getElementsByClassName("quantity")[ctnnum].value=num+1;
-                    }
-                }
-            </script>
+            <h2 class="color">上架數量</h2>
+			<div class="number" style="height:70px;">
+				<input name="onnum" type="text" value="1" style="text-alien:center;">
+			</div>
 
             <div>
                 <button class="button">NEW</button>
             </div>
-            
+        
         </div>
        
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
                 <h2>顯示器</h2><br>
                 <p>
-                <textarea name="" id="" cols="100" rows="10" placeholder="Write Something...."></textarea><br>
+                <textarea name="" id="" cols="100" rows="10" placeholder="Write Something...." name="phmon"></textarea><br>
                 </p><br>
                 <h2>晶片</h2><br>
                 <p>
-                <textarea name="" id="" cols="100" rows="10" placeholder="Write Something...."></textarea><br>
+                <textarea name="" id="" cols="100" rows="10" placeholder="Write Something...." name="phch"></textarea><br>
                 </p>
         </fieldset>
+		</form>
     </main>
     <footer class="footer">
 			<hr style="border-color:rgb(43, 39, 39);">
