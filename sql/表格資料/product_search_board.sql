@@ -29,7 +29,8 @@ CREATE TABLE `board` (
   `rating` varchar(10) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `comment` varchar(50) DEFAULT NULL,
-  `product` varchar(45) DEFAULT NULL
+  `product` varchar(45) DEFAULT NULL,
+  `member` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,6 +40,7 @@ CREATE TABLE `board` (
 
 LOCK TABLES `board` WRITE;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
+INSERT INTO `board` VALUES ('55','3','2023-06-09','55','i11','123@gmail.com');
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-08 17:47:48
+-- Dump completed on 2023-06-09 22:38:16
