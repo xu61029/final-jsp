@@ -117,14 +117,9 @@
 <%
 try {
     String loggedInemail = (String) session.getAttribute("email");
-	String email = "";
-    String username = "";
-    String tel = "";
-	int userid = 0;
-
 
     // 使用已登入的使用者名稱進行資料庫查詢
-    String selectQuery = "SELECT id,email, username, tel FROM product_search.members WHERE email=?";
+    String selectQuery = "SELECT email, username, tel FROM product_search.members WHERE email=?";
     Connection connection = DriverManager.getConnection(dbUrl, "root", "1234");
     PreparedStatement pstmt = connection.prepareStatement(selectQuery);
     pstmt.setString(1, loggedInemail);
@@ -132,17 +127,11 @@ try {
 
     // 檢查是否找到符合條件的資料
     if (rs.next()) {
-		userid = rs.getInt("id");
-        email = rs.getString("email");
-        username = rs.getString("username");
-        tel = rs.getString("tel");
-    } else {
-		%>
-        <script>
-                alert("尚未登入 !!");
-                window.location.href = "signin.jsp";
-            </script>
-	<%}%>
+        String email = rs.getString("email");
+        String username = rs.getString("username");
+        String tel = rs.getString("tel");
+
+%>
 <!-- HTML部分 -->
 <div class="containerdisplay">
     <div class="container">
@@ -205,214 +194,24 @@ try {
                     </div>
                 </div>
             </div>
-			
-			<%
-			int[] ordersid ;
-			String[] proid ;
-			int[] quantity ;
-			String phname ="";
-			int phprice = 0;
-			String phimg = "";
-			selectQuery = "SELECT * FROM product_search.orders WHERE mid=?";
-			pstmt = connection.prepareStatement(selectQuery, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			pstmt.setInt(1, userid);
-			rs = pstmt.executeQuery();
-			rs.last();
-			int longer = rs.getRow();
-			ordersid = new int[longer];
-			int j = 0;
-			if (rs.first()) {
-				do {
-					ordersid[j] = rs.getInt(1);
-					j++;
-				} while (rs.next());
-				}
-
-			//輸出訂單
-			for (int i=0 ; i<longer ; i++){%>
-
-			
-			                <div class="content"><!-- 訂單-2 -->
-                    <main class="table">
-                        <section class="table__header">
-                            <h1 style="color: black;">#<%= ordersid[i]%></h1><!-- 訂單編號 -->
-                            
-                            
-                        </section>
-                        <section class="table__body">
-                            <table>
-                                <thead>
-                                    <tr style="text-align:center;" >
-                                        
-                                        <th  style="vertical-align:middle;"> Product </th>
-                                        <th style="vertical-align:middle; width: 20%;"> QUANTITY</th>
-                                        <th style="vertical-align:middle;"> TOTAL</th>
-                                    </tr>
-                                </thead>
-			
-                                <tbody>
-<%				request.setCharacterEncoding("UTF-8");
-				selectQuery = "SELECT * FROM product_search.orders_detail WHERE oid=?";//取得每筆訂單產品及數量
-				pstmt = connection.prepareStatement(selectQuery, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-				pstmt.setInt(1, ordersid[i]);
-				rs = pstmt.executeQuery();	
-				int longer1 = 0;
-				
-				if(rs.next()){
-					rs.last();
-					longer1 = rs.getRow();
-					proid = new String [longer1];
-					quantity = new int [longer1];
-					int a = 0;
-					if (rs.first()) {
-						do {
-							proid[a] = rs.getString(2);
-							quantity[a] = rs.getInt(3);
-							a++;
-						} while (rs.next());
-					}
-				
-				
-				for (int outp=0 ; outp<longer1 ; outp++){//輸出產品資訊
-				
-					selectQuery = "SELECT * FROM product_search.pro_detail WHERE pdid=?";//取得產品資訊
-					pstmt = connection.prepareStatement(selectQuery, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-					pstmt.setString(1, proid[outp]);
-					rs = pstmt.executeQuery();	
-						while (rs.next()){
-							phname = rs.getString(4);
-							phimg = rs.getString(5);
-							phprice = rs.getInt(7);
-			
-                                    out.println("<tr><!-- Good-per -->");
-                                        out.println("<td style='text-align: center;'><!--圖片連後端--><img src='"+phimg+"' style='display: flex;' alt=''> <p style='position: relative; top: 10px;  right: 7%;'>"+phname+"</p> </td>");
-                                        out.println("<td style=' display: flex; align-items: center; justify-content: center; position: relative; top: 10px;'>"+quantity[outp]+"</td>");
-                                        
-                                        out.println("<td style='text-align: center;'> $  <p style='display:inline;'>"+phprice*quantity[outp]+"</p>  NTD </td> ");  
-                                    out.println("</tr>");
-					}
-					}
-					}
-				else{
-					out.print("資料獲取失敗");
-				}
-					%>    
-
-                                </tbody>
-                            </table>
-                        </section>
-                    </main>
-                </div>
-				
-			<%}%>
-			
-			                <div class="content"><!-- 評價-3 -->
-                    <main class="table">
-            
-                        <section class="table__body">
-                            <table>
-                                <thead>
-                                    <tr style="text-align:center;" >
-                                        
-                                        <th  style="vertical-align:middle;"> Product </th>
-                                        <th style="vertical-align:middle; width: 20%;"> Message</th>
-                                        <th style="vertical-align:middle;"> Star</th>
-                                    </tr>
-                                </thead>
-
-								
-                                <tbody>
-                                    <tr><!-- Good-per -->
-                                        <td style="text-align: center;"><!--圖片連後端--><img src="images/tai/10III.png" style="display: flex;" alt=""> <p style="position: relative; top: 10px; right: 7%; ">Alson GC</p> </td>
-                                        <td style=" display: flex; align-items: center; justify-content: center; position: relative; top: 10px;"> 1 </td>
-                                        <td style="text-align: center;"> 5</td>   
-                                    </tr>
-                                    <tr><!-- Good-per -->
-                                        <td style="text-align: center;"><!--圖片連後端--><img src="images/tai/10III.png" style="display: flex;" alt=""> <p style="position: relative; top: 10px;  right: 7%; ">Alson GC</p> </td>
-                                        <td style=" display: flex; align-items: center; justify-content: center; position: relative; top: 10px;"> 1 </td> 
-                                        <td style="text-align: center;"> 5</td>   
-                                    </tr>
-                                    <tr><!-- Good-per -->
-                                        <td style="text-align: center;"><!--圖片連後端--><img src="images/tai/10III.png" style="display: flex;" alt=""> <p style="position: relative; top: 10px;  right: 7%;">Alson GC</p> </td>
-                                        <td style=" display: flex; align-items: center; justify-content: center; position: relative; top: 10px;"> 1 </td>    
-                                        <td style="text-align: center;"> 5</td>   
-                                    </tr>
-                                    
-                                    
-                                </tbody>
-                            </table>
-                        </section>
-                    </main>
-                </div>
-				
-				
-                <div class="content"><!-- 追蹤-4 -->
-                    <main class="table"> 
-                        <section class="table__body">
-                            <table>
-                                <thead>
-                                    <tr style="text-align:center;" >
-                                        <th  style="vertical-align:middle;"> Product </th>
-                                        <th style="vertical-align:middle; width: 20%;"> Price</th>
-                                        <th  style="vertical-align:middle;"> Unfollow</th>
-                                    </tr>
-                                </thead>
-								
-								<tbody>
-<%								selectQuery = "SELECT * FROM product_search.products_like WHERE mid=?";//取得每筆訂單產品及數量
-								pstmt = connection.prepareStatement(selectQuery, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-								pstmt.setInt(1, userid);
-								rs = pstmt.executeQuery();	
-								
-								int longer2 = 0;
-								rs.last();
-								longer2 = rs.getRow();
-								String[] proidlike = new String [longer2];
-								int b = 0;
-								if (rs.first()) {
-									do {
-										proidlike[b] = rs.getString(2);
-										b++;
-									} while (rs.next());
-								}
-								
-								for (int pl=0 ; pl<longer2 ; pl++){//輸出產品資訊
-				
-								selectQuery = "SELECT * FROM product_search.pro_detail WHERE pdid=?";//取得產品資訊
-								pstmt = connection.prepareStatement(selectQuery, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-								pstmt.setString(1, proidlike[pl]);
-								rs = pstmt.executeQuery();	
-								while (rs.next()){
-									phname = rs.getString(4);
-									phimg = rs.getString(5);
-									phprice = rs.getInt(7);
-									
-                                    out.println("<tr><!-- Good-per -->");
-                                        out.println("<td style='text-align: center;'><!--圖片連後端--><img src='"+phimg+"' style='display: flex;' alt=''> <p style='position: relative; top: 10px;  right:3%;'>"+phname+"</p> </td>");
-                                        out.println("<td style='text-align: center;'> $  <p style='display:inline;'>"+phprice+"</p>  NTD </td>");
-                                        out.println("<td style='text-align: center; '> <a href='unlike.jsp?data1=" + proidlike[pl] + "&data2=" + userid + "'><i class='fa-solid fa-heart-crack' style='cursor: pointer; color: red;'></i></a></td>");
-                                    out.println("</tr>");
-								}
-								}
-								
-%>                                    
-                                </tbody>
-								
-                            </table>
-                        </section>
-                    </main>
-                </div>
         </div>
     </div>
 </div>
+<%
+    } else {
+		%>
+        <script>
+                alert("尚未登入 !!");
+                window.location.href = "signin.jsp";
+            </script>
 
 <%
+
+    }
 } catch (SQLException e) {
     out.println("SQLException: " + e.getMessage());
 }
 %>
-
-
 
 
 
