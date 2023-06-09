@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
     <script src="https://kit.fontawesome.com/605c912c10.js" crossorigin="anonymous"></script>
+	
 </head>
 <body>
     <!-- Page Wrapper -->
@@ -50,7 +51,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -156,20 +157,7 @@
         </section>
         
         <div class="info">
-		<script>
-                function minus(ctnnum){
-                    var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                    if(num>1){
-                        document.getElementsByClassName("quantity")[ctnnum].value=num-1;
-                    }
-                }
-                function add(ctnnum) {
-                    var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                    if(num<1000){
-                        document.getElementsByClassName("quantity")[ctnnum].value=num+1;
-                    }
-                }
-            </script>
+		
 
 			
             <h1 class="name">IPhone 11</h1>
@@ -182,30 +170,57 @@
                 <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
             </div>
 
-            <form action="shop_record.jsp" method="post">
-                <input type="hidden" name="phone" value="Iphone11"  >
-                <div>
-                    <h2 class="color">color</h2>
-                    <select class="choose" name="color">
-                        <option value=""selected class="choose">請選擇顏色</option>
-                        <option value="星光色" class="choose">星光色</option>
-                        <option value="午夜色" class="choose">午夜色</option>
-                        <option value="藍色" class="choose">藍色</option>
-                        <option value="粉紅色" class="choose">粉紅色</option>
-                        <option value="綠色" class="choose">綠色</option>
-                        <option value="紅色" class="choose">紅色</option>
-                    </select>
-                </div>
-                <div class="number">
-                        <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
-                        <input class="quantity" type="text" value="1" name="num">
-                        <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
-						<button class="cart" style="position:relative; right:130px;" type="submit">ADD TO CART</button>
-                </div>
-            </form>
+		 <form action="shop_record.jsp" method="post">
+			  <input type="hidden" name="phone" value="Iphone11">
+			  <div>
+				<h2 class="color">color</h2>
+				<select class="choose" name="color">
+				  <option value="" selected class="choose">請選擇顏色</option>
+				  <option value="星光色" class="choose">星光色</option>
+				  <option value="午夜色" class="choose">午夜色</option>
+				  <option value="藍色" class="choose">藍色</option>
+				  <option value="粉紅色" class="choose">粉紅色</option>
+				  <option value="綠色" class="choose">綠色</option>
+				  <option value="紅色" class="choose">紅色</option>
+				</select>
+			  </div>
+			  <div class="number">
+				<button class="less" type="button" onclick="minus(0)">-</button>
+				<input class="quantity" type="text" value="1" name="num">
+				<button class="add" type="button" onclick="add(0)">+</button>
+
+				<input type="hidden" name="numberValue" id="numberValue">
+
+				<button class="cart" style="position:relative; right:130px;" type="submit">ADD TO CART</button>
+			  </div>
+			</form>
+
+			<script>
+			  function minus(ctnnum) {
+				var inputElement = document.getElementsByClassName("quantity")[ctnnum];
+				var num = Number(inputElement.value);
+				if (num > 1) {
+				  num--;
+				  inputElement.value = num;
+				  document.getElementById("numberValue").value = num;
+				}
+			  }
+
+			  function add(ctnnum) {
+				var inputElement = document.getElementsByClassName("quantity")[ctnnum];
+				var num = Number(inputElement.value);
+				if (num < 1000) {
+				  num++;
+				  inputElement.value = num;
+				  document.getElementById("numberValue").value = num;
+				}
+			  }
+			</script>
+
+
+			
 
            
-
 
         </div>
        
@@ -255,35 +270,7 @@
                 <p>好餓好餓好餓</p>
                 </div>
 
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>沈博熱美</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            </div>
-            <p>2023/05/25</p>
-            <p>好想打特戰嗚嗚嗚</p>
-            </div>
-
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>馬龜拉拉</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            </div>
-            <p>2023/05/25</p>
-            <p>好想好想睡啊啊啊啊啊</p>
-            </div>
+            
 			
 			<%
 try {

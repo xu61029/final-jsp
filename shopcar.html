@@ -142,7 +142,10 @@
                     <div class="shop_header shop_body">
                         <div class="item">
                             <div class="delete">
-                            <img src="images/Lai/delete.png" width="20px" height="20px">
+                            <button style=" border: none;
+                            background: none;
+                            padding: 0;
+                            margin: 0;"><img src="images/Lai/delete.png" width="20px" height="20px" ></button>
                             </div>
                             
                             <img src="images/Lai/i12.JPG" width="100px" height="80px">
@@ -199,14 +202,18 @@
 
                     <div class="infor_header infor_body">
                         <div class="passway">
-                            <div class="txt">
-                                運送方式： <div class="bar"><input placeholder="輸入你的地址以檢視運送選項" size="50"></div>
-                                <br>
+                            <form action="go_to_check.jsp">
                                 <div class="txt">
-                                    訂單金額：
-                                    <span>$</span>59000
+                                    運送方式： <div class="bar"><input placeholder="輸入你的地址以檢視運送選項" size="50"></div>
+                                    <br>
+                                    <div class="txt">
+                                        訂單金額：
+                                        <span>$</span>59000
+                                    </div>
+                                    <a href="index.html"><input type="button" class="orderbutton" value="回首頁"></a>
+                                    <a href="order.html"><input type="button" class="orderbutton" value="前往結帳"></a>
                                 </div>
-                            </div>
+                            </form>
                         </div>                       
                     </div>
                 </div>
@@ -214,11 +221,11 @@
         </article>
     </main>
     <div>
-        <a href="index.html"><input type="button" class="orderbutton" value="回首頁"></a>
-        <a href="order.html"><input type="button" class="orderbutton" value="前往結帳"></a>
+        
+        
     </div>
 
-    
+    <!--  -->
     <footer class="footer">
 			<hr style="border-color:rgb(43, 39, 39);">
 			<h5>Copyrgiht @ 2023 By Starlink</h5>

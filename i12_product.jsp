@@ -51,7 +51,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -129,23 +129,30 @@
                 <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
             </div>
 
-            <div>
-                <h2 class="color">color</h2>
-                <select class="choose" name="color">
-                    <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="白色" class="choose">白色</option>
-                    <option value="黑色" class="choose">黑色</option>
-                    <option value="藍色" class="choose">藍色</option>
-                    <option value="紫色" class="choose">紫色</option>
-                    <option value="綠色" class="choose">綠色</option>
-                    <option value="紅色" class="choose">紅色</option>
-                </select>
-            </div>
-            <div class="number">
-                <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
-                <input class="quantity" type="text" value="1">
-                <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
-            </div>
+             <form action="shop_record.jsp" method="post">
+			  <input type="hidden" name="phone" value="Iphone12">
+			  <div>
+				<h2 class="color">color</h2>
+				<select class="choose" name="color">
+				  <option value="" selected class="choose">請選擇顏色</option>
+				  <option value="星光色" class="choose">星光色</option>
+				  <option value="午夜色" class="choose">午夜色</option>
+				  <option value="藍色" class="choose">藍色</option>
+				  <option value="粉紅色" class="choose">粉紅色</option>
+				  <option value="綠色" class="choose">綠色</option>
+				  <option value="紅色" class="choose">紅色</option>
+				</select>
+			  </div>
+			  <div class="number">
+				<button class="less" type="button" onclick="minus(0)">-</button>
+				<input class="quantity" type="text" value="1" name="num">
+				<button class="add" type="button" onclick="add(0)">+</button>
+
+				<input type="hidden" name="numberValue" id="numberValue">
+
+				<button class="cart" style="position:relative; right:130px;" type="submit">ADD TO CART</button>
+			  </div>
+			</form>
 
             <script>
                 function minus(ctnnum){
@@ -161,11 +168,6 @@
                     }
                 }
             </script>
-
-            <div>
-                <button class="cart">ADD TO CART</button>
-            </div>
-            
         </div>
        
         <fieldset class="introduce">
@@ -213,34 +215,7 @@
                 <p>好用!讚!</p>
                 </div>
 
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>沈蓁</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            </div>
-            <p>2023/05/25</p>
-            <p>讚讚讚</p>
-            </div>
-
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>賴大媽</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-			</div>
-            <p>2023/05/25</p>
-            <p>讚</p>
-            </div>
+            
 			
 			<%
 try {
