@@ -15,7 +15,7 @@ create table orders_detail (
     numbers int
 );
 
-insert into orders value (1,1);
+insert into orders value (1,2);
 
 insert into orders_detail value (1,"P002",2);
 insert into orders_detail value (1,"P003",1);
