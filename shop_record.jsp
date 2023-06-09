@@ -28,6 +28,7 @@
 		   String member =  session.getAttribute("email").toString();
 			
 //Step 4: 執行 SQL 指令
+			
 			//圖片路徑
 			sql = "SELECT p_name FROM product_name WHERE phone LIKE '%" +phone+"%';";
 			ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
@@ -75,6 +76,15 @@
 		   String result = rs4.getString(2);
 		   rs4.close();
 			out.print(result);
+			
+		//減少庫存
+		sql = "SELECT stock FROM product_color WHERE color='"+color+"'";
+		ResultSet rs5=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+		rs5.first();
+		int stock = Integer. parseInt(rs5.getString(1));
+		stock-=num;
+		rs5.close();
+		sql = "UPDATE product_color SET stock="+stock+"WHERE COLOR";
 			
 //Step 6: 關閉連線
            con.close();%>

@@ -35,10 +35,12 @@
 				<li>
 					<div class="search_wrap">
 						<div class="search_box">
-							<input type="text" class="input" placeholder="search...">
-							<div class="btn">
-								<p><i class="fa-solid fa-magnifying-glass"></i></p>
-							</div>
+							<form action="search.jsp" method="post">
+                                <input type="text" class="input" placeholder="search..." name="product_name">
+                                <div class="btn" onclick="this.parentNode.submit()">
+                                    <p><i class="fa-solid fa-magnifying-glass"></i></p>
+                                </div>
+                            </form>
 						</div>
 					</div>
 				</li>
@@ -171,13 +173,14 @@
 //Step 5: 顯示結果 
 			
 			rs.afterLast();
+			int i=0;
            while(rs.previous())
                 {
-
+				i+=1;
 				 out.println(" <div class=\"shop_header shop_body\">");
                  out.println("<div class=\"item\">");
                  out.println("<div class=\"delete\">");
-                 out.println("<img src=\"images/Lai/delete.png\" width=\"20px\" height=\"20px\">");
+                 out.println("<img src=\"images/Lai/delete.png\" width=\"20px\" height=\"20px\" onclick=\"this.parentNode.submit()\">");
                  out.println("</div>");
                  
 				 out.println("<img src='" + rs.getString(2) + "' width=\"100px\" height=\"80px\">");
@@ -189,13 +192,31 @@
 				 out.println("</div>");
 				 out.println("<div class=\"number\">");
 				 out.println("<input type=\"button\" class=\"btn\" value=\"-\" onclick=\"minus(1)\">");
-				 out.println("<input type=\"text\" class=\"input_num\" value=\'"+rs.getString(5)+"\'>");
+				 out.println("<input type=\"text\" class=\"input_num\" value=\'"+rs.getString(5)+"\' id='a"+i+"'>");
 				 out.println("<input type=\"button\" class=\"btn\" value=\"+\" onclick=\"add(1)\">");
 				 out.println("</div>");
 				 out.println("<div class=\"extendprice\">");
 				 out.println("<span>"+rs.getString(6)+"</span>");
 				 out.println("</div>");
 				 out.println("</div>");
+				 out.print("<script>");
+out.print("function minus(ctn_num) {");
+out.print("    var num = Number(document.getElementById('a" + i + "').value);");
+out.print("    if (num > 1) {");
+out.print("        document.getElementById('a" + i + "').value = num - 1;");
+out.print("    }");
+out.print("}");
+
+out.print("function add(ctn_num) {");
+out.print("    var num = Number(document.getElementById('a" + i + "').value);");
+out.print("    if (num < 100) {");
+out.print("        document.getElementById('a" + i + "').value = num + 1;");
+out.print("    }");
+out.print("}");
+out.print("</script>");
+
+
+				 
           }
 			
 //Step 6: 關閉連線
