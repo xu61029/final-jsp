@@ -28,7 +28,7 @@ insert into product_img value ("P016","images/yi/Pixel/7a/001-removebg-preview.p
 
 DROP view IF EXISTS pro_detail;
 CREATE view pro_detail as 
-select products.pdid,products.pdkind,sum(products_color.stock) as total,products.pdname,MIN(product_img.imgurl),min(product_img.class)
+select products.pdid,products.pdkind,sum(products_color.stock) as total,products.pdname,MIN(product_img.imgurl),min(product_img.class),products.price
 from products,product_img,products_color
 where (products.pdid=product_img.pdid)
 and (product_img.pdid=products_color.pdid)
