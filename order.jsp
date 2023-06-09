@@ -32,10 +32,12 @@
 				<li>
 					<div class="search_wrap">
 						<div class="search_box">
-							<input type="text" class="input" placeholder="search...">
-							<div class="btn">
-								<p><i class="fa-solid fa-magnifying-glass"></i></p>
-							</div>
+							<form action="search.jsp" method="post">
+                                <input type="text" class="input" placeholder="search..." name="product_name">
+                                <div class="btn" onclick="this.parentNode.submit()">
+                                    <p><i class="fa-solid fa-magnifying-glass"></i></p>
+                                </div>
+                            </form>
 						</div>
 					</div>
 				</li>
@@ -47,7 +49,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -111,7 +113,7 @@
 	    </div>
 
     <nav>
-        <a href="shopcar.html">購物車</a>
+        <a href="shopcar.jsp">購物車</a>
         <a href="order.html">填寫資料</a>
         <a href="confirm.html">送出訂單</a>
     </nav>
