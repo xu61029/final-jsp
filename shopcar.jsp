@@ -199,7 +199,7 @@
           }
 			
 //Step 6: 關閉連線
-           con.close();
+           
 		   
 //Step 5: 顯示結果 
           //直接顯示最新的資料
@@ -220,24 +220,56 @@ else{
 
                     <div class="infor_header infor_body">
                         <div class="passway">
-                            <div class="txt">
-                                運送方式： <div class="bar"><input placeholder="輸入你的地址以檢視運送選項" size="50"></div>
-                                <br>
+                            <form action="go_to_check.jsp">
                                 <div class="txt">
-                                    訂單金額：
-                                    <span>$</span>59000
+                                    運送方式： <div class="bar"><input placeholder="輸入你的地址以檢視運送選項" size="50" name="address"></div>
+                                    <br>
+                                    <div class="txt">
+                                        訂單金額：
+                                        <span>$</span>
+										<%  request.setCharacterEncoding("UTF-8")  ;%>
+
+<%
+	if (session.getAttribute("email")!= null){
+		
+		
+//Step 3: 選擇資料庫   
+
+           sql="use product_search;";
+           con.createStatement().execute(sql);
+		   request.setCharacterEncoding("UTF-8");  
+		   sql = "SELECT SUM(shop_car.total) FROM product_search.shop_car  WHERE member ='"+session.getAttribute("email").toString()+"';";
+		   ResultSet rs8=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+		    rs8.first();
+		   out.print(rs8.getString(1));
+		   
+		   
+		   
+
+//Step 4: 執行 SQL 指令	
+			
+//Step 6: 關閉連線
+           con.close();
+//Step 5: 顯示結果 
+          //直接顯示最新的資料
+      }
+else{
+	con.close();
+	response.sendRedirect("signin.jsp");
+}
+%>
+                                    </div>
+                                    <a href="index.html"><input type="button" class="orderbutton" value="回首頁"></a>
+                                    <a href="order.jsp"><input type="submit" class="orderbutton" value="前往結帳"></a>
                                 </div>
-                            </div>
+                            </form>
                         </div>                       
                     </div>
                 </div>
             </section>
         </article>
     </main>
-    <div>
-        <a href="index.html"><input type="button" class="orderbutton" value="回首頁"></a>
-        <a href="order.html"><input type="button" class="orderbutton" value="前往結帳"></a>
-    </div>
+    
 
     
     <footer class="footer">

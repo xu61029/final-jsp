@@ -53,8 +53,7 @@
 			//小計
 			int total = price*num;
 			
-			String tprice = "$" + String.valueOf(price);
-			String ttotal = "$" + String.valueOf(total);
+			
 		
 			
 			
@@ -64,9 +63,9 @@
            sql+="VALUES ('" + member + "', ";
            sql+="'"+img+"', ";
 		   sql+="'"+phone+"', ";
-		   sql+="'"+tprice+"', ";
+		   sql+=price+", ";
 		   sql+=num+", ";
-		   sql+="'"+ttotal+"', ";
+		   sql+=total+", ";
 		   sql+="'"+color+"')";		   
 		  
            con.createStatement().execute(sql);
