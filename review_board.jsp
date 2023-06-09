@@ -25,16 +25,18 @@
 		   String new_rating = request.getParameter("rating");
 		   String new_review = request.getParameter("review");
 		   String product = request.getParameter("p_name");
+		   String member =  session.getAttribute("email").toString();
 		   
            java.sql.Date new_date=new java.sql.Date(System.currentTimeMillis());
 //Step 4: 執行 SQL 指令	
 			
-           sql="INSERT INTO board(name,rating,date,comment,product) ";
+           sql="INSERT INTO board(name,rating,date,comment,product,member) ";
            sql+="VALUES ('" + new_name + "', ";
            sql+="'"+new_rating+"', ";
 		   sql+="'"+new_date+"', ";
 		   sql+="'"+new_review+"', ";
-		   sql+="'"+product+"')";		   
+			sql+="'"+product+"', ";
+		   sql+="'"+member+"')";	
 		  
            con.createStatement().execute(sql);
 		   sql = "SELECT * FROM product_search.search WHERE product_search.search.product_name LIKE '%" + product + "%';";
