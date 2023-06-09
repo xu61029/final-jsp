@@ -245,34 +245,76 @@ else{
             </section>
 
             <section class="pg">
+			<%
+			if (session.getAttribute("email")!= null){
+		
+		
+//Step 3: 選擇資料庫   
 			
-                <div class="shopcontainer">
-                    <div class="infor_header">
-                        <div class="infor">顧客個人資訊</div>
-                    </div>
+			Class.forName("com.mysql.jdbc.Driver");
+	String url2="jdbc:mysql://localhost/?serverTimezone=UTC";
+    Connection con2 = DriverManager.getConnection(url2, "root", "1234");
+           sql="use product_search";
+           con2.createStatement().execute(sql);
+		   request.setCharacterEncoding("UTF-8");
+String email = session.getAttribute("email").toString();
 
-                    <div class="infor_header infor_body">
-                        <div class="info">
-                            <p>姓名 : <input type="text" size="20" ><br></p>
-                            <p>電話 : <input type="text" size="20" ><br></p>
-                        </div>
 
-                        <div class="info">
-                            <p>電子郵件 : <input type="text" size="20" ><br></p>                   
-                            <p>收件地址 : <input type="text" size="20" ><br></p>
-                        </div>
-                        
-                        <div class="info">
-                            <p>發票 : <select>
-                            <option>電子發票</option>
-                            <option>捐贈發票</option>
-                            <option>三聯式發票</option><br>
-                            </select></p>
-                            
-                            <p>發票載具 : <input type="text" size="20"><br></p>
-                        </div>     
-                    </div>
-                </div>
+sql = "SELECT * FROM members WHERE email = '" + email + "'";
+ResultSet rs7 = con2.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+rs7.first();
+String name = rs7.getString(3);
+String tel = rs7.getString(4);
+rs7.close();
+
+sql = "SELECT address FROM shop_car WHERE member='" + email + "'";
+ResultSet rs2 = con2.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+rs2.first();
+String address = rs2.getString(1);
+rs2.close();
+
+out.print("<div class=\"shopcontainer\">");
+out.print("<div class=\"infor_header\">");
+out.print("<div class=\"infor\">顧客個人資訊</div>");
+out.print("</div>");
+
+out.print("<div class=\"infor_header infor_body\">");
+out.print("<div class=\"info\">");
+out.print("<p>姓名 : <input type=\"text\" size=\"20\" value=\"" + name + "\"><br></p>");
+out.print("<p>電話 : <input type=\"text\" size=\"20\" value=\"" + tel + "\"><br></p>");
+out.print("</div>");
+
+out.print("<div class=\"info\">");
+out.print("<p>電子郵件 : <input type=\"text\" size=\"20\" value=\"" + email + "\"><br></p>");
+out.print("<p>收件地址 : <input type=\"text\" size=\"20\" value=\"" + address + "\"><br></p>");
+out.print("</div>");
+
+out.print("<div class=\"info\">");
+out.print("<p>發票 : <select>");
+out.print("<option>電子發票</option>");
+out.print("<option>捐贈發票</option>");
+out.print("<option>三聯式發票</option></select><br></p>");
+out.print("<p>發票載具 : <input type=\"text\" size=\"20\"><br></p>");
+out.print("</div>");
+
+out.print("</div>");
+out.print("</div>");
+
+		   
+		   
+		   
+//Step 6: 關閉連線
+           con2.close();
+//Step 5: 顯示結果 
+          //直接顯示最新的資料
+      }
+else{
+	//con2.close();
+	response.sendRedirect("signin.jsp");
+}
+			%>
+			
+                
             </section>
         </article>
     </main>
