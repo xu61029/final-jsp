@@ -75,17 +75,23 @@
 		   rs4.first();
 		   String result = rs4.getString(2);
 		   rs4.close();
-			out.print(result);
+		
 			
 		//減少庫存
-		sql = "SELECT stock FROM product_color WHERE color='"+color+"'";
+		sql="SELECT pdid FROM products WHERE pdname='"+phone+"'";
+		ResultSet rs6=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+		rs6.first();
+		String pdid = rs6.getString(1);
+		rs6.close();
+		
+		sql = "SELECT stock FROM products_color WHERE color='"+color+"' AND pdid='"+pdid+"'";
 		ResultSet rs5=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
 		rs5.first();
 		int stock = Integer. parseInt(rs5.getString(1));
 		stock-=num;
 		rs5.close();
-		sql = "UPDATE product_color SET stock="+stock+"WHERE COLOR";
-			
+		sql = "UPDATE products_color SET stock="+stock+" WHERE color='"+color+"' AND pdid='"+pdid+"'";
+		con.createStatement().execute(sql);
 //Step 6: 關閉連線
            con.close();%>
 		   
