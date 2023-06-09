@@ -152,7 +152,7 @@
         </section>
         
         <div class="info">
-            <h1 class="name">IPhone 11</h1>
+            <h1 class="name" name="p_name">IPhone 11</h1>
 
             <div class="price">
                 <h2 class="nt">NT.13000</h2>
@@ -162,25 +162,28 @@
                 <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
             </div>
 
-            <div>
-                <h2 class="color">color</h2>
-                <select class="choose" name="color">
-                    <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="星光色" class="choose">星光色</option>
-                    <option value="午夜色" class="choose">午夜色</option>
-                    <option value="藍色" class="choose">藍色</option>
-                    <option value="粉紅色" class="choose">粉紅色</option>
-                    <option value="綠色" class="choose">綠色</option>
-                    <option value="紅色" class="choose">紅色</option>
-                </select>
-            </div>
-            <div class="number">
-                <form action="shop_cart" method="post">
-                    <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
-                    <input class="quantity" type="text" value="1">
-                    <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
-                </form>
-            </div>
+            <form action="shop_record.jsp" method="post">
+                <input type="hidden" name="phone" value="iphone11"  >
+                <div>
+                    <h2 class="color">color</h2>
+                    <select class="choose" name="color">
+                        <option value=""selected class="choose">請選擇顏色</option>
+                        <option value="星光色" class="choose">星光色</option>
+                        <option value="午夜色" class="choose">午夜色</option>
+                        <option value="藍色" class="choose">藍色</option>
+                        <option value="粉紅色" class="choose">粉紅色</option>
+                        <option value="綠色" class="choose">綠色</option>
+                        <option value="紅色" class="choose">紅色</option>
+                    </select>
+                </div>
+                <div class="number">
+                        <input type="hidden" name="phone" value="i11">
+                        <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
+                        <input class="quantity" type="text" value="1">
+                        <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
+                        <button class="cart" style="position:relative; right:130px;" type="submit">ADD TO CART</button>
+                </div>
+            </form>
 
             <script>
                 function minus(ctnnum){
@@ -196,10 +199,7 @@
                     }
                 }
             </script>
-
-            <div>
-                <button class="cart">ADD TO CART</button>
-            </div>
+                
             
         </div>
        
@@ -287,6 +287,7 @@
             <fieldset class="reviewbroad">
                 <legend class="rev"><h1>評論版</h1></legend>
                 <div  style="text-align: center;">
+                    
                     <form action="review_board.jsp" method="get">
                         <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;" name="name"><br><br>
                         <span class="star-rating" style="width:150px;height:30px">

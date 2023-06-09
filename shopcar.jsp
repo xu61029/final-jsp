@@ -1,6 +1,7 @@
 <%@page contentType="text/html"%> 
 <%@page pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*, java.util.*"%>
+<%@include file="config.jsp" %>
 
 
 
@@ -145,55 +146,69 @@
                         <div class="extendprice">小計</div>
                     </div>
 
-                    <div class="shop_header shop_body">
-                        <div class="item">
-                            <div class="delete">
-                            <img src="images/Lai/delete.png" width="20px" height="20px">
-                            </div>
-                            
-                            <img src="images/Lai/i12.JPG" width="100px" height="80px">
-                            <div class="name">Iphone12</div>
-                        </div>
+                    
+					
+					<%
+	if (session.getAttribute("email")!= null){
+		
+		
+//Step 3: 選擇資料庫   
 
-                        <div class="price">
-                            <span>$</span>25000
-                        </div>
+            sql="USE `product_search`";
+           con.createStatement().execute(sql);
+		   String member =  session.getAttribute("email").toString();
+//Step 4: 執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet	
+           sql="SELECT * FROM `shop_car` WHERE member='"+member+"'"; 
+           ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+           //ResultSet.TYPE_SCROLL_INSENSITIVE表紀錄指標可前後移動，ResultSet.CONCUR_READ_ONLY表唯讀
+		   /*
+		   String pic = rs.getString(2);
+		   String name = rs.getString(3);
+		   String price = rs.getString(4);
+		   String num = rs.getString(5);
+		   String total = rs.getString(6);
+			*/
+//Step 5: 顯示結果 
+			
+			rs.afterLast();
+           while(rs.previous())
+                {
 
-                        <div class="number">
-                            <input type="button" class="btn" value="-" onclick="minus(0)">
-                            <input type="text" class="input_num" value="1">
-                            <input type="button" class="btn" value="+" onclick="add(0)">
-                        </div>
+				 out.println(" <div class=\"shop_header shop_body\">");
+                 out.println("<div class=\"item\">");
+                 out.println("<div class=\"delete\">");
+                 out.println("<img src=\"images/Lai/delete.png\" width=\"20px\" height=\"20px\">");
+                 out.println("</div>");
+                 
+				 out.println("<img src='" + rs.getString(2) + "' width=\"100px\" height=\"80px\">");
 
-                        <div class="extendprice">
-                            <span>$</span>25000
-                        </div>
-                    </div>
-
-                    <div class="shop_header shop_body">
-                        <div class="item">
-                            <div class="delete">
-                            <img src="images/Lai/delete.png" width="20px" height="20px">
-                            </div>
-                            
-                            <img src="images/Lai/i14.JPG" width="100px" height="80px">
-                            <div class="name">Iphone14</div>
-                        </div>
-
-                        <div class="price">
-                            <span>$</span>34000
-                        </div>
-
-                        <div class="number">
-                            <input type="button" class="btn" value="-" onclick="minus(1)">
-                            <input type="text" class="input_num" value="1">
-                            <input type="button" class="btn" value="+" onclick="add(1)">
-                        </div>
-
-                        <div class="extendprice">
-                            <span>$</span>34000
-                        </div>
-                    </div>
+				 out.println("<div class=\"name\">"+rs.getString(3)+"</div>");
+				 out.println("</div>");
+				 out.println("<div class=\"price\">");
+				 out.println("<span>"+rs.getString(4)+"</span>");
+				 out.println("</div>");
+				 out.println("<div class=\"number\">");
+				 out.println("<input type=\"button\" class=\"btn\" value=\"-\" onclick=\"minus(1)\">");
+				 out.println("<input type=\"text\" class=\"input_num\" value=\'"+rs.getString(5)+"\'>");
+				 out.println("<input type=\"button\" class=\"btn\" value=\"+\" onclick=\"add(1)\">");
+				 out.println("</div>");
+				 out.println("<div class=\"extendprice\">");
+				 out.println("<span>"+rs.getString(6)+"</span>");
+				 out.println("</div>");
+				 out.println("</div>");
+          }
+			
+//Step 6: 關閉連線
+           con.close();
+		   
+//Step 5: 顯示結果 
+          //直接顯示最新的資料
+		
+     }
+else{
+	con.close();
+}
+%>
                 </div>
             </section>
 
