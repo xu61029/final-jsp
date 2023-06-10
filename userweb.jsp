@@ -38,12 +38,10 @@
                 <li>
                     <div class="search_wrap">
                         <div class="search_box">
-                            <form action="search.jsp" method="post">
-                                <input type="text" class="input" placeholder="search..." name="product_name">
-                                <div class="btn" onclick="this.parentNode.submit()">
-                                    <p><i class="fa-solid fa-magnifying-glass"></i></p>
-                                </div>
-                            </form>
+                            <input type="text" class="input" placeholder="search...">
+                            <div class="btn">
+                                <p><i class="fa-solid fa-magnifying-glass"></i></p>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -55,7 +53,7 @@
                 </li>
                 
                 <li>
-                    <a href="shopcar.jsp">
+                    <a href="shopcar.html">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -123,21 +121,23 @@ try {
     String username = "";
     String tel = "";
 	int userid = 0;
+	String iden = "";
 
 
     // 使用已登入的使用者名稱進行資料庫查詢
-    String selectQuery = "SELECT id,email, username, tel FROM product_search.members WHERE email=?";
+    String selectQuery = "SELECT id,email, username, tel, role FROM product_search.members WHERE email=?";
     Connection connection = DriverManager.getConnection(dbUrl, "root", "1234");
     PreparedStatement pstmt = connection.prepareStatement(selectQuery);
     pstmt.setString(1, loggedInemail);
     ResultSet rs = pstmt.executeQuery();
 
-    // 檢查是否找到符合條件的資料
+    // 檢查是否找到符合條件的資料;
     if (rs.next()) {
 		userid = rs.getInt("id");
         email = rs.getString("email");
         username = rs.getString("username");
         tel = rs.getString("tel");
+		iden = rs.getString("role");
     } else {
 		%>
         <script>
@@ -208,6 +208,7 @@ try {
                 </div>
             </div>
 			
+			<div class="content"><!-- 訂單-2 -->
 			<%
 			int[] ordersid ;
 			String[] proid ;
@@ -215,9 +216,15 @@ try {
 			String phname ="";
 			int phprice = 0;
 			String phimg = "";
-			selectQuery = "SELECT * FROM product_search.orders WHERE mid=?";
-			pstmt = connection.prepareStatement(selectQuery, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			pstmt.setInt(1, userid);
+			if(iden.equals("admin")){
+				selectQuery = "SELECT * FROM product_search.orders;";
+				pstmt = connection.prepareStatement(selectQuery, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			}
+			else{
+				selectQuery = "SELECT * FROM product_search.orders WHERE mid=?";
+				pstmt = connection.prepareStatement(selectQuery, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+				pstmt.setInt(1, userid);
+			}
 			rs = pstmt.executeQuery();
 			rs.last();
 			int longer = rs.getRow();
@@ -234,7 +241,7 @@ try {
 			for (int i=0 ; i<longer ; i++){%>
 
 			
-			                <div class="content"><!-- 訂單-2 -->
+			                
                     <main class="table">
                         <section class="table__header">
                             <h1 style="color: black;">#<%= ordersid[i]%></h1><!-- 訂單編號 -->
@@ -304,9 +311,8 @@ try {
                             </table>
                         </section>
                     </main>
-                </div>
-				
-			<%}%>
+					<%}%>
+					</div>
 			
 			                <div class="content"><!-- 評價-3 -->
                     <main class="table">

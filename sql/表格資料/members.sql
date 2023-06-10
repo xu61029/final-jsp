@@ -37,6 +37,7 @@ CREATE TABLE `members` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 INSERT INTO `members` (`pwd`, `username`, `tel`, `email`, `gender`, `role`) VALUES ('1234', '超級管理員', '0966', '666@gmail.com', '外星人', 'admin');
 INSERT INTO `members` (`pwd`, `username`, `tel`, `email`, `gender`, `role`) VALUES ('1', '機器人1', '0901', '123@gmail.com', '男', 'member');
+INSERT INTO `members` (`pwd`, `username`, `tel`, `email`, `gender`, `role`) VALUES ('234', '機器人2', '0978', '456@gmail.com', '女', 'member');
 
 --
 -- Dumping data for table `members`
