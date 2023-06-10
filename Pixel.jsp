@@ -90,7 +90,7 @@
 					<span>OPPO</span>
 				</a>
 
-				<a href="login.jsp">
+				<a href="login.html">
 					<i class="fa-regular fa-user"></i>
 					<span>Log IN</span>
 				</a>
