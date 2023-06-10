@@ -201,16 +201,16 @@
 				 out.println("</div>");
 				 out.print("<script>");
 out.print("function minus(ctn_num) {");
-out.print("    var num = Number(document.getElementById('a" + i + "').value);");
-out.print("    if (num > 1) {");
-out.print("        document.getElementById('a" + i + "').value = num - 1;");
+out.print("    var num"+i+" = Number(document.getElementById('a" + i + "').value);");
+out.print("    if (num"+i+" > 1) {");
+out.print("        document.getElementById('a" + i + "').value = num"+i+" - 1;");
 out.print("    }");
 out.print("}");
 
 out.print("function add(ctn_num) {");
-out.print("    var num = Number(document.getElementById('a" + i + "').value);");
-out.print("    if (num < 100) {");
-out.print("        document.getElementById('a" + i + "').value = num + 1;");
+out.print("    var num"+i+" = Number(document.getElementById('a" + i + "').value);");
+out.print("    if (num"+i+" < 100) {");
+out.print("        document.getElementById('a" + i + "').value = num"+i+" + 1;");
 out.print("    }");
 out.print("}");
 out.print("</script>");
