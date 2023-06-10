@@ -16,6 +16,11 @@ create table orders_detail (
 );
 
 insert into orders value (1,2);
+insert into orders value (2,3);
+insert into orders value (3,2);
 
 insert into orders_detail value (1,"P002",2);
 insert into orders_detail value (1,"P003",1);
+insert into orders_detail value (2,"P004",1);
+insert into orders_detail value (3,"P006",1);
+insert into orders_detail value (3,"P014",1);
