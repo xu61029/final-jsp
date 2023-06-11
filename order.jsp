@@ -144,104 +144,98 @@
                         <div class="number">數量</div>
                         <div class="extendprice">小計</div>
                     </div>
+<form action="send_order.jsp">
+                   <%
+	if (session.getAttribute("email") != null) {
+		sql = "USE `product_search`";
+		con.createStatement().execute(sql);
+		String member = session.getAttribute("email").toString();
+		sql = "SELECT * FROM `shop_car` WHERE member='" + member + "'";
+		ResultSet rs = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+		rs.afterLast();
+		int i = 0;
+		while (rs.previous()) {
+			i += 1;
+%>
+			<div class="shop_header shop_body">
+				<div class="item">
+					<div class="delete">
+						<a href="delete_item.jsp?delete_id=<%= rs.getString(1) %>">
+						  <img src="images/Lai/delete.png" width="20px" height="20px">
+						</a>
+					</div>
+					<img src="<%= rs.getString(3) %>" width="100px" height="80px">
+					<div class="name"><%= rs.getString(4) %></div>
+				</div>
+				<div class="price">
+					<span id="onegoodprice"><%= rs.getString(5) %></span>
+				</div>
+				<div class="number">
+					<input type="button" class="btn" value="-" onclick="minus<%= i %>(1)">
+					<input type="text" class="input_num" value="<%= rs.getString(6) %>" id="a<%= i %>" name="n<%= i %>">
+					<input type="button" class="btn" value="+" onclick="add<%= i %>(1)">
+				</div>
+				<div class="extendprice">
+					<span id="extendedPrice<%= i %>"><%= rs.getString(7) %></span>
+				</div>
+			</div>
 
-                    <%
-	if (session.getAttribute("email")!= null){
-		
-		
-//Step 3: 選擇資料庫   
+			<script>
+				function minus<%= i %>(ctn_num) {
+					
+					var num<%= i %> = Number(document.getElementById('a<%= i %>').value);
+					if (num<%= i %> > 1) {
+						document.getElementById('a<%= i %>').value = num<%= i %> - 1;
+						updateExtendedPrice<%= i %>();
+					}
+					
+				}
 
-            sql="USE `product_search`";
-           con.createStatement().execute(sql);
-		   String member =  session.getAttribute("email").toString();
-//Step 4: 執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet	
-           sql="SELECT * FROM `shop_car` WHERE member='"+member+"'"; 
-           ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
-           //ResultSet.TYPE_SCROLL_INSENSITIVE表紀錄指標可前後移動，ResultSet.CONCUR_READ_ONLY表唯讀
-		   /*
-		   String pic = rs.getString(2);
-		   String name = rs.getString(3);
-		   String price = rs.getString(4);
-		   String num = rs.getString(5);
-		   String total = rs.getString(6);
-			*/
-//Step 5: 顯示結果 
-			
-			rs.afterLast();
-           while(rs.previous())
-                {
+				function add<%= i %>(ctn_num) {
+					var num<%= i %> = Number(document.getElementById('a<%= i %>').value);
+					if (num<%= i %> < 100) {
+						document.getElementById('a<%= i %>').value = num<%= i %> + 1;
+						updateExtendedPrice<%= i %>();
+					}
+					
+				}
 
-				 out.println(" <div class=\"shop_header shop_body\">");
-                 out.println("<div class=\"item\">");
-                 out.println("<div class=\"delete\">");
-                 out.println("<img src=\"images/Lai/delete.png\" width=\"20px\" height=\"20px\">");
-                 out.println("</div>");
-                 
-				 out.println("<img src='" + rs.getString(2) + "' width=\"100px\" height=\"80px\">");
-
-				 out.println("<div class=\"name\">"+rs.getString(3)+"</div>");
-				 out.println("</div>");
-				 out.println("<div class=\"price\">");
-				 out.println("<span>"+rs.getString(4)+"</span>");
-				 out.println("</div>");
-				 out.println("<div class=\"number\">");
-				 out.println("<input type=\"button\" class=\"btn\" value=\"-\" onclick=\"minus(1)\">");
-				 out.println("<input type=\"text\" class=\"input_num\" value=\'"+rs.getString(5)+"\'>");
-				 out.println("<input type=\"button\" class=\"btn\" value=\"+\" onclick=\"add(1)\">");
-				 out.println("</div>");
-				 out.println("<div class=\"extendprice\">");
-				 out.println("<span>"+rs.getString(6)+"</span>");
-				 out.println("</div>");
-				 out.println("</div>");
-          }
-			
-//Step 6: 關閉連線
-           
-		   
-//Step 5: 顯示結果 
-          //直接顯示最新的資料
-		
-     }
-else{
-	con.close();
-}
+				function updateExtendedPrice<%= i %>() {
+					var quantity = Number(document.getElementById('a<%= i %>').value);
+					var price = Number(<%= rs.getString(5) %>); // Replace 'price' with the actual column name for the item's price
+					var extendedPrice = quantity * price;
+					document.getElementById('extendedPrice<%= i %>').innerText = extendedPrice;
+					setTotal();
+				}
+			</script>
+<%
+		}
+	}
 %>
                 </div>
                 <div class="info0"> <!--總計-->
                     <p>運費 : <span>$</span>60</p><br>
-                    <p>總計 : <span>$</span>
-					<%  request.setCharacterEncoding("UTF-8")  ;%>
+                    <p >總計 : <span id="ttttotal">$</span>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<%
-	if (session.getAttribute("email")!= null){
-		
-		
-//Step 3: 選擇資料庫   
-
-           sql="use product_search;";
-           con.createStatement().execute(sql);
-		   request.setCharacterEncoding("UTF-8");  
-		   sql = "SELECT SUM(shop_car.total) FROM product_search.shop_car  WHERE member ='"+session.getAttribute("email").toString()+"';";
-		   ResultSet rs8=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
-		    rs8.first();
-			
-		   out.print(Integer. parseInt(rs8.getString(1))+60);
-		   
-		   
-		   
-
-//Step 4: 執行 SQL 指令	
-			
-//Step 6: 關閉連線
-           con.close();
-//Step 5: 顯示結果 
-          //直接顯示最新的資料
+	<script>
+  function setTotal() {
+    var s = 0;
+    $('.number').each(function () {
+      var quantity = parseInt($(this).find('.input_num').val());
+      var price = parseFloat($(this).siblings('.price').find('span').text());
+      if (!isNaN(quantity) && !isNaN(price)) {
+        s += quantity * price;
       }
-else{
-	con.close();
-	response.sendRedirect("signin.jsp");
-}
-%>
+    });
+	s=s+60;
+	
+    document.getElementById('ttttotal').innerText = s.toFixed(2);
+  }
+  setTotal();
+</script>
+
+
 					</p>
                 </div>
             </section>
@@ -322,8 +316,10 @@ else{
     </main>
 
     <div>
+	
         <a href="shopcar.html"><input type="button" class="orderbutton" value="回上頁"></a>
         <a href="confirm.html"><input type="submit" class="orderbutton" value="送出訂單"></a>
+</form>
     </div>
          
     
@@ -334,5 +330,6 @@ else{
 		</footer>
 
     <a class="gotopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+	
 </body>
 </html>

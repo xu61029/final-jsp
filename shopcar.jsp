@@ -189,7 +189,7 @@
 
 				function updateExtendedPrice<%= i %>() {
 					var quantity = Number(document.getElementById('a<%= i %>').value);
-					var price = Number(<%= rs.getString(5) %>); // Replace 'price' with the actual column name for the item's price
+					var price = Number(<%= rs.getString(5) %>);
 					var extendedPrice = quantity * price;
 					document.getElementById('extendedPrice<%= i %>').innerText = extendedPrice;
 					setTotal();
