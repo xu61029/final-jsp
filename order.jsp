@@ -72,22 +72,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -114,8 +114,8 @@
 
     <nav>
         <a href="shopcar.jsp">購物車</a>
-        <a href="order.html">填寫資料</a>
-        <a href="confirm.html">送出訂單</a>
+        <a href="order.jsp">填寫資料</a>
+        <a href="confirm.jsp">送出訂單</a>
     </nav>
 
     <script>
