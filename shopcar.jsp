@@ -122,6 +122,7 @@
     </nav>
     <main>
         <article>
+		 <form action="go_to_check.jsp">
             <section class="word">
                 <div class="shopcontainer">
                     <div class="shop_header">
@@ -131,7 +132,7 @@
                         <div class="extendprice">小計</div>
                     </div>
 
-                    
+                   
 					<%
 	if (session.getAttribute("email") != null) {
 		sql = "USE `product_search`";
@@ -211,7 +212,7 @@
 
 		<div class="infor_header infor_body">
 			<div class="passway">
-				<form action="go_to_check.jsp">
+				
 					<div class="txt">
 						運送方式：<div class="bar"><input placeholder="輸入你的地址以檢視運送選項" size="50" name="address"></div>
 						<br>
@@ -219,14 +220,14 @@
 							訂單金額：<span id="ttttotal"></span>
 						</div>
 						<a href="index.html"><input type="button" class="orderbutton" value="回首頁"></a>
-						<a href="order.jsp"><input type="submit" class="orderbutton" value="前往結帳"></a>
+						<input type="submit" class="orderbutton" value="前往結帳">
 					</div>
-				</form>
+				
 			</div>
 		</div>
 	</div>
 </section>
-
+</form>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 

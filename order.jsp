@@ -317,8 +317,8 @@ else{
 
     <div>
 	
-        <a href="shopcar.html"><input type="button" class="orderbutton" value="回上頁"></a>
-        <a href="confirm.html"><input type="submit" class="orderbutton" value="送出訂單"></a>
+        <a href="shopcar.jsp"><input type="button" class="orderbutton" value="回上頁"></a>
+        <a href="confirm.jsp"><input type="submit" class="orderbutton" value="送出訂單"></a>
 </form>
     </div>
          
