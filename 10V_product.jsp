@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SONY 10V</title>
     <link rel="stylesheet" href="assets/css/10V_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
@@ -41,7 +41,7 @@ try {
            ResultSet rs;
 		   con.createStatement().execute(sql);
 //Step 4: 執行 SQL 指令, 只有一筆資料          
-			sql = "SELECT * FROM `products` WHERE `pdid` = 'P001'";
+			sql = "SELECT * FROM `products` WHERE `pdid` = 'P012'";
 			rs=con.createStatement().executeQuery(sql);
 			while (rs.next()){
 				phname = rs.getString(3);
@@ -49,7 +49,7 @@ try {
 				phmon = rs.getString(6);
 				phch = rs.getString(7);}
 			
-			sql = "SELECT * FROM `pro_detail` WHERE `pdid` = 'P001'";
+			sql = "SELECT * FROM `pro_detail` WHERE `pdid` = 'P012'";
 			rs=con.createStatement().executeQuery(sql);
 //Step 5: 顯示結果            
 		   int inventory = 0;
@@ -159,16 +159,19 @@ try {
         
         
         <div class="info">
-            <h1 class="name">SONY 10V</h1>
+            <h1 class="name"><%= phname%></h1>
 
             <div class="price">
-                <h2 class="nt">NT.13990</h2>
+                <h2 class="nt">NT.<%= phprice%></h2>
             </div>
 
             <div class="love">
-                <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
+                <a href="like.jsp?data=P012" style="text-decoration: none !important;position: relative;z-index: 2;">
+					<img class="heart" src="images/yi/icon/heart.png" alt="加入最愛"/>
+				</a>
             </div>
-<form action="shop_record.jsp" method="post">
+			
+			<form action="shop_record.jsp" method="post">
 			  <input type="hidden" name="phone" value="SONY_10V">
             <div>
                 <h2 class="color">color</h2>
@@ -212,11 +215,9 @@ try {
        
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
+				<h2>顯示器</h2><br>
                 <p>
-                <li>主相機畫素 1200 萬畫素</li>
-                <li>RAM記憶體 6 GB</li>
-                <li>ROM儲存空間 128 GB</li>
-                <li>電池容量 5000 mAh</li>
+                <li><%= phmon%></li>
                 </p>
         </fieldset>
        

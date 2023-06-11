@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Find N2 flip</title>
     <link rel="stylesheet" href="assets/css/Find_N2_flip_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
@@ -40,7 +40,7 @@ try {
            ResultSet rs;
 		   con.createStatement().execute(sql);
 //Step 4: 執行 SQL 指令, 只有一筆資料          
-			sql = "SELECT * FROM `products` WHERE `pdid` = 'P001'";
+			sql = "SELECT * FROM `products` WHERE `pdid` = 'P005'";
 			rs=con.createStatement().executeQuery(sql);
 			while (rs.next()){
 				phname = rs.getString(3);
@@ -48,7 +48,7 @@ try {
 				phmon = rs.getString(6);
 				phch = rs.getString(7);}
 			
-			sql = "SELECT * FROM `pro_detail` WHERE `pdid` = 'P001'";
+			sql = "SELECT * FROM `pro_detail` WHERE `pdid` = 'P005'";
 			rs=con.createStatement().executeQuery(sql);
 //Step 5: 顯示結果            
 		   int inventory = 0;
@@ -158,16 +158,19 @@ try {
         
         
         <div class="info">
-            <h1 class="name">Find N2 flip</h1>
+            <h1 class="name"><%= phname%></h1>
 
             <div class="price">
-                <h2 class="nt">NT.31990</h2>
+                <h2 class="nt">NT.<%= phprice%></h2>
             </div>
 
             <div class="love">
-                <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
+                <a href="like.jsp?data=P005" style="text-decoration: none !important;position: relative;z-index: 2;">
+					<img class="heart" src="images/yi/icon/heart.png" alt="加入最愛"/>
+				</a>
             </div>
-	<form action="shop_record.jsp" method="post">
+			
+			<form action="shop_record.jsp" method="post">
 			  <input type="hidden" name="phone" value="Find_N2_flip">
             <div>
                 <h2 class="color">color</h2>
@@ -210,24 +213,13 @@ try {
                 <h2>顯示器</h2><br>
                 <p>
                 <li>
-                    內屏：7.10 英寸（對角線）
-                    外屏：5.54 英寸（對角線）
-                    分辨率
-                    
-                    內屏：1792 × 1920 像素，370 PPI
-                    外屏：2120 × 1080 像素，429 PPI
-                    色彩
-                    
-                    1670 萬色，支持廣色域（P3）
+                    <%= phname%>
                 </li>
                 </p><br>
                 <h2>晶片</h2><br>
                 <p>
                 <li>
-                    馬里亞納®MariSilicon X
-                    移動平台
-                    
-                    第一代驍龍®8+ 移動平台，八核心處理器，最高主頻3.0GHz
+                    <%= phch%>
                 </li>
                 </p>
         </fieldset>

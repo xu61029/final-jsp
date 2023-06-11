@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IPhone14</title>
     <link rel="stylesheet" href="assets/css/i14_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
@@ -40,7 +40,7 @@ try {
            ResultSet rs;
 		   con.createStatement().execute(sql);
 //Step 4: 執行 SQL 指令, 只有一筆資料          
-			sql = "SELECT * FROM `products` WHERE `pdid` = 'P001'";
+			sql = "SELECT * FROM `products` WHERE `pdid` = 'P004'";
 			rs=con.createStatement().executeQuery(sql);
 			while (rs.next()){
 				phname = rs.getString(3);
@@ -48,7 +48,7 @@ try {
 				phmon = rs.getString(6);
 				phch = rs.getString(7);}
 			
-			sql = "SELECT * FROM `pro_detail` WHERE `pdid` = 'P001'";
+			sql = "SELECT * FROM `pro_detail` WHERE `pdid` = 'P004'";
 			rs=con.createStatement().executeQuery(sql);
 //Step 5: 顯示結果            
 		   int inventory = 0;
@@ -159,16 +159,19 @@ try {
         
         
         <div class="info">
-            <h1 class="name">IPhone 14</h1>
+            <h1 class="name"><%= phname%></h1>
 
             <div class="price">
-                <h2 class="nt">NT.34900</h2>
+                <h2 class="nt">NT.<%= phprice%></h2>
             </div>
 
             <div class="love">
-                <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
+                <a href="like.jsp?data=P004" style="text-decoration: none !important;position: relative;z-index: 2;">
+					<img class="heart" src="images/yi/icon/heart.png" alt="加入最愛"/>
+				</a>
             </div>
-<form action="shop_record.jsp" method="post">
+			
+			<form action="shop_record.jsp" method="post">
 			  <input type="hidden" name="phone" value="Iphone14">
             <div>
                 <h2 class="color">color</h2>
@@ -216,26 +219,13 @@ try {
                 <h2>顯示器</h2><br>
                 <p>
                 <li>
-                超 Retina XDR 顯示器
-                6.1 吋 (對角線) 全螢幕 OLED 顯示器
-                2532 x 1170 像素，460 ppi 解析度
-                HDR 顯示
-                原彩顯示
-                廣色域 (P3)
-                觸覺回饋觸控
-                2,000,000:1 對比度 (標準)
-                625 尼特最大亮度 (標準)；1200 尼特峰值亮度 (HDR)
-                防指印疏油外膜
-                支援同時顯示多種語言文字
+                <%= phmon%>
                 </li>
                 </p><br>
                 <h2>晶片</h2><br>
                 <p>
                 <li>
-                A14 仿生晶片
-                6 核心 CPU 配備 2 個效能核心與 4 個節能核心
-                4 核心 GPU
-                16 核心神經網路引擎
+                <%= phch%>
                 </li>
                 </p>
         </fieldset>

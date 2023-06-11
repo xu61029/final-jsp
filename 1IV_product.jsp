@@ -165,7 +165,7 @@ try {
             </div>
 
             <div class="love">
-                <a href="like.jsp?data=P001" style="text-decoration: none !important;position: relative;z-index: 2;">
+                <a href="like.jsp?data=P009" style="text-decoration: none !important;position: relative;z-index: 2;">
 					<img class="heart" src="images/yi/icon/heart.png" alt="加入最愛"/>
 				</a>
             </div>
