@@ -25,7 +25,7 @@
 		   sql = "SELECT SUM(total) FROM shop_car WHERE member = '"+session.getAttribute("email").toString()+"'";
 		   ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
 		    rs.first();
-		   int total_num = Integer. parseInt(rs.getString(1));
+		  
 		   
 		   
 		   
