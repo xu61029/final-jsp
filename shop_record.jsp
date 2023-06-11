@@ -30,7 +30,7 @@
 //Step 4: 執行 SQL 指令
 			
 			//圖片路徑
-			sql = "SELECT p_name FROM product_name WHERE phone LIKE '%" +phone+"%';";
+			sql = "SELECT p_name FROM product_name WHERE phone LIKE '" +phone+"';";
 			ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
 			rs.first();
 			String p_name = rs.getString(1);
@@ -45,7 +45,7 @@
 			
 			//價格
 
-			sql="SELECT price FROM products WHERE pdname LIKE \'%"+phone+"%\'";
+			sql="SELECT price FROM products WHERE pdname LIKE \'"+phone+"\'";
 			ResultSet rs3=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
 			rs3.first();
 			
@@ -70,7 +70,7 @@
 		   sql+="'"+color+"')";		   
 		  
            con.createStatement().execute(sql);
-		   sql = "SELECT * FROM product_search.search WHERE product_search.search.product_name LIKE '%" + p_name + "%';";
+		   sql = "SELECT * FROM product_search.search WHERE product_search.search.product_name LIKE '" + p_name + "';";
            ResultSet rs4=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
 		   rs4.first();
 		   String result = rs4.getString(2);

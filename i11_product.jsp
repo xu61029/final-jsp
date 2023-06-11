@@ -301,22 +301,6 @@ catch (ClassNotFoundException err) {
         
         <fieldset class="review">
             <legend class="rev"><h1>評論</h1></legend>
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-                <h3>頂戴轟</h3> 
-                <div class="commentstar">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                </div>
-                <p>2023/05/25</p>
-                <p>好餓好餓好餓</p>
-                </div>
-
-            
-			
 			<%
 try {
 //Step 1: 載入資料庫驅動程式 
@@ -395,7 +379,6 @@ catch (ClassNotFoundException err) {
                             <input type="radio" name="rating" value="5"><i></i>
                         </span>
                         <br><br>
-						<input type="hidden" name="p_name" value="i11">
                         <textarea name="review" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
                         <input type="submit" class="commentsubmit">
                     </form>
