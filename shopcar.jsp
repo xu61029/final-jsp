@@ -136,7 +136,7 @@
             }
         }
     </script>*/
-
+<form action="go_to_check.jsp">
     <main>
         <article>
             <section class="word">
@@ -160,7 +160,7 @@
 		int i = 0;
 		while (rs.previous()) {
 			i += 1;
-%>
+%>			
 			<div class="shop_header shop_body">
 				<div class="item">
 					<div class="delete">
@@ -173,8 +173,8 @@
 					<span id="onegoodprice"><%= rs.getString(4) %></span>
 				</div>
 				<div class="number">
-					<input type="button" class="btn" value="-" onclick="minus<%= i %>(1)">
-					<input type="text" class="input_num" value="<%= rs.getString(5) %>" id="a<%= i %>">
+					<input type="button" class="btn" value="-" onclick="minus<%= i %>(1) ">
+					<input type="text" class="input_num" value="<%= rs.getString(5) %>" id="a<%= i %> name=\"n"+i+"\">
 					<input type="button" class="btn" value="+" onclick="add<%= i %>(1)">
 				</div>
 				<div class="extendprice">
@@ -212,6 +212,7 @@
 			</script>
 <%
 		}
+		//out.print("<input type=\"hidden\" value='"+i+"' name="num">");
 	}
 %>
 
@@ -226,7 +227,7 @@
 
 		<div class="infor_header infor_body">
 			<div class="passway">
-				<form action="go_to_check.jsp">
+				
 					<div class="txt">
 						運送方式：<div class="bar"><input placeholder="輸入你的地址以檢視運送選項" size="50" name="address"></div>
 						<br>
@@ -236,7 +237,7 @@
 						<a href="index.html"><input type="button" class="orderbutton" value="回首頁"></a>
 						<a href="order.jsp"><input type="submit" class="orderbutton" value="前往結帳"></a>
 					</div>
-				</form>
+				
 			</div>
 		</div>
 	</div>
@@ -264,7 +265,7 @@
 
         </article>
     </main>
-    
+  </form>  
 
     
     <footer class="footer">
