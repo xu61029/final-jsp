@@ -238,10 +238,6 @@ try {
                 }
             </script>
 
-            <div>
-                <button class="cart">ADD TO CART</button>
-            </div>
-            
         </div>
        
         <fieldset class="introduce">
