@@ -111,52 +111,55 @@
         </div>
         
         
-        <form action="">
-            <div class="info">
-                <h1 class="name">IPhone 12</h1>
-                <div class="price">
-                    <h2 class="nt">NT.20900</h2>
-                </div>
-                <div class="love">
-                    <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
-                </div>
-                <div>
-                    <h2 class="color">color</h2>
-                    <select class="choose" name="color">
-                        <option value=""selected class="choose">請選擇顏色</option>
-                        <option value="白色" class="choose">白色</option>
-                        <option value="黑色" class="choose">黑色</option>
-                        <option value="藍色" class="choose">藍色</option>
-                        <option value="紫色" class="choose">紫色</option>
-                        <option value="綠色" class="choose">綠色</option>
-                        <option value="紅色" class="choose">紅色</option>
-                    </select>
-                </div>
-                <div class="number">
-                    <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
-                    <input class="quantity" type="text" value="1">
-                    <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
-                </div>
-                <script>
-                    function minus(ctnnum){
-                        var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                        if(num>1){
-                            document.getElementsByClassName("quantity")[ctnnum].value=num-1;
-                        }
-                    }
-                    function add(ctnnum) {
-                        var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                        if(num<1000){
-                            document.getElementsByClassName("quantity")[ctnnum].value=num+1;
-                        }
-                    }
-                </script>
-                <div>
-                    <button class="cart">ADD TO CART</button>
-                </div>
-            
+        <div class="info">
+            <h1 class="name">IPhone 12</h1>
+
+            <div class="price">
+                <h2 class="nt">NT.20900</h2>
             </div>
-        </form>
+
+            <div class="love">
+                <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
+            </div>
+
+            <div>
+                <h2 class="color">color</h2>
+                <select class="choose" name="color">
+                    <option value=""selected class="choose">請選擇顏色</option>
+                    <option value="白色" class="choose">白色</option>
+                    <option value="黑色" class="choose">黑色</option>
+                    <option value="藍色" class="choose">藍色</option>
+                    <option value="紫色" class="choose">紫色</option>
+                    <option value="綠色" class="choose">綠色</option>
+                    <option value="紅色" class="choose">紅色</option>
+                </select>
+            </div>
+            <div class="number">
+                <input class="less" type="button" value="-" id="del" onclick="minus(0)"/>
+                <input class="quantity" type="text" value="1">
+                <input class="add" type="button" value="+" id="add" onclick="add(0)"/>
+            </div>
+
+            <script>
+                function minus(ctnnum){
+                    var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
+                    if(num>1){
+                        document.getElementsByClassName("quantity")[ctnnum].value=num-1;
+                    }
+                }
+                function add(ctnnum) {
+                    var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
+                    if(num<1000){
+                        document.getElementsByClassName("quantity")[ctnnum].value=num+1;
+                    }
+                }
+            </script>
+
+            <div>
+                <button class="cart">ADD TO CART</button>
+            </div>
+            
+        </div>
        
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
