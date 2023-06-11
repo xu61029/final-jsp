@@ -121,7 +121,7 @@
         <a href="confirm.html">送出訂單</a>
     </nav>
 
-    <script>
+  /*  <script>
         function minus(ctn_num){
             var num = Number(document.getElementsByClassName("input_num")[ctn_num].value);
             if(num > 1){
@@ -135,7 +135,7 @@
                 document.getElementsByClassName("input_num")[ctn_num].value = num +1;
             }
         }
-    </script>
+    </script>*/
 
     <main>
         <article>
@@ -149,145 +149,119 @@
                     </div>
 
                     
-					
 					<%
-	if (session.getAttribute("email")!= null){
-		
-		
-//Step 3: 選擇資料庫   
-
-            sql="USE `product_search`";
-           con.createStatement().execute(sql);
-		   String member =  session.getAttribute("email").toString();
-//Step 4: 執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet	
-           sql="SELECT * FROM `shop_car` WHERE member='"+member+"'"; 
-           ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
-           //ResultSet.TYPE_SCROLL_INSENSITIVE表紀錄指標可前後移動，ResultSet.CONCUR_READ_ONLY表唯讀
-		   /*
-		   String pic = rs.getString(2);
-		   String name = rs.getString(3);
-		   String price = rs.getString(4);
-		   String num = rs.getString(5);
-		   String total = rs.getString(6);
-			*/
-//Step 5: 顯示結果 
-			
-			rs.afterLast();
-			int i=0;
-           while(rs.previous())
-                {
-				i+=1;
-				 out.println(" <div class=\"shop_header shop_body\">");
-                 out.println("<div class=\"item\">");
-                 out.println("<div class=\"delete\">");
-                 out.println("<img src=\"images/Lai/delete.png\" width=\"20px\" height=\"20px\" onclick=\"this.parentNode.submit()\">");
-                 out.println("</div>");
-                 
-				 out.println("<img src='" + rs.getString(2) + "' width=\"100px\" height=\"80px\">");
-
-				 out.println("<div class=\"name\">"+rs.getString(3)+"</div>");
-				 out.println("</div>");
-				 out.println("<div class=\"price\">");
-				 out.println("<span>"+rs.getString(4)+"</span>");
-				 out.println("</div>");
-				 out.println("<div class=\"number\">");
-				 out.println("<input type=\"button\" class=\"btn\" value=\"-\" onclick=\"minus(1)\">");
-				 out.println("<input type=\"text\" class=\"input_num\" value=\'"+rs.getString(5)+"\' id='a"+i+"'>");
-				 out.println("<input type=\"button\" class=\"btn\" value=\"+\" onclick=\"add(1)\">");
-				 out.println("</div>");
-				 out.println("<div class=\"extendprice\">");
-				 out.println("<span>"+rs.getString(6)+"</span>");
-				 out.println("</div>");
-				 out.println("</div>");
-				 out.print("<script>");
-out.print("function minus(ctn_num) {");
-out.print("    var num"+i+" = Number(document.getElementById('a" + i + "').value);");
-out.print("    if (num"+i+" > 1) {");
-out.print("        document.getElementById('a" + i + "').value = num"+i+" - 1;");
-out.print("    }");
-out.print("}");
-
-out.print("function add(ctn_num) {");
-out.print("    var num"+i+" = Number(document.getElementById('a" + i + "').value);");
-out.print("    if (num"+i+" < 100) {");
-out.print("        document.getElementById('a" + i + "').value = num"+i+" + 1;");
-out.print("    }");
-out.print("}");
-out.print("</script>");
-
-
-				 
-          }
-			
-//Step 6: 關閉連線
-           
-		   
-//Step 5: 顯示結果 
-          //直接顯示最新的資料
-		
-     }
-else{
-	con.close();
-}
+	if (session.getAttribute("email") != null) {
+		sql = "USE `product_search`";
+		con.createStatement().execute(sql);
+		String member = session.getAttribute("email").toString();
+		sql = "SELECT * FROM `shop_car` WHERE member='" + member + "'";
+		ResultSet rs = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+		rs.afterLast();
+		int i = 0;
+		while (rs.previous()) {
+			i += 1;
 %>
-                </div>
-            </section>
+			<div class="shop_header shop_body">
+				<div class="item">
+					<div class="delete">
+						<img src="images/Lai/delete.png" width="20px" height="20px" onclick="this.parentNode.submit()">
+					</div>
+					<img src="<%= rs.getString(2) %>" width="100px" height="80px">
+					<div class="name"><%= rs.getString(3) %></div>
+				</div>
+				<div class="price">
+					<span id="onegoodprice"><%= rs.getString(4) %></span>
+				</div>
+				<div class="number">
+					<input type="button" class="btn" value="-" onclick="minus<%= i %>(1)">
+					<input type="text" class="input_num" value="<%= rs.getString(5) %>" id="a<%= i %>">
+					<input type="button" class="btn" value="+" onclick="add<%= i %>(1)">
+				</div>
+				<div class="extendprice">
+					<span id="extendedPrice<%= i %>"><%= rs.getString(6) %></span>
+				</div>
+			</div>
 
-            <section class="pg">
-                <div class="shopcontainer">
-                    <div class="infor_header">
-                        <div class="infor">購物車總計</div>
-                    </div>
+			<script>
+				function minus<%= i %>(ctn_num) {
+					
+					var num<%= i %> = Number(document.getElementById('a<%= i %>').value);
+					if (num<%= i %> > 1) {
+						document.getElementById('a<%= i %>').value = num<%= i %> - 1;
+						updateExtendedPrice<%= i %>();
+					}
+					
+				}
 
-                    <div class="infor_header infor_body">
-                        <div class="passway">
-                            <form action="go_to_check.jsp">
-                                <div class="txt">
-                                    運送方式： <div class="bar"><input placeholder="輸入你的地址以檢視運送選項" size="50" name="address"></div>
-                                    <br>
-                                    <div class="txt">
-                                        訂單金額：
-                                        <span>$</span>
-										<%  request.setCharacterEncoding("UTF-8")  ;%>
+				function add<%= i %>(ctn_num) {
+					var num<%= i %> = Number(document.getElementById('a<%= i %>').value);
+					if (num<%= i %> < 100) {
+						document.getElementById('a<%= i %>').value = num<%= i %> + 1;
+						updateExtendedPrice<%= i %>();
+					}
+					
+				}
 
+				function updateExtendedPrice<%= i %>() {
+					var quantity = Number(document.getElementById('a<%= i %>').value);
+					var price = Number(<%= rs.getString(4) %>); // Replace 'price' with the actual column name for the item's price
+					var extendedPrice = quantity * price;
+					document.getElementById('extendedPrice<%= i %>').innerText = extendedPrice;
+					setTotal();
+				}
+			</script>
 <%
-	if (session.getAttribute("email")!= null){
-		
-		
-//Step 3: 選擇資料庫   
-
-           sql="use product_search;";
-           con.createStatement().execute(sql);
-		   request.setCharacterEncoding("UTF-8");  
-		   sql = "SELECT SUM(shop_car.total) FROM product_search.shop_car  WHERE member ='"+session.getAttribute("email").toString()+"';";
-		   ResultSet rs8=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
-		    rs8.first();
-		   out.print(rs8.getString(1));
-		   
-		   
-		   
-
-//Step 4: 執行 SQL 指令	
-			
-//Step 6: 關閉連線
-           con.close();
-//Step 5: 顯示結果 
-          //直接顯示最新的資料
-      }
-else{
-	con.close();
-	response.sendRedirect("signin.jsp");
-}
+		}
+	}
 %>
-                                    </div>
-                                    <a href="index.html"><input type="button" class="orderbutton" value="回首頁"></a>
-                                    <a href="order.jsp"><input type="submit" class="orderbutton" value="前往結帳"></a>
-                                </div>
-                            </form>
-                        </div>                       
-                    </div>
-                </div>
-            </section>
+
+</div>
+</section>
+
+<section class="pg">
+	<div class="shopcontainer">
+		<div class="infor_header">
+			<div class="infor">購物車總計</div>
+		</div>
+
+		<div class="infor_header infor_body">
+			<div class="passway">
+				<form action="go_to_check.jsp">
+					<div class="txt">
+						運送方式：<div class="bar"><input placeholder="輸入你的地址以檢視運送選項" size="50" name="address"></div>
+						<br>
+						<div class="txt">
+							訂單金額：<span id="ttttotal"></span>
+						</div>
+						<a href="index.html"><input type="button" class="orderbutton" value="回首頁"></a>
+						<a href="order.jsp"><input type="submit" class="orderbutton" value="前往結帳"></a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+	<script>
+  function setTotal() {
+    var s = 0;
+    $('.number').each(function () {
+      var quantity = parseInt($(this).find('.input_num').val());
+      var price = parseFloat($(this).siblings('.price').find('span').text());
+      if (!isNaN(quantity) && !isNaN(price)) {
+        s += quantity * price;
+      }
+    });
+	
+    document.getElementById('ttttotal').innerText = s.toFixed(2);
+  }
+  setTotal();
+</script>
+
+
         </article>
     </main>
     
@@ -300,5 +274,8 @@ else{
 		</footer>
 
     <a class="gotopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a> 
+	
+	//<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    //<script type="text/javascript" src="car.js"></script>
 </body>
 </html>

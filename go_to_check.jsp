@@ -34,6 +34,16 @@
 			
            sql="UPDATE shop_car SET address='"+address+"',total_num='"+total_num+"' WHERE member='"+session.getAttribute("email").toString()+"'";
            con.createStatement().execute(sql);
+		   rs.close();
+		   
+		   sql = "SELECT * FROM `shop_car` WHERE member='" + member + "'";
+		ResultSet rs2 = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
+		rs2.afterLast();
+		int i = 0;
+		while (rs.previous()) {
+			
+		}	
+		   
 		   
 //Step 6: 關閉連線
            con.close();
