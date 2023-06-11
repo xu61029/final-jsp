@@ -1,10 +1,14 @@
+<%@page contentType="text/html"%> 
+<%@page pageEncoding="UTF-8"%>
+<%@ page import = "java.sql.*, java.util.*"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pixel 7a</title>
     <link rel="stylesheet" href="assets/css/7a_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
@@ -36,7 +40,7 @@ try {
            ResultSet rs;
 		   con.createStatement().execute(sql);
 //Step 4: 執行 SQL 指令, 只有一筆資料          
-			sql = "SELECT * FROM `products` WHERE `pdid` = 'P001'";
+			sql = "SELECT * FROM `products` WHERE `pdid` = 'P016'";
 			rs=con.createStatement().executeQuery(sql);
 			while (rs.next()){
 				phname = rs.getString(3);
@@ -44,7 +48,7 @@ try {
 				phmon = rs.getString(6);
 				phch = rs.getString(7);}
 			
-			sql = "SELECT * FROM `pro_detail` WHERE `pdid` = 'P001'";
+			sql = "SELECT * FROM `pro_detail` WHERE `pdid` = 'P016'";
 			rs=con.createStatement().executeQuery(sql);
 //Step 5: 顯示結果            
 		   int inventory = 0;
@@ -154,17 +158,20 @@ try {
         
         
         <div class="info">
-            <h1 class="name">Pixel 7a</h1>
+            <h1 class="name"><%= phname%></h1>
 
             <div class="price">
-                <h2 class="nt">NT.14990</h2>
+                <h2 class="nt">NT.<%= phprice%></h2>
             </div>
 
             <div class="love">
-                <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
+                <a href="like.jsp?data=P001" style="text-decoration: none !important;position: relative;z-index: 2;">
+					<img class="heart" src="images/yi/icon/heart.png" alt="加入最愛"/>
+				</a>
             </div>
- <form action="shop_record.jsp" method="post">
-			  <input type="hidden" name="phone" value="Pixel_7_pro">
+			
+			<form action="shop_record.jsp" method="post">
+			<input type="hidden" name="phone" value="Pixel_7_pro">
             <div>
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
@@ -207,19 +214,13 @@ try {
                 <h2>規格</h2><br>
                 <p>
                 <li>
-                尺寸重量：152 x 72.9 x 9 mm / 193.5 g
-                螢幕：1080 x 2400 pixels、6.1 吋、OLED
-                記憶插卡：無
-                電池：4385 mAh (內建式)
+                <%= phmon%>
                 </li>
                 </p><br>
                 <h2>晶片</h2><br>
                 <p>
                 <li>
-                2G GSM 四頻
-                3G WCDMA 850 + 900 + 2100
-                4G LTE 700 + 900 + 1800 + FDD 2600 + TDD 2600
-                5G NR + 3.3G
+                <%= phch%>
                 </li>
                 </p>
         </fieldset>
