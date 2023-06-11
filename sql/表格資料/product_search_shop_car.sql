@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `shop_car`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `shop_car` (
+  `delete_id` INT AUTO_INCREMENT PRIMARY KEY,
   `member` varchar(45) NOT NULL,
   `pic` varchar(40) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
@@ -35,6 +36,7 @@ CREATE TABLE `shop_car` (
   `address` varchar(45) DEFAULT NULL,
   `total_num` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +45,7 @@ CREATE TABLE `shop_car` (
 
 LOCK TABLES `shop_car` WRITE;
 /*!40000 ALTER TABLE `shop_car` DISABLE KEYS */;
-INSERT INTO `shop_car` VALUES ('123@gmail.com','images/yi/apple/i11/IMG_3458.png','Iphone11','13000',3,39000,'','',153700),('123@gmail.com','images/yi/apple/i11/IMG_3458.png','Iphone11','13000',3,39000,'','',153700),('123@gmail.com','images/yi/apple/i12/IMG_3446.png','Iphone12','20900',3,62700,'','',153700),('123@gmail.com','images/yi/apple/i11/IMG_3458.png','Iphone11','13000',1,13000,'紅色','',153700);
+INSERT INTO `shop_car` (`member`,`pic`,`name`, `price`,`num`, `total`,`color`,`address`,`total_num`) VALUES ('123@gmail.com','images/yi/apple/i11/IMG_3458.png','Iphone11','13000',3,39000,'','',153700),('123@gmail.com','images/yi/apple/i11/IMG_3458.png','Iphone11','13000',3,39000,'','',153700),('123@gmail.com','images/yi/apple/i12/IMG_3446.png','Iphone12','20900',3,62700,'','',153700),('123@gmail.com','images/yi/apple/i11/IMG_3458.png','Iphone11','13000',1,13000,'紅色','',153700);
 /*!40000 ALTER TABLE `shop_car` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

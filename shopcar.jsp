@@ -120,6 +120,7 @@
         <a href="order.html">填寫資料</a>
         <a href="confirm.html">送出訂單</a>
     </nav>
+<<<<<<< HEAD
 
   /*  <script>
         function minus(ctn_num){
@@ -137,6 +138,8 @@
         }
     </script>*/
 <form action="go_to_check.jsp">
+=======
+>>>>>>> 74f69c6bb4c9e05a176deefdd73e82fe92c78405
     <main>
         <article>
             <section class="word">
@@ -164,21 +167,28 @@
 			<div class="shop_header shop_body">
 				<div class="item">
 					<div class="delete">
-						<img src="images/Lai/delete.png" width="20px" height="20px" onclick="this.parentNode.submit()">
+						<a href="delete_item.jsp?delete_id=<%= rs.getString(1) %>">
+						  <img src="images/Lai/delete.png" width="20px" height="20px">
+						</a>
 					</div>
-					<img src="<%= rs.getString(2) %>" width="100px" height="80px">
-					<div class="name"><%= rs.getString(3) %></div>
+					<img src="<%= rs.getString(3) %>" width="100px" height="80px">
+					<div class="name"><%= rs.getString(4) %></div>
 				</div>
 				<div class="price">
-					<span id="onegoodprice"><%= rs.getString(4) %></span>
+					<span id="onegoodprice"><%= rs.getString(5) %></span>
 				</div>
 				<div class="number">
+<<<<<<< HEAD
 					<input type="button" class="btn" value="-" onclick="minus<%= i %>(1) ">
 					<input type="text" class="input_num" value="<%= rs.getString(5) %>" id="a<%= i %> name=\"n"+i+"\">
+=======
+					<input type="button" class="btn" value="-" onclick="minus<%= i %>(1)">
+					<input type="text" class="input_num" value="<%= rs.getString(6) %>" id="a<%= i %>">
+>>>>>>> 74f69c6bb4c9e05a176deefdd73e82fe92c78405
 					<input type="button" class="btn" value="+" onclick="add<%= i %>(1)">
 				</div>
 				<div class="extendprice">
-					<span id="extendedPrice<%= i %>"><%= rs.getString(6) %></span>
+					<span id="extendedPrice<%= i %>"><%= rs.getString(7) %></span>
 				</div>
 			</div>
 
@@ -204,7 +214,7 @@
 
 				function updateExtendedPrice<%= i %>() {
 					var quantity = Number(document.getElementById('a<%= i %>').value);
-					var price = Number(<%= rs.getString(4) %>); // Replace 'price' with the actual column name for the item's price
+					var price = Number(<%= rs.getString(5) %>); // Replace 'price' with the actual column name for the item's price
 					var extendedPrice = quantity * price;
 					document.getElementById('extendedPrice<%= i %>').innerText = extendedPrice;
 					setTotal();
@@ -276,7 +286,5 @@
 
     <a class="gotopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a> 
 	
-	//<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    //<script type="text/javascript" src="car.js"></script>
 </body>
 </html>
