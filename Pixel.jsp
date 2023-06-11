@@ -157,7 +157,7 @@ try {
 					out.println("<section class='card'>");
 					out.println("<img class='pixel"+phclass+"' src='"+phimg+"' alt='"+phclass+"' style='position: relative;top: 3%;'>");
 					out.println("<h1>"+phname+"</h1>");
-					out.println("<a href='"+phclass+"_product.html' target='_blank'>");
+					out.println("<a href='"+phclass+"_product.jsp' target='_blank'>");
 					out.println("<i class='fa-solid fa-arrow-right' id='iconarrow' ></i>");
 					out.println("</a>");
 					out.println("</section>");
@@ -166,7 +166,7 @@ try {
 					out.println("<section class='card'>");
 					out.println("<img class='pixel"+phclass+"' src='"+phimg+"' alt='"+phclass+"'>");
 					out.println("<h1>"+phname+"</h1>");
-					out.println("<a href='"+phclass+"_product.html' target='_blank'>");
+					out.println("<a href='"+phclass+"_product.jsp' target='_blank'>");
 					out.println("<i class='fa-solid fa-arrow-right' id='iconarrow' ></i>");
 					out.println("</a>");
 					out.println("</section>");
