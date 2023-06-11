@@ -32,10 +32,12 @@
 				<li>
 					<div class="search_wrap">
 						<div class="search_box">
-							<input type="text" class="input" placeholder="search...">
-							<div class="btn">
-								<p><i class="fa-solid fa-magnifying-glass"></i></p>
-							</div>
+							<form action="search.jsp" method="post">
+                                <input type="text" class="input" placeholder="search..." name="product_name">
+                                <div class="btn" onclick="this.parentNode.submit()">
+                                    <p><i class="fa-solid fa-magnifying-glass"></i></p>
+                                </div>
+                            </form>
 						</div>
 					</div>
 				</li>
