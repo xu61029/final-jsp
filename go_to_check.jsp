@@ -22,28 +22,24 @@
            con.createStatement().execute(sql);
 		   request.setCharacterEncoding("UTF-8");  
            String address = request.getParameter("address");
-		   sql = "SELECT SUM(total) FROM shop_car WHERE member = '"+session.getAttribute("email").toString()+"'";
+		   sql="SELECT price,num,total FROM shop_car WHERE member = '"+session.getAttribute("email").toString()+"'";
 		   ResultSet rs=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
-		    rs.first();
-		   int total_num = Integer. parseInt(rs.getString(1));
+		   rs.afterLast();
+		   int i=1;
+			while(rs.previous()){
+				int num = getINT("n"+i)
+				sql="UPDATE shop_car SET num='"+num+"',total=price*"+num+" WHERE member='"+session.getAttribute("email").toString()+"'";
+				con.createStatement().execute(sql);
+				i+=1;
+			}
+			rs.close;
 		   
-		   
-		   
-
 //Step 4: 執行 SQL 指令	
 			
-           sql="UPDATE shop_car SET address='"+address+"',total_num='"+total_num+"' WHERE member='"+session.getAttribute("email").toString()+"'";
+           sql="UPDATE shop_car SET address='"+address+"' WHERE member='"+session.getAttribute("email").toString()+"'";
            con.createStatement().execute(sql);
-		   rs.close();
 		   
-		   sql = "SELECT * FROM `shop_car` WHERE member='" + member + "'";
-		ResultSet rs2 = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(sql);
-		rs2.afterLast();
-		int i = 0;
-		while (rs.previous()) {
-			
-		}	
-		   
+	
 		   
 //Step 6: 關閉連線
            con.close();
