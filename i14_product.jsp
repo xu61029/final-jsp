@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/7pro_product.css">
+    <link rel="stylesheet" href="assets/css/i14_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -44,7 +44,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -98,62 +98,24 @@
 					<span>Sign IN</span>
 				</a>
                 <a href="logout.jsp" >
-						<i class="fa-regular fa-user"></i>
-					  <span>Sign OUT</span>
-					</a>
+                    <i class="fa-regular fa-user"></i>
+                    <span>Sign OUT</span>
+                </a>
 			    </div>
 		    </div>	
 	    </div>
 
     <main>
-        <!--幻燈片-->
-        <section class="imgg"> 
-            <div class="slideshow">
-    
-                <div class="Slides fade">
-                    <img src="images/yi/Pixel/7 pro/IMG_3498.JPG">
-                </div>
-                <div class="Slides fade">
-                    <img src="images/yi/Pixel/7 pro/000.png">
-                </div>
-                <div class="Slides fade">
-                    <img src="images/yi/Pixel/7 pro/001.png">
-                </div>
-                
-                <div class="Slides fade">
-                    <img src="images/yi/Pixel/7 pro/002.png">
-                </div>
-                
-            </div>
-            
-                <script>
-                    var slideIndex = 0; //從第1張照片開始
-                    showSlides();
+        <div class="imgg">
+            <img class="i14" src="images/yi/apple/i14/IMG_3452.JPG" alt="iphone-14">
+        </div>
         
-                    function showSlides() {
-                        var i;
-                        var slides = document.getElementsByClassName("Slides"); 
-                        
-                        //隱藏幻燈片、只顯示一張幻燈片
-                        for (i = 0; i < slides.length; i++) {
-                            slides[i].style.display = "none";  
-                        }
-                        slideIndex++;
-                        if (slideIndex > slides.length) { 
-                            slideIndex = 1 
-                        }
-                        slides[slideIndex - 1].style.display = "block";
-                        
-                        setTimeout(showSlides, 2000); // 兩秒後換照片
-                    }
-                </script>
-        </section>
         
         <div class="info">
-            <h1 class="name">Pixel 7pro</h1>
+            <h1 class="name">IPhone 14</h1>
 
             <div class="price">
-                <h2 class="nt">NT.26990</h2>
+                <h2 class="nt">NT.34900</h2>
             </div>
 
             <div class="love">
@@ -164,9 +126,12 @@
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="霧灰色" class="choose">霧灰色</option>
-                    <option value="雪花白" class="choose">雪花白</option>
-                    <option value="曜石黑" class="choose">曜石黑</option>
+                    <option value="星光色" class="choose">星光色</option>
+                    <option value="午夜色" class="choose">午夜色</option>
+                    <option value="藍色" class="choose">藍色</option>
+                    <option value="紫色" class="choose">紫色</option>
+                    <option value="黃色" class="choose">黃色</option>
+                    <option value="紅色" class="choose">紅色</option>
                 </select>
             </div>
             <div class="number">
@@ -198,11 +163,30 @@
        
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
+                <h2>顯示器</h2><br>
                 <p>
-                <li>主相機畫素 5000 萬畫素</li>
-                <li>RAM記憶體 12 GB</li>
-                <li>ROM儲存空間 128 GB</li>
-                <li>電池容量 5000 mAh</li>
+                <li>
+                超 Retina XDR 顯示器
+                6.1 吋 (對角線) 全螢幕 OLED 顯示器
+                2532 x 1170 像素，460 ppi 解析度
+                HDR 顯示
+                原彩顯示
+                廣色域 (P3)
+                觸覺回饋觸控
+                2,000,000:1 對比度 (標準)
+                625 尼特最大亮度 (標準)；1200 尼特峰值亮度 (HDR)
+                防指印疏油外膜
+                支援同時顯示多種語言文字
+                </li>
+                </p><br>
+                <h2>晶片</h2><br>
+                <p>
+                <li>
+                A14 仿生晶片
+                6 核心 CPU 配備 2 個效能核心與 4 個節能核心
+                4 核心 GPU
+                16 核心神經網路引擎
+                </li>
                 </p>
         </fieldset>
        

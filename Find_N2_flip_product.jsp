@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/i14_product.css">
+    <link rel="stylesheet" href="assets/css/Find_N2_flip_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -44,7 +44,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -97,25 +97,25 @@
 					<i class="fa-regular fa-user"></i>
 					<span>Sign IN</span>
 				</a>
-                <a href="index.html" >
-                    <i class="fa-regular fa-user"></i>
-                    <span>Sign OUT</span>
-                </a>
+                <a href="logout.jsp" >
+						<i class="fa-regular fa-user"></i>
+					  <span>Sign OUT</span>
+					</a>
 			    </div>
 		    </div>	
 	    </div>
 
     <main>
         <div class="imgg">
-            <img class="i14" src="images/yi/apple/i14/IMG_3452.JPG" alt="iphone-14">
+            <img class="find_n2" src="images/yi/OPPO/Find N2 flip/000.png" alt="Find N2 flip">
         </div>
         
         
         <div class="info">
-            <h1 class="name">IPhone 14</h1>
+            <h1 class="name">Find N2 flip</h1>
 
             <div class="price">
-                <h2 class="nt">NT.34900</h2>
+                <h2 class="nt">NT.31990</h2>
             </div>
 
             <div class="love">
@@ -126,12 +126,8 @@
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="星光色" class="choose">星光色</option>
-                    <option value="午夜色" class="choose">午夜色</option>
-                    <option value="藍色" class="choose">藍色</option>
-                    <option value="紫色" class="choose">紫色</option>
-                    <option value="黃色" class="choose">黃色</option>
-                    <option value="紅色" class="choose">紅色</option>
+                    <option value="星光色" class="choose">月曜紫</option>
+                    <option value="午夜色" class="choose">天際黑</option>
                 </select>
             </div>
             <div class="number">
@@ -166,26 +162,24 @@
                 <h2>顯示器</h2><br>
                 <p>
                 <li>
-                超 Retina XDR 顯示器
-                6.1 吋 (對角線) 全螢幕 OLED 顯示器
-                2532 x 1170 像素，460 ppi 解析度
-                HDR 顯示
-                原彩顯示
-                廣色域 (P3)
-                觸覺回饋觸控
-                2,000,000:1 對比度 (標準)
-                625 尼特最大亮度 (標準)；1200 尼特峰值亮度 (HDR)
-                防指印疏油外膜
-                支援同時顯示多種語言文字
+                    內屏：7.10 英寸（對角線）
+                    外屏：5.54 英寸（對角線）
+                    分辨率
+                    
+                    內屏：1792 × 1920 像素，370 PPI
+                    外屏：2120 × 1080 像素，429 PPI
+                    色彩
+                    
+                    1670 萬色，支持廣色域（P3）
                 </li>
                 </p><br>
                 <h2>晶片</h2><br>
                 <p>
                 <li>
-                A14 仿生晶片
-                6 核心 CPU 配備 2 個效能核心與 4 個節能核心
-                4 核心 GPU
-                16 核心神經網路引擎
+                    馬里亞納®MariSilicon X
+                    移動平台
+                    
+                    第一代驍龍®8+ 移動平台，八核心處理器，最高主頻3.0GHz
                 </li>
                 </p>
         </fieldset>

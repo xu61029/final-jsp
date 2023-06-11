@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/10V_product.css">
+    <link rel="stylesheet" href="assets/css/6a_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -44,7 +44,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -98,24 +98,24 @@
 					<span>Sign IN</span>
 				</a>
                 <a href="logout.jsp" >
-						<i class="fa-regular fa-user"></i>
-					  <span>Sign OUT</span>
-					</a>
+                    <i class="fa-regular fa-user"></i>
+                    <span>Sign OUT</span>
+                </a>
 			    </div>
 		    </div>	
 	    </div>
 
     <main>
         <div class="imgg">
-            <img class="V10" src="images/yi/Sony/10V/IMG_3483.JPG" alt="10V">
+            <img class="a6" src="images/yi/Pixel/6a/IMG_3510.JPG" alt="6a">
         </div>
         
         
         <div class="info">
-            <h1 class="name">SONY 10V</h1>
+            <h1 class="name">Pixel 6a</h1>
 
             <div class="price">
-                <h2 class="nt">NT.13990</h2>
+                <h2 class="nt">NT.11490</h2>
             </div>
 
             <div class="love">
@@ -126,10 +126,9 @@
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="玫瑰黑" class="choose">玫瑰黑</option>
-                    <option value="桔梗白" class="choose">桔梗白</option>
-                    <option value="薰衣草紫" class="choose">薰衣草紫</option>
-                    <option value="鼠尾草綠" class="choose">鼠尾草綠</option>
+                    <option value="石墨黑" class="choose">石墨黑</option>
+                    <option value="粉炭白" class="choose">粉炭白</option>
+                    <option value="灰綠色" class="choose">灰綠色</option>
                 </select>
             </div>
             <div class="number">
@@ -162,61 +161,57 @@
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
                 <p>
-                <li>主相機畫素 1200 萬畫素</li>
+                <li>主相機畫素1220 萬畫素</li>
                 <li>RAM記憶體 6 GB</li>
                 <li>ROM儲存空間 128 GB</li>
-                <li>電池容量 5000 mAh</li>
+                <li>電池容量 4410 mAh</li>
                 </p>
-        </fieldset>
+        </fieldset> 
        
 
         
-        <fieldset class="review">
-            <legend class="rev"><h1>評論</h1></legend>
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-                <h3>頂戴轟</h3> 
+            <fieldset class="review">
+                <legend class="rev"><h1>評論</h1></legend>
+                <img class="people" src="images/yi/people.png" alt="">
+                <div class="sth">
+                    <h3>小戴</h3> 
+                    <div class="commentstar">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                    <p>2023/05/25</p>
+                    <p>好用!讚!</p>
+                    </div>
+
+                <hr style="color: #686868; size: 3px;border-style: dotted;">
+
+                <img class="people" src="images/yi/people.png" alt="">
+                <div class="sth">
+                <h3>沈蓁</h3> 
                 <div class="commentstar">
-                    <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                 </div>
                 <p>2023/05/25</p>
-                <p>好餓好餓好餓</p>
+                <p>讚讚讚</p>
                 </div>
 
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
+                <hr style="color: #686868; size: 3px;border-style: dotted;">
 
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>沈博熱美</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            </div>
-            <p>2023/05/25</p>
-            <p>好想打特戰嗚嗚嗚</p>
-            </div>
-
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>馬龜拉拉</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            </div>
-            <p>2023/05/25</p>
-            <p>好想好想睡啊啊啊啊啊</p>
-            </div>
-        </fieldset>
+                <img class="people" src="images/yi/people.png" alt="">
+                <div class="sth">
+                <h3>賴大媽</h3> 
+                <div class="commentstar">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                <p>2023/05/25</p>
+                <p>讚</p>
+                </div>
+            </fieldset>
         
 
         <section>

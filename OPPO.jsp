@@ -47,7 +47,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>

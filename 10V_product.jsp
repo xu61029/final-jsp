@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/Find_N2_flip_product.css">
+    <link rel="stylesheet" href="assets/css/10V_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -44,7 +44,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -107,15 +107,15 @@
 
     <main>
         <div class="imgg">
-            <img class="find_n2" src="images/yi/OPPO/Find N2 flip/000.png" alt="Find N2 flip">
+            <img class="V10" src="images/yi/Sony/10V/IMG_3483.JPG" alt="10V">
         </div>
         
         
         <div class="info">
-            <h1 class="name">Find N2 flip</h1>
+            <h1 class="name">SONY 10V</h1>
 
             <div class="price">
-                <h2 class="nt">NT.31990</h2>
+                <h2 class="nt">NT.13990</h2>
             </div>
 
             <div class="love">
@@ -126,8 +126,10 @@
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="星光色" class="choose">月曜紫</option>
-                    <option value="午夜色" class="choose">天際黑</option>
+                    <option value="玫瑰黑" class="choose">玫瑰黑</option>
+                    <option value="桔梗白" class="choose">桔梗白</option>
+                    <option value="薰衣草紫" class="choose">薰衣草紫</option>
+                    <option value="鼠尾草綠" class="choose">鼠尾草綠</option>
                 </select>
             </div>
             <div class="number">
@@ -159,28 +161,11 @@
        
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
-                <h2>顯示器</h2><br>
                 <p>
-                <li>
-                    內屏：7.10 英寸（對角線）
-                    外屏：5.54 英寸（對角線）
-                    分辨率
-                    
-                    內屏：1792 × 1920 像素，370 PPI
-                    外屏：2120 × 1080 像素，429 PPI
-                    色彩
-                    
-                    1670 萬色，支持廣色域（P3）
-                </li>
-                </p><br>
-                <h2>晶片</h2><br>
-                <p>
-                <li>
-                    馬里亞納®MariSilicon X
-                    移動平台
-                    
-                    第一代驍龍®8+ 移動平台，八核心處理器，最高主頻3.0GHz
-                </li>
+                <li>主相機畫素 1200 萬畫素</li>
+                <li>RAM記憶體 6 GB</li>
+                <li>ROM儲存空間 128 GB</li>
+                <li>電池容量 5000 mAh</li>
                 </p>
         </fieldset>
        

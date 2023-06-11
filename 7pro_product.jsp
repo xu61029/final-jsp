@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/7a_product.css">
+    <link rel="stylesheet" href="assets/css/7pro_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -44,7 +44,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -106,16 +106,54 @@
 	    </div>
 
     <main>
-        <div class="imgg">
-            <img class="a7" src="images/yi/Pixel/7a/IMG_3504.JPG" alt="7a">
-        </div>
+        <!--幻燈片-->
+        <section class="imgg"> 
+            <div class="slideshow">
+    
+                <div class="Slides fade">
+                    <img src="images/yi/Pixel/7 pro/IMG_3498.JPG">
+                </div>
+                <div class="Slides fade">
+                    <img src="images/yi/Pixel/7 pro/000.png">
+                </div>
+                <div class="Slides fade">
+                    <img src="images/yi/Pixel/7 pro/001.png">
+                </div>
+                
+                <div class="Slides fade">
+                    <img src="images/yi/Pixel/7 pro/002.png">
+                </div>
+                
+            </div>
+            
+                <script>
+                    var slideIndex = 0; //從第1張照片開始
+                    showSlides();
         
+                    function showSlides() {
+                        var i;
+                        var slides = document.getElementsByClassName("Slides"); 
+                        
+                        //隱藏幻燈片、只顯示一張幻燈片
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";  
+                        }
+                        slideIndex++;
+                        if (slideIndex > slides.length) { 
+                            slideIndex = 1 
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        
+                        setTimeout(showSlides, 2000); // 兩秒後換照片
+                    }
+                </script>
+        </section>
         
         <div class="info">
-            <h1 class="name">Pixel 7a</h1>
+            <h1 class="name">Pixel 7pro</h1>
 
             <div class="price">
-                <h2 class="nt">NT.14990</h2>
+                <h2 class="nt">NT.26990</h2>
             </div>
 
             <div class="love">
@@ -126,9 +164,9 @@
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="淺海藍" class="choose">淺海藍</option>
-                    <option value="石墨黑" class="choose">石墨黑</option>
+                    <option value="霧灰色" class="choose">霧灰色</option>
                     <option value="雪花白" class="choose">雪花白</option>
+                    <option value="曜石黑" class="choose">曜石黑</option>
                 </select>
             </div>
             <div class="number">
@@ -160,25 +198,15 @@
        
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
-                <h2>規格</h2><br>
                 <p>
-                <li>
-                尺寸重量：152 x 72.9 x 9 mm / 193.5 g
-                螢幕：1080 x 2400 pixels、6.1 吋、OLED
-                記憶插卡：無
-                電池：4385 mAh (內建式)
-                </li>
-                </p><br>
-                <h2>晶片</h2><br>
-                <p>
-                <li>
-                2G GSM 四頻
-                3G WCDMA 850 + 900 + 2100
-                4G LTE 700 + 900 + 1800 + FDD 2600 + TDD 2600
-                5G NR + 3.3G
-                </li>
+                <li>主相機畫素 5000 萬畫素</li>
+                <li>RAM記憶體 12 GB</li>
+                <li>ROM儲存空間 128 GB</li>
+                <li>電池容量 5000 mAh</li>
                 </p>
         </fieldset>
+       
+
         
         <fieldset class="review">
             <legend class="rev"><h1>評論</h1></legend>

@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/i11_product.css">
+    <link rel="stylesheet" href="assets/css/Reno8Z_product.css">
+    <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
-    <link rel="icon" href="images/icon.jpg" type="image/x-icon"  >
+    <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
     <script src="https://kit.fontawesome.com/605c912c10.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -19,7 +20,7 @@
 				
 			<div class="logo">
 				<a href="index.html">
-				<img src="images/icon.jpg" width="20%" >
+				<img src="images/tai/icon.jpg" width="20%" >
 				</a>
 			</div>
 			
@@ -37,13 +38,13 @@
 				</li>
 
 				<li>
-                    <a href="user.html">
+                    <a href="userweb.jsp">
                     <i class="fa-solid fa-circle-user" id="iconuser" ></i>
                     </a>
                 </li>
 					
 				<li>
-                    <a href="user.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -66,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -92,83 +93,75 @@
 				</a>
 
 
-				<a href="signin.html">
+				<a href="signin.jsp">
 					<i class="fa-regular fa-user"></i>
 					<span>Sign IN</span>
 				</a>
+                <a href="logout.jsp" >
+						<i class="fa-regular fa-user"></i>
+					  <span>Sign OUT</span>
+					</a>
 			    </div>
 		    </div>	
 	    </div>
 
     <main>
-        <section class="imgg"> <!--幻燈片-->
-            <div class="slideshow-container3">
+        <!--幻燈片-->
+        <section class="imgg"> 
+            <div class="slideshow">
     
-                <div class="mySlides fade">
-                    <img src="images/apple/i11/IMG_3457.JPG">
+                <div class="Slides fade">
+                    <img src="images/yi/OPPO/Reno8 Z/IMG_3474.PNG">
                 </div>
-                <div class="mySlides fade">
-                    <img src="images/apple/i11/IMG_3458.png" style="width: 380px;">
+                <div class="Slides fade">
+                    <img src="images/yi/OPPO/Reno8 Z/IMG_3477.JPG">
                 </div>
-                <div class="mySlides fade">
-                    <img src="images/apple/i11/檔案_002.png">
-                </div>
-                
-                <div class="mySlides fade">
-                    <img src="images/apple/i11/IMG_3460.JPG">
+                <div class="Slides fade">
+                    <img src="images/yi/OPPO/Reno8 Z/002.png">
                 </div>
                 
             </div>
-            <br>
-            <div style="margin-left: 60%;">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+            
                 <script>
-                    let slideIndex = 0;
+                    var slideIndex = 0; //從第1張照片開始
                     showSlides();
         
                     function showSlides() {
-                        let i;
-                        let slides = document.getElementsByClassName("mySlides");
-                        let dots = document.getElementsByClassName("dot");
+                        var i;
+                        var slides = document.getElementsByClassName("Slides"); 
+                        
+                        //隱藏幻燈片、只顯示一張幻燈片
                         for (i = 0; i < slides.length; i++) {
-                            slides[i].style.display = "none";
+                            slides[i].style.display = "none";  
                         }
                         slideIndex++;
-                        if (slideIndex > slides.length) { slideIndex = 1 }
-                        for (i = 0; i < dots.length; i++) {
-                            dots[i].className = dots[i].className.replace(" active", "");
+                        if (slideIndex > slides.length) { 
+                            slideIndex = 1 
                         }
                         slides[slideIndex - 1].style.display = "block";
-                        dots[slideIndex - 1].className += " active";
+                        
                         setTimeout(showSlides, 2000); // 兩秒後換照片
                     }
                 </script>
         </section>
         
         <div class="info">
-            <h1 class="name">IPhone 11</h1>
+            <h1 class="name">Reno8 Z</h1>
 
             <div class="price">
-                <h2 class="nt">NT.13000</h2>
+                <h2 class="nt">NT.12990</h2>
             </div>
 
             <div class="love">
-                <img class="heart" src="images/icon/heart.png" alt="加入最愛">
+                <img class="heart" src="images/yi/icon/heart.png" alt="加入最愛">
             </div>
 
             <div>
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="星光色" class="choose">星光色</option>
-                    <option value="午夜色" class="choose">午夜色</option>
-                    <option value="藍色" class="choose">藍色</option>
-                    <option value="粉紅色" class="choose">粉紅色</option>
-                    <option value="綠色" class="choose">綠色</option>
-                    <option value="紅色" class="choose">紅色</option>
+                    <option value="星光色" class="choose">金</option>
+                    <option value="午夜色" class="choose">黑</option>
                 </select>
             </div>
             <div class="number">
@@ -199,15 +192,46 @@
         </div>
        
         <fieldset class="introduce">
-            <legend class="intro"><h1>功能介紹</h1></legend>
-            <p></p> 
+            <legend class="intro"><h1>規格介紹</h1></legend>
+                <h2>顯示器</h2><br>
+                <p>
+                <li>
+                2400 x 1080 (FHD+)
+                螢幕刷新率
+                
+                60 Hz
+                觸控採樣率
+                
+                最高: 180 Hz
+                預設: 120 Hz
+                廣色域顯示
+                
+                生動模式: 93% DCI-P3
+                自然模式: 標準 sRGB
+                色彩深度
+                
+                1670 萬色 (8-bit)
+                像素密度
+                
+                409 PPI
+                </li>
+                </p><br>
+                <h2>晶片</h2><br>
+                <p>
+                <li>
+                Qualcomm® Snapdragon® 695
+                處理器速度
+
+                最高2.2Hz，八核心處理器
+                </li>
+                </p>
         </fieldset>
        
 
         
         <fieldset class="review">
             <legend class="rev"><h1>評論</h1></legend>
-            <img class="people" src="images/people.png" alt="">
+            <img class="people" src="images/yi/people.png" alt="">
             <div class="sth">
                 <h3>頂戴轟</h3> 
                 <div class="commentstar">
@@ -223,7 +247,7 @@
 
             <hr style="color: #686868; size: 3px;border-style: dotted;">
 
-            <img class="people" src="images/people.png" alt="">
+            <img class="people" src="images/yi/people.png" alt="">
             <div class="sth">
             <h3>沈博熱美</h3> 
             <div class="commentstar">
@@ -238,7 +262,7 @@
 
             <hr style="color: #686868; size: 3px;border-style: dotted;">
 
-            <img class="people" src="images/people.png" alt="">
+            <img class="people" src="images/yi/people.png" alt="">
             <div class="sth">
             <h3>馬龜拉拉</h3> 
             <div class="commentstar">
@@ -250,8 +274,6 @@
             <p>2023/05/25</p>
             <p>好想好想睡啊啊啊啊啊</p>
             </div>
-
-            
         </fieldset>
         
 
@@ -259,28 +281,26 @@
             <fieldset class="reviewbroad">
                 <legend class="rev"><h1>評論版</h1></legend>
                 <div  style="text-align: center;">
-                    <form action="review_board.jsp" method="get">
-                        <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;" name="name"><br><br>
-                        <span class="star-rating" style="width:150px;height:30px">
-                            <input type="radio" name="rating" value="1"><i></i>
-                            <input type="radio" name="rating" value="2"><i></i>
-                            <input type="radio" name="rating" value="3"><i></i>
-                            <input type="radio" name="rating" value="4"><i></i>
-                            <input type="radio" name="rating" value="5"><i></i>
-                        </span>
-                        <br><br>
-                        <textarea name="review" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
-                        <input type="button" value="Submit" class="commentsubmit">
-                    </form>
+                    <input class="commentinput" type="text" placeholder="User Name" style="text-align: center;"><br><br>
+                    <span class="star-rating" style="width:150px;height:30px">
+                        <input type="radio" name="rating" value="1"><i></i>
+                        <input type="radio" name="rating" value="2"><i></i>
+                        <input type="radio" name="rating" value="3"><i></i>
+                        <input type="radio" name="rating" value="4"><i></i>
+                        <input type="radio" name="rating" value="5"><i></i>
+                    </span>
+                    <br><br>
+                    <textarea name="" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
+                    <input type="button" value="Submit" class="commentsubmit">
                 </div>
             </fieldset>
         </section>
     </main>
     <footer class="footer">
-        <hr style="width:100%; height: 1px; border:none; background-color:#4444">
-        <h5>Copyrgiht @ 2023  By Starlink</h5>
-        <h5>瀏覽人數:2000</h5>
-    </footer>
+			<hr style="border-color:rgb(43, 39, 39);">
+			<h5>Copyrgiht @ 2023 By Starlink</h5>
+			<iframe class="no-border" width="150" height="26" frameborder="0" scrolling="no" src="counter.jsp"></iframe>
+		</footer>
 
     <a class="gotopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>
 </body>

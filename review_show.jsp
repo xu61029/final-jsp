@@ -38,13 +38,13 @@
 				</li>
 
 				<li>
-                    <a href="user.html">
+                    <a href="user.jsp">
                     <i class="fa-solid fa-circle-user" id="iconuser" ></i>
                     </a>
                 </li>
 					
 				<li>
-                    <a href="user.html">
+                    <a href="user.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -93,7 +93,7 @@
 				</a>
 
 
-				<a href="signin.html">
+				<a href="signin.jsp">
 					<i class="fa-regular fa-user"></i>
 					<span>Sign IN</span>
 				</a>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/1IV_product.css">
+    <link rel="stylesheet" href="assets/css/7_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -44,7 +44,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -107,15 +107,15 @@
 
     <main>
         <div class="imgg">
-            <img class="IV" src="images/yi/Sony/1V/IMG_3478.JPG" alt="1IV">
+            <img class="p7" src="images/yi/Pixel/7/IMG_3509.PNG" alt="p7">
         </div>
         
         
         <div class="info">
-            <h1 class="name">SONY 1IV</h1>
+            <h1 class="name">Pixel 7</h1>
 
             <div class="price">
-            <h2 class="nt">NT.27990</h2>
+                <h2 class="nt">NT.18990</h2>
             </div>
 
             <div class="love">
@@ -126,9 +126,9 @@
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="夜瑟黑" class="choose">夜瑟黑</option>
-                    <option value="幻境紫" class="choose">幻境紫</option>
-                    <option value="冰霧白" class="choose">冰霧白</option>
+                    <option value="曜石黑" class="choose">曜石黑</option>
+                    <option value="雪花白" class="choose">雪花白</option>
+                    <option value="香茅綠" class="choose">香茅綠</option>
                 </select>
             </div>
             <div class="number">
@@ -146,7 +146,7 @@
                 }
                 function add(ctnnum) {
                     var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                    if(num<100){
+                    if(num<1000){
                         document.getElementsByClassName("quantity")[ctnnum].value=num+1;
                     }
                 }
@@ -161,12 +161,10 @@
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
                 <p>
-                <li>全球首款4K HDR OLED 120Hz螢幕更新率智慧手機</li>
-                <li>蔡司光學三鏡頭</li>
-                <li>Video Pro 錄影模式 (支援串流直播)</li>
-                <li>高通8 Gen 1八核心高效能處理器</li>
-                <li>5000mAh大電池容量，支援PD30W快速充電/無線充電/無線反向充電</li>
-                <li>IP65/68防塵防水</li>
+                <li>主相機畫素 5000 萬畫素</li>
+                <li>RAM記憶體 8 GB</li>
+                <li>ROM儲存空間 128 GB</li>
+                <li>電池容量 4355 mAh</li>
                 </p>
         </fieldset>
        
@@ -234,7 +232,7 @@
                     </span>
                     <br><br>
                     <textarea name="" id="" cols="122" rows="10" placeholder="Write Something...."></textarea><br>
-                    <input type="submit" value="Submit" class="commentsubmit">
+                    <input type="button" value="Submit" class="commentsubmit">
                 </div>
             </fieldset>
         </section>

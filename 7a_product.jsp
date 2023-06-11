@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/Reno8_product.css">
+    <link rel="stylesheet" href="assets/css/7a_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -44,7 +44,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -107,15 +107,15 @@
 
     <main>
         <div class="imgg">
-            <img class="reno8" src="images/yi/OPPO/Reno8/IMG_3467.JPG" alt="reno8">
+            <img class="a7" src="images/yi/Pixel/7a/IMG_3504.JPG" alt="7a">
         </div>
         
         
         <div class="info">
-            <h1 class="name">Reno8</h1>
+            <h1 class="name">Pixel 7a</h1>
 
             <div class="price">
-            <h2 class="nt">NT.16990</h2>
+                <h2 class="nt">NT.14990</h2>
             </div>
 
             <div class="love">
@@ -126,8 +126,9 @@
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="星光色" class="choose">緞面金</option>
-                    <option value="午夜色" class="choose">微光黑</option>
+                    <option value="淺海藍" class="choose">淺海藍</option>
+                    <option value="石墨黑" class="choose">石墨黑</option>
+                    <option value="雪花白" class="choose">雪花白</option>
                 </select>
             </div>
             <div class="number">
@@ -159,76 +160,31 @@
        
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
-                <h2>顯示器</h2><br>
+                <h2>規格</h2><br>
                 <p>
                 <li>
-                2400 × 1080(FHD+)
-                螢幕刷新率
-                
-                最高: 90Hz
-                觸控採樣率
-                
-                最高: 180Hz
-                預設: 120Hz
-                廣色域顯示
-                
-                生動模式: 97% NTSC/95% DCI-P3
-                自然模式: 72% NTSC/100% sRGB
-                色彩深度
-                
-                1670萬色 (8 bit)
-                像素密度
-                
-                409PPI
+                尺寸重量：152 x 72.9 x 9 mm / 193.5 g
+                螢幕：1080 x 2400 pixels、6.1 吋、OLED
+                記憶插卡：無
+                電池：4385 mAh (內建式)
                 </li>
                 </p><br>
                 <h2>晶片</h2><br>
                 <p>
                 <li>
-                MediaTek Dimensity 1300
-                處理器速度
-                
-                最高3.0GHz，八核心處理器
+                2G GSM 四頻
+                3G WCDMA 850 + 900 + 2100
+                4G LTE 700 + 900 + 1800 + FDD 2600 + TDD 2600
+                5G NR + 3.3G
                 </li>
                 </p>
         </fieldset>
-       
-
         
-            <fieldset class="review">
-                <legend class="rev"><h1>評論</h1></legend>
-                <img class="people" src="images/yi/people.png" alt="">
-                <div class="sth">
-                    <h3>戴爸爸</h3> 
-                    <div class="commentstar">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                    </div>
-                    <p>2023/05/25</p>
-                    <p>還不錯</p>
-                    </div>
-
-                <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-                <img class="people" src="images/yi/people.png" alt="">
-                <div class="sth">
-                <h3>蘿蔔倒翁</h3> 
-                <div class="commentstar">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                </div>
-                <p>2023/05/25</p>
-                <p>還行，感覺可以買更好的</p>
-                </div>
-
-                <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-                <img class="people" src="images/yi/people.png" alt="">
-                <div class="sth">
-                <h3>笨肉肉</h3> 
+        <fieldset class="review">
+            <legend class="rev"><h1>評論</h1></legend>
+            <img class="people" src="images/yi/people.png" alt="">
+            <div class="sth">
+                <h3>頂戴轟</h3> 
                 <div class="commentstar">
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
@@ -237,9 +193,39 @@
                     <span class="fa fa-star checked"></span>
                 </div>
                 <p>2023/05/25</p>
-                <p>超好用!</p>
+                <p>好餓好餓好餓</p>
                 </div>
-            </fieldset>
+
+            <hr style="color: #686868; size: 3px;border-style: dotted;">
+
+            <img class="people" src="images/yi/people.png" alt="">
+            <div class="sth">
+            <h3>沈博熱美</h3> 
+            <div class="commentstar">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </div>
+            <p>2023/05/25</p>
+            <p>好想打特戰嗚嗚嗚</p>
+            </div>
+
+            <hr style="color: #686868; size: 3px;border-style: dotted;">
+
+            <img class="people" src="images/yi/people.png" alt="">
+            <div class="sth">
+            <h3>馬龜拉拉</h3> 
+            <div class="commentstar">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </div>
+            <p>2023/05/25</p>
+            <p>好想好想睡啊啊啊啊啊</p>
+            </div>
+        </fieldset>
         
 
         <section>

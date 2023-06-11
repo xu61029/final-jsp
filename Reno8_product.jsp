@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/i12_product.css">
+    <link rel="stylesheet" href="assets/css/Reno8_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -44,7 +44,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -107,15 +107,15 @@
 
     <main>
         <div class="imgg">
-            <img class="i12" src="images/yi/apple/i12/IMG_3445.JPG" alt="iphone-12">
+            <img class="reno8" src="images/yi/OPPO/Reno8/IMG_3467.JPG" alt="reno8">
         </div>
         
         
         <div class="info">
-            <h1 class="name">IPhone 12</h1>
+            <h1 class="name">Reno8</h1>
 
             <div class="price">
-                <h2 class="nt">NT.20900</h2>
+            <h2 class="nt">NT.16990</h2>
             </div>
 
             <div class="love">
@@ -126,12 +126,8 @@
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="白色" class="choose">白色</option>
-                    <option value="黑色" class="choose">黑色</option>
-                    <option value="藍色" class="choose">藍色</option>
-                    <option value="紫色" class="choose">紫色</option>
-                    <option value="綠色" class="choose">綠色</option>
-                    <option value="紅色" class="choose">紅色</option>
+                    <option value="星光色" class="choose">緞面金</option>
+                    <option value="午夜色" class="choose">微光黑</option>
                 </select>
             </div>
             <div class="number">
@@ -166,74 +162,84 @@
                 <h2>顯示器</h2><br>
                 <p>
                 <li>
-                超 Retina XDR 顯示器
-                6.1 吋 (對角線) 全螢幕 OLED 顯示器
-                2532 x 1170 像素，460 ppi 解析度
-                HDR 顯示
-                原彩顯示
-                廣色域 (P3)
-                觸覺回饋觸控
-                2,000,000:1 對比度 (標準)
-                625 尼特最大亮度 (標準)；1200 尼特峰值亮度 (HDR)
-                防指印疏油外膜
-                支援同時顯示多種語言文字
+                2400 × 1080(FHD+)
+                螢幕刷新率
+                
+                最高: 90Hz
+                觸控採樣率
+                
+                最高: 180Hz
+                預設: 120Hz
+                廣色域顯示
+                
+                生動模式: 97% NTSC/95% DCI-P3
+                自然模式: 72% NTSC/100% sRGB
+                色彩深度
+                
+                1670萬色 (8 bit)
+                像素密度
+                
+                409PPI
                 </li>
                 </p><br>
                 <h2>晶片</h2><br>
                 <p>
                 <li>
-                A14 仿生晶片
-                6 核心 CPU 配備 2 個效能核心與 4 個節能核心
-                4 核心 GPU
-                16 核心神經網路引擎
+                MediaTek Dimensity 1300
+                處理器速度
+                
+                最高3.0GHz，八核心處理器
                 </li>
                 </p>
         </fieldset>
        
+
         
-        
-        <fieldset class="review">
-            <legend class="rev"><h1>評論</h1></legend>
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-                <h3>小戴</h3> 
+            <fieldset class="review">
+                <legend class="rev"><h1>評論</h1></legend>
+                <img class="people" src="images/yi/people.png" alt="">
+                <div class="sth">
+                    <h3>戴爸爸</h3> 
+                    <div class="commentstar">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                    <p>2023/05/25</p>
+                    <p>還不錯</p>
+                    </div>
+
+                <hr style="color: #686868; size: 3px;border-style: dotted;">
+
+                <img class="people" src="images/yi/people.png" alt="">
+                <div class="sth">
+                <h3>蘿蔔倒翁</h3> 
                 <div class="commentstar">
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                 </div>
                 <p>2023/05/25</p>
-                <p>好用!讚!</p>
+                <p>還行，感覺可以買更好的</p>
                 </div>
 
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
+                <hr style="color: #686868; size: 3px;border-style: dotted;">
 
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>沈蓁</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            </div>
-            <p>2023/05/25</p>
-            <p>讚讚讚</p>
-            </div>
-
-            <hr style="color: #686868; size: 3px;border-style: dotted;">
-
-            <img class="people" src="images/yi/people.png" alt="">
-            <div class="sth">
-            <h3>賴大媽</h3> 
-            <div class="commentstar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            <p>2023/05/25</p>
-            <p>讚</p>
-            </div>
-        </fieldset>
+                <img class="people" src="images/yi/people.png" alt="">
+                <div class="sth">
+                <h3>笨肉肉</h3> 
+                <div class="commentstar">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p>2023/05/25</p>
+                <p>超好用!</p>
+                </div>
+            </fieldset>
         
 
         <section>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/Reno8T_product.css">
+    <link rel="stylesheet" href="assets/css/1V_product.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/headerr.css">
     <link rel="icon" href="images/tai/icon.jpg" type="image/x-icon"  >
@@ -44,7 +44,7 @@
                 </li>
 					
 				<li>
-                    <a href="shopcar.html">
+                    <a href="shopcar.jsp">
                     <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                     </a>
                 </li>
@@ -67,22 +67,22 @@
 						<span>Home</span>
 				</a>
 			
-				<a href="Apple.html" >
+				<a href="Apple.jsp" >
 					<i class="fa-brands fa-apple"></i>
 					<span>Apple</span>
 				</a>
 			
-				<a href="Pixel.html">
+				<a href="Pixel.jsp">
 					<i class="fa-brands fa-google"></i>
 					<span>Pixel</span>
 				</a>
 			
-				<a href="Sony.html">
+				<a href="Sony.jsp">
 					<i class="fa-solid fa-mobile-screen"></i>					  
 					<span>Sony</span>
 				</a>
 			
-				<a href="OPPO.html">
+				<a href="OPPO.jsp">
 					<i class="fa-solid fa-mobile"></i>
 					<span>OPPO</span>
 				</a>
@@ -107,14 +107,15 @@
 
     <main>
         <div class="imgg">
-            <img class="reno8t" src="images/yi/OPPO/Reno8 T/IMG_3466.PNG" alt="reno8t">
+            <img class="V1" src="images/yi/Sony/1V/IMG_3478.JPG" alt="1V">
         </div>
         
         
         <div class="info">
-            <h1 class="name">Reno8 T</h1>
+            <h1 class="name">SONY 1V</h1>
+
             <div class="price">
-                <h2 class="nt">NT.14990</h2>
+                <h2 class="nt">NT.38990</h2>
             </div>
 
             <div class="love">
@@ -125,8 +126,8 @@
                 <h2 class="color">color</h2>
                 <select class="choose" name="color">
                     <option value=""selected class="choose">請選擇顏色</option>
-                    <option value="星光色" class="choose">晨光金</option>
-                    <option value="午夜色" class="choose">午夜黑</option>
+                    <option value="經典黑" class="choose">經典黑</option>
+                    <option value="卡其綠" class="choose">卡其綠</option>
                 </select>
             </div>
             <div class="number">
@@ -144,7 +145,7 @@
                 }
                 function add(ctnnum) {
                     var num =Number(document.getElementsByClassName("quantity")[ctnnum].value);
-                    if(num<1000){
+                    if(num<100){
                         document.getElementsByClassName("quantity")[ctnnum].value=num+1;
                     }
                 }
@@ -158,38 +159,12 @@
        
         <fieldset class="introduce">
             <legend class="intro"><h1>規格介紹</h1></legend>
-                <h2>顯示器</h2><br>
                 <p>
-                <li>
-                FHD+ (2412x1080)
-                螢幕更新率
-                
-                最高: 120Hz
-                觸控採樣率
-                
-                最高: 360Hz
-                預設: 120Hz
-                廣色域顯示
-                
-                生動模式: 100% DCI-P3
-                自然模式: 100% sRGB
-                色彩深度
-                
-                10.7 億色
-                像素密度
-                
-                394PPI
-                </li>
-                </p><br>
-                <h2>晶片</h2><br>
-                <p>
-                <li>
-                Qualcomm® Snapdragon® 695
-                
-                處理器速度
-                
-                最高 2.2GHz，八核心處理器
-                </li>
+                <li>主相機畫素 1200 萬畫素</li>
+                <li>主相機畫素 1200 萬畫素</li>
+                <li>RAM記憶體 12 GB</li>
+                <li>ROM儲存空間 256 GB</li>
+                <li>電池容量 5000 mAh</li>
                 </p>
         </fieldset>
        
@@ -199,21 +174,23 @@
             <legend class="rev"><h1>評論</h1></legend>
             <img class="people" src="images/yi/people.png" alt="">
             <div class="sth">
-                <h3>小戴</h3> 
+                <h3>頂戴轟</h3> 
                 <div class="commentstar">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                 </div>
                 <p>2023/05/25</p>
-                <p>好用!讚!</p>
+                <p>好餓好餓好餓</p>
                 </div>
 
             <hr style="color: #686868; size: 3px;border-style: dotted;">
 
             <img class="people" src="images/yi/people.png" alt="">
             <div class="sth">
-            <h3>沈蓁</h3> 
+            <h3>沈博熱美</h3> 
             <div class="commentstar">
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
@@ -221,20 +198,22 @@
                 <span class="fa fa-star checked"></span>
             </div>
             <p>2023/05/25</p>
-            <p>讚讚讚</p>
+            <p>好想打特戰嗚嗚嗚</p>
             </div>
 
             <hr style="color: #686868; size: 3px;border-style: dotted;">
 
             <img class="people" src="images/yi/people.png" alt="">
             <div class="sth">
-            <h3>賴大媽</h3> 
+            <h3>馬龜拉拉</h3> 
             <div class="commentstar">
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </div>
             <p>2023/05/25</p>
-            <p>讚</p>
+            <p>好想好想睡啊啊啊啊啊</p>
             </div>
         </fieldset>
         

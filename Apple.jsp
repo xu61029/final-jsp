@@ -48,7 +48,7 @@
                     </li>
 					
 					<li>
-                        <a href="shopcar.html" target="_blank">
+                        <a href="shopcar.jsp" target="_blank">
                         <i class="fa-solid fa-cart-plus" id="iconcart"></i>
                         </a>
                     </li>
@@ -101,7 +101,7 @@
 						<i class="fa-regular fa-user"></i>
 						<span>Sign IN</span>
 					</a>
-					<a href="index.html" >
+					<a href="logout.jsp" >
 						<i class="fa-regular fa-user"></i>
 						<span>Sign OUT</span>
 					</a>
